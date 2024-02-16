@@ -1611,6 +1611,6 @@
     }
   },
   "description": "Simple Chat With PDF Using OpenAI Embedding and LLM.",
-  "name": "Chat With PDF",
+  "name": "ChatWithPDF-OpenAI-Embedding-LLM.json",
   "flow_type": "chat"
 }
