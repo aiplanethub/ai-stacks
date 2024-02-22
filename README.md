@@ -1,6 +1,6 @@
 # GenAI Stack Examples 📄
 
-Welcome to the GenAI Stack Examples! Here you'll find a collection of stack examples, that you can download and import into the GenAI Stack platform.
+Welcome to GenAI Stack! Here, you'll discover a variety of use cases and example stacks powered by Large Language Models (LLMs). You can seamlessly download, deploy and run them on the GenAI Stack platform. [GenAI Stack platform]([url](https://app.aiplanet.com)). Go give it a spin!
 
 ## Getting Started 🚀
 
