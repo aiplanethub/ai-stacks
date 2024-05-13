@@ -1,15 +1,15 @@
 {
-    "id": "aaf3ca7f-e39f-46a6-bb3e-4cbb7e9f4f04",
+    "id": "ba80a30c-5eba-4b5d-bb02-24bd903066b7",
     "data": {
         "nodes": [
             {
                 "width": 384,
                 "height": 502,
-                "id": "RecursiveCharacterTextSplitter-b7krs",
+                "id": "RecursiveCharacterTextSplitter-2AAv7",
                 "type": "genericNode",
                 "position": {
-                    "x": 301.6404754829381,
-                    "y": -264.66271886854213
+                    "x": 601.9369267210237,
+                    "y": -65.37507395599445
                 },
                 "data": {
                     "type": "RecursiveCharacterTextSplitter",
@@ -106,152 +106,19 @@
                         "beta": true,
                         "error": null
                     },
-                    "id": "RecursiveCharacterTextSplitter-b7krs"
+                    "id": "RecursiveCharacterTextSplitter-2AAv7"
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 301.6404754829381,
-                    "y": -264.66271886854213
+                    "x": 601.9369267210237,
+                    "y": -65.37507395599445
                 },
                 "dragging": false
             },
             {
                 "width": 384,
-                "height": 563,
-                "id": "CustomComponent-4vHeb",
-                "type": "genericNode",
-                "position": {
-                    "x": 2513.6451117487613,
-                    "y": -61.415810185453324
-                },
-                "data": {
-                    "type": "CustomComponent",
-                    "node": {
-                        "template": {
-                            "code": {
-                                "dynamic": true,
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": true,
-                                "value": "from typing import Optional, Union, Callable\nfrom genflow import CustomComponent\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n    BaseRetriever,\n)\nfrom langchain.chains import RetrievalQA\n\n\nclass RetrievalQAPromptComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a RetrievalQA using Prompt.\n    \"\"\"\n\n    display_name: str = \"RetrievalQAPrompt\"\n    description: str = \"Implementation of RetrievalQA using Prompt\"\n    beta: bool = True\n\n    CHAIN_TYPE_OPTIONS = [\n        'stuff','map_reduce','refine','map_rerank'\n    ]\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"chain_type\":{\"display\":\"chain_type\",\"value\":\"stuff\",\"options\":self.CHAIN_TYPE_OPTIONS,\"required\":True},\n            \"llm\":{\"display_name\":\"LLM\",\"required\":True},\n            \"prompt\":{\"display_name\":\"Prompt\",\"required\":True},\n            \"memory\":{\"display_name\":\"Memory\"},\n            \"retriever\":{\"display_name\":\"Retriever\",\"required\":True}\n        }\n\n    def build(\n       self,\n       llm:BaseLanguageModel,\n       prompt: BasePromptTemplate,\n       chain_type:str,\n       retriever: BaseRetriever,\n       memory: Optional[BaseMemory] = None,\n    ) -> Chain:\n        \"\"\"\n        Builds the RetrievalQA with prompt\n        Args:\n        - llm: Large Language Models\n        - chain_type: used to load a specific type of chain for question-answering\n        - chain_type_kwargs: chain keywords argument to pass prompt\n        - retriever: vector store to retrieve k relevant context information\n        Returns:\n        - Chain: The RetrievalQA chain with Prompt, Retriever and LLM\n        \"\"\"\n        return RetrievalQA.from_chain_type(llm=llm,\n                                           chain_type=chain_type,\n                                           chain_type_kwargs={\"prompt\":prompt},\n                                           retriever=retriever,\n                                           return_source_documents=True\n                                    )",
-                                "password": false,
-                                "name": "code",
-                                "advanced": false,
-                                "type": "code",
-                                "list": false
-                            },
-                            "_type": "CustomComponent",
-                            "chain_type": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "stuff",
-                                "password": false,
-                                "options": [
-                                    "stuff",
-                                    "map_reduce",
-                                    "refine",
-                                    "map_rerank"
-                                ],
-                                "name": "chain_type",
-                                "display_name": "chain_type",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": true
-                            },
-                            "llm": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "llm",
-                                "display_name": "LLM",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseLanguageModel",
-                                "list": false
-                            },
-                            "memory": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "memory",
-                                "display_name": "Memory",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseMemory",
-                                "list": false
-                            },
-                            "prompt": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "prompt",
-                                "display_name": "Prompt",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BasePromptTemplate",
-                                "list": false
-                            },
-                            "retriever": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "retriever",
-                                "display_name": "Retriever",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseRetriever",
-                                "list": false
-                            }
-                        },
-                        "description": "Implementation of RetrievalQA using Prompt",
-                        "base_classes": [
-                            "Chain"
-                        ],
-                        "display_name": "RetrievalQAPrompt",
-                        "custom_fields": {
-                            "chain_type": null,
-                            "llm": null,
-                            "memory": null,
-                            "prompt": null,
-                            "retriever": null
-                        },
-                        "output_types": [
-                            "Chain"
-                        ],
-                        "documentation": "",
-                        "beta": true,
-                        "error": null
-                    },
-                    "id": "CustomComponent-4vHeb"
-                },
-                "selected": false,
-                "dragging": false,
-                "positionAbsolute": {
-                    "x": 2513.6451117487613,
-                    "y": -61.415810185453324
-                }
-            },
-            {
-                "width": 384,
-                "height": 470,
-                "id": "PromptTemplate-xZmXS",
+                "height": 564,
+                "id": "PromptTemplate-e1r7W",
                 "type": "genericNode",
                 "position": {
                     "x": 1223.3395330676794,
@@ -301,6 +168,7 @@
                                 "list": true,
                                 "value": [
                                     "context",
+                                    "chat_history",
                                     "question"
                                 ]
                             },
@@ -329,7 +197,7 @@
                                 "info": "",
                                 "type": "prompt",
                                 "list": false,
-                                "value": "<|system|>\nYou are an expert on car maintenance. You are an the Toyota Car Manual come to life. Please provide detailed and accurate information about the query, covering steps, tips, and potential issues using the below context\nAssume the user has basic knowledge but needs expert guidance. If the request is outside the scope of the context you have, let the user know that you don't know the answer as it is not mentioned\nin the car manual. Do not make up answers that are not in the context.\n\nCONTEXT: {context}\n</s>\n<|user|>\n{question}\n</s>\n<|assistant|>"
+                                "value": "You are an expert on car maintenance. You are a Car Manual come to life. Please provide detailed and accurate information about the query, covering steps, tips, and potential issues using the below context\nAssume the user has basic knowledge but needs expert guidance. If the request is outside the scope of the context you have, let the user know that you don't know the answer as it is not mentioned\nin the car manual. Do not make up answers that are not in the context.\n\nCONTEXT: {context}\n{chat_history}\n{question}"
                             },
                             "template_format": {
                                 "required": false,
@@ -399,6 +267,26 @@
                                 "info": "",
                                 "type": "str",
                                 "list": false
+                            },
+                            "chat_history": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": true,
+                                "value": "",
+                                "password": false,
+                                "name": "chat_history",
+                                "display_name": "chat_history",
+                                "advanced": false,
+                                "input_types": [
+                                    "Document",
+                                    "BaseOutputParser",
+                                    "Input"
+                                ],
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
                             }
                         },
                         "description": "A prompt template for a language model.",
@@ -413,10 +301,12 @@
                         "custom_fields": {
                             "": [
                                 "context",
+                                "chat_history",
                                 "question"
                             ],
                             "template": [
                                 "context",
+                                "chat_history",
                                 "question"
                             ]
                         },
@@ -425,7 +315,7 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "PromptTemplate-xZmXS"
+                    "id": "PromptTemplate-e1r7W"
                 },
                 "positionAbsolute": {
                     "x": 1223.3395330676794,
@@ -436,259 +326,12 @@
             },
             {
                 "width": 384,
-                "height": 483,
-                "id": "EnsembleRetriever-gn9Tq",
-                "type": "genericNode",
-                "position": {
-                    "x": 1676.322024085517,
-                    "y": 474.0387768446619
-                },
-                "data": {
-                    "type": "EnsembleRetriever",
-                    "node": {
-                        "template": {
-                            "code": {
-                                "dynamic": true,
-                                "required": true,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": true,
-                                "value": "from typing import List\nfrom langchain.retrievers import BM25Retriever, EnsembleRetriever\nfrom langchain.schema import Document, BaseRetriever\nfrom langchain.vectorstores.base import VectorStore\n\nfrom genflow import CustomComponent\n\n\nclass EnsembleRetrieverComponent(CustomComponent):\n    display_name: str = \"Ensemble Retriever\"\n    description: str = \"The EnsembleRetriever takes a list of retrievers as input.\"\n    documentation: str = (\n        \"https://python.langchain.com/docs/modules/data_connection/retrievers/ensemble\"\n    )\n    beta = False\n\n    def build_config(self):\n        return {\n            \"documents\": {\"display_name\": \"Documents\"},\n            \"retrievers\": {\n                \"display_name\": \"Retrievers\",\n            },\n            \"top_k\": {\n                \"display_name\": \"Top K\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": 2,\n                \"info\": \"The number of results to return.\",\n            },\n            \"weights\": {\n                \"display_name\": \"Weights\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"0.5, 0.5\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        top_k: int,\n        weights: str,\n        documents: List[Document],\n        retrievers: List[VectorStore],\n    ) -> BaseRetriever:\n        docs = [document.page_content for document in documents]\n        bm25_retriever = BM25Retriever.from_texts(docs)\n        bm25_retriever.k = top_k\n\n        _retrievers = [\n            _retriever.as_retriever(search_kwargs={\"k\": top_k})\n            for _retriever in retrievers\n        ]\n        _retrievers.append(bm25_retriever)\n\n        _weights = [\n            int(_weight) if isinstance(_weight, int) else float(_weight)\n            for _weight in weights.split(\",\")\n        ]\n\n        return EnsembleRetriever(retrievers=_retrievers, weights=_weights)\n",
-                                "password": false,
-                                "name": "code",
-                                "advanced": false,
-                                "type": "code",
-                                "list": false
-                            },
-                            "_type": "CustomComponent",
-                            "documents": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "documents",
-                                "display_name": "Documents",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "Document",
-                                "list": true
-                            },
-                            "retrievers": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "retrievers",
-                                "display_name": "Retrievers",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "VectorStore",
-                                "list": true
-                            },
-                            "top_k": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "4",
-                                "password": false,
-                                "name": "top_k",
-                                "display_name": "Top K",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "The number of results to return.",
-                                "type": "int",
-                                "list": false
-                            },
-                            "weights": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "0.5, 0.5",
-                                "password": false,
-                                "name": "weights",
-                                "display_name": "Weights",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            }
-                        },
-                        "description": "The EnsembleRetriever takes a list of retrievers as input.",
-                        "base_classes": [
-                            "BaseRetriever"
-                        ],
-                        "display_name": "Ensemble Retriever",
-                        "custom_fields": {
-                            "documents": null,
-                            "retrievers": null,
-                            "top_k": null,
-                            "weights": null
-                        },
-                        "output_types": [
-                            "EnsembleRetriever"
-                        ],
-                        "documentation": "https://python.langchain.com/docs/modules/data_connection/retrievers/ensemble",
-                        "beta": false,
-                        "error": null
-                    },
-                    "id": "EnsembleRetriever-gn9Tq"
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1676.322024085517,
-                    "y": 474.0387768446619
-                },
-                "dragging": false
-            },
-            {
-                "width": 384,
-                "height": 579,
-                "id": "ConversationBufferMemory-cXCe0",
-                "type": "genericNode",
-                "position": {
-                    "x": 1073.9767590517165,
-                    "y": -225.2373072233808
-                },
-                "data": {
-                    "type": "ConversationBufferMemory",
-                    "node": {
-                        "template": {
-                            "chat_memory": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "chat_memory",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseChatMessageHistory",
-                                "list": false
-                            },
-                            "ai_prefix": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": false,
-                                "value": "AI",
-                                "password": false,
-                                "name": "ai_prefix",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "human_prefix": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": false,
-                                "value": "Human",
-                                "password": false,
-                                "name": "human_prefix",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "input_key": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "",
-                                "password": false,
-                                "name": "input_key",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "The variable to be used as Chat Input when more than one variable is available.",
-                                "type": "str",
-                                "list": false
-                            },
-                            "memory_key": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "chat_history",
-                                "password": false,
-                                "name": "memory_key",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "output_key": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "",
-                                "password": false,
-                                "name": "output_key",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)",
-                                "type": "str",
-                                "list": false
-                            },
-                            "return_messages": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "return_messages",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "bool",
-                                "list": false,
-                                "value": true
-                            },
-                            "_type": "ConversationBufferMemory"
-                        },
-                        "description": "Buffer for storing conversation memory.",
-                        "base_classes": [
-                            "ConversationBufferMemory",
-                            "BaseChatMemory",
-                            "BaseMemory"
-                        ],
-                        "display_name": "ConversationBufferMemory",
-                        "custom_fields": {},
-                        "output_types": [],
-                        "documentation": "https://python.langchain.com/docs/modules/memory/how_to/buffer",
-                        "beta": false,
-                        "error": null
-                    },
-                    "id": "ConversationBufferMemory-cXCe0"
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1073.9767590517165,
-                    "y": -225.2373072233808
-                },
-                "dragging": false
-            },
-            {
-                "width": 384,
                 "height": 388,
-                "id": "HuggingFaceEmbeddingInferenceAPI-ScPc3",
+                "id": "HuggingFaceEmbeddingInferenceAPI-4RkqI",
                 "type": "genericNode",
                 "position": {
-                    "x": -47.295101284388494,
-                    "y": 305.39477746876946
+                    "x": 558.38801712388,
+                    "y": 576.3041765185361
                 },
                 "data": {
                     "type": "HuggingFaceEmbeddingInferenceAPI",
@@ -713,7 +356,7 @@
                                 "placeholder": "",
                                 "show": true,
                                 "multiline": false,
-                                "value": "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",
+                                "value": "",
                                 "password": false,
                                 "name": "inference_api_key",
                                 "display_name": "Inference API Key",
@@ -755,11 +398,11 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "HuggingFaceEmbeddingInferenceAPI-ScPc3"
+                    "id": "HuggingFaceEmbeddingInferenceAPI-4RkqI"
                 },
                 "positionAbsolute": {
-                    "x": -47.295101284388494,
-                    "y": 305.39477746876946
+                    "x": 558.38801712388,
+                    "y": 576.3041765185361
                 },
                 "selected": false,
                 "dragging": false
@@ -767,11 +410,11 @@
             {
                 "width": 384,
                 "height": 291,
-                "id": "Chroma-i50Cx",
+                "id": "Chroma-ck8Mn",
                 "type": "genericNode",
                 "position": {
-                    "x": 789.2201730051612,
-                    "y": 550.4118480009973
+                    "x": 1480.7721013170421,
+                    "y": 640.1552280109361
                 },
                 "data": {
                     "type": "Chroma",
@@ -961,19 +604,19 @@
                         "beta": true,
                         "error": null
                     },
-                    "id": "Chroma-i50Cx"
+                    "id": "Chroma-ck8Mn"
                 },
                 "selected": false,
                 "positionAbsolute": {
-                    "x": 789.2201730051612,
-                    "y": 550.4118480009973
+                    "x": 1480.7721013170421,
+                    "y": 640.1552280109361
                 },
                 "dragging": false
             },
             {
                 "width": 384,
                 "height": 548,
-                "id": "AzureAIDocumentIntelligenceLoader-6XOX1",
+                "id": "AzureAIDocumentIntelligenceLoader-GTNRO",
                 "type": "genericNode",
                 "position": {
                     "x": -251.74718136609184,
@@ -1025,7 +668,7 @@
                                 "info": "",
                                 "type": "str",
                                 "list": false,
-                                "value": "https://fullstackai.cognitiveservices.azure.com/"
+                                "value": ""
                             },
                             "file_path": {
                                 "required": true,
@@ -1112,7 +755,7 @@
                         "beta": true,
                         "error": null
                     },
-                    "id": "AzureAIDocumentIntelligenceLoader-6XOX1"
+                    "id": "AzureAIDocumentIntelligenceLoader-GTNRO"
                 },
                 "positionAbsolute": {
                     "x": -251.74718136609184,
@@ -1124,7 +767,7 @@
             {
                 "width": 384,
                 "height": 630,
-                "id": "ChatOpenAI-Z0eQY",
+                "id": "ChatOpenAI-6LMka",
                 "type": "genericNode",
                 "position": {
                     "x": 2041.7777305732843,
@@ -1284,7 +927,7 @@
                                 "placeholder": "",
                                 "show": true,
                                 "multiline": false,
-                                "value": "gpt-3.5-turbo",
+                                "value": "gpt-4",
                                 "password": false,
                                 "options": [
                                     "gpt-4-1106-preview",
@@ -1468,7 +1111,7 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "ChatOpenAI-Z0eQY"
+                    "id": "ChatOpenAI-6LMka"
                 },
                 "selected": false,
                 "positionAbsolute": {
@@ -1480,7 +1123,7 @@
             {
                 "width": 384,
                 "height": 458,
-                "id": "Input-WCesY",
+                "id": "Input-U7KsH",
                 "type": "genericNode",
                 "position": {
                     "x": -823.6837080314572,
@@ -1495,7 +1138,7 @@
                                 "placeholder": "",
                                 "show": true,
                                 "multiline": true,
-                                "value": "",
+                                "value": "MY22_Corolla_Cross_OM_Excerpt_for_Driving_Support_Systems_D2_ML_0208.pdf",
                                 "password": false,
                                 "name": "input_value",
                                 "display_name": "Input Value",
@@ -1504,7 +1147,7 @@
                                 "info": "",
                                 "type": "file",
                                 "list": false,
-                                "file_path": null
+                                "file_path": "/mnt/models/files/ba80a30c-5eba-4b5d-bb02-24bd903066b7/5bde02d62fc8729f40f36c9268501700f0bda1903328451b0a8383e2e206cd1e.pdf"
                             },
                             "input_key": {
                                 "required": true,
@@ -1556,7 +1199,7 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "Input-WCesY"
+                    "id": "Input-U7KsH"
                 },
                 "selected": false,
                 "positionAbsolute": {
@@ -1564,130 +1207,300 @@
                     "y": -574.4040635312692
                 },
                 "dragging": false
+            },
+            {
+                "width": 384,
+                "height": 497,
+                "id": "ConversationalRetrievalChain-3JsyN",
+                "type": "genericNode",
+                "position": {
+                    "x": 2561.171201508581,
+                    "y": -103.72634773508707
+                },
+                "data": {
+                    "type": "ConversationalRetrievalChain",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from typing import Optional, Union, Callable\nfrom genflow import CustomComponent\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n    BaseRetriever,\n)\nfrom langchain.chains import ConversationalRetrievalChain\nfrom langchain.prompts import PromptTemplate\n\n\nclass ConversationalRetrievalChainComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a RetrievalQA using Prompt.\n    \"\"\"\n\n    display_name: str = \"ConversationalRetrievalChain\"\n    description: str = \"Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever\"\n    documentation: str = \"https://docs.aiplanet.com/components/chains#conversationalretrievalchain\"\n    beta: bool = True\n    \n    CHAIN_TYPE_OPTIONS = [\n        'stuff','map_reduce','refine','map_rerank'\n    ]\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"chain_type\":{\"display\":\"chain_type\",\"value\":\"stuff\",\"options\":self.CHAIN_TYPE_OPTIONS,\"required\":True},\n            \"llm\":{\"display_name\":\"LLM\",\"required\":True},\n            \"prompt\":{\"display_name\":\"Prompt\"},\n            \"memory\":{\"display_name\":\"Memory\"},\n            \"retriever\":{\"display_name\":\"Retriever\",\"required\":True},\n            \"code\": {\"show\": False}, \n        }\n\n    def build(\n       self,\n       llm:BaseLanguageModel,\n       retriever: BaseRetriever,\n       prompt: Optional[BasePromptTemplate] = None,\n       chain_type:str = \"stuff\",\n       memory: BaseMemory = None,\n    ) -> Chain:\n        \"\"\"\n        Builds the RetrievalQA with prompt\n\n        Args:\n        - llm: Large Language Models\n        - chain_type: used to load a specific type of chain for question-answering\n        - chain_type_kwargs: chain keywords argument to pass prompt\n        - retriever: vector store to retrieve k relevant context information\n        - memory: memory to provide chat_history for object\n\n        Returns:\n        - Chain: The ConversationalRetrievalChain.from_llm\n        \"\"\"\n\n        DEFAULT_TEMPLATE = \"\"\"\n            Answer the question based on the chat history(delimited by <hs></hs>) and context(delimited by <ctx> </ctx>) below.\n            -----------\n            <ctx>\n            {context}\n            </ctx>\n            -----------\n            <hs>\n            {chat_history}\n            </hs>\n            -----------\n            Question: {question}\n            Answer:\n        \"\"\"\n\n        DEFAULT_PROMPT = PromptTemplate(\n                input_variables=[\"context\", \"question\", \"chat_history\"],\n                template=DEFAULT_TEMPLATE\n            )\n        \n        if prompt==None:\n            prompt = DEFAULT_PROMPT\n\n        return ConversationalRetrievalChain.from_llm(\n                            llm=llm,\n                            retriever=retriever.as_retriever(), chain_type=chain_type,return_source_documents=True,\n                            verbose = False,\n                            combine_docs_chain_kwargs={'prompt': prompt},\n                            memory = memory,\n                        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "chain_type": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "stuff",
+                                "password": false,
+                                "options": [
+                                    "stuff",
+                                    "map_reduce",
+                                    "refine",
+                                    "map_rerank"
+                                ],
+                                "name": "chain_type",
+                                "display_name": "chain_type",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": true
+                            },
+                            "llm": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "llm",
+                                "display_name": "LLM",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BaseLanguageModel",
+                                "list": false
+                            },
+                            "memory": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "memory",
+                                "display_name": "Memory",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BaseMemory",
+                                "list": false
+                            },
+                            "prompt": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "prompt",
+                                "display_name": "Prompt",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BasePromptTemplate",
+                                "list": false
+                            },
+                            "retriever": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "retriever",
+                                "display_name": "Retriever",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BaseRetriever",
+                                "list": false
+                            }
+                        },
+                        "description": "Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever",
+                        "base_classes": [
+                            "Chain"
+                        ],
+                        "display_name": "ConversationalRetrievalChain",
+                        "custom_fields": {
+                            "chain_type": null,
+                            "llm": null,
+                            "memory": null,
+                            "prompt": null,
+                            "retriever": null
+                        },
+                        "output_types": [
+                            "ConversationalRetrievalChain"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/chains#conversationalretrievalchain",
+                        "beta": true,
+                        "error": null
+                    },
+                    "id": "ConversationalRetrievalChain-3JsyN"
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 2561.171201508581,
+                    "y": -103.72634773508707
+                },
+                "dragging": false
+            },
+            {
+                "width": 384,
+                "height": 531,
+                "id": "ConversationBufferMemory-AJVe4",
+                "type": "genericNode",
+                "position": {
+                    "x": 1318.8412870867949,
+                    "y": -140.67950382978606
+                },
+                "data": {
+                    "type": "ConversationBufferMemory",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from typing import Optional, Union\nfrom langchain.memory.chat_memory import BaseMemory, BaseChatMemory\nfrom langchain.memory.buffer import ConversationBufferMemory\nfrom langchain.memory.chat_message_histories.postgres import PostgresChatMessageHistory\n\nfrom genflow import CustomComponent\n\n\nclass ConversationBufferMemoryComponent(CustomComponent):\n    display_name: str = \"ConversationBufferMemory\"\n    description: str = \"Buffer for storing conversation memory.\"\n    documentation: str = (\n        \"https://docs.aiplanet.com/components/memories#conversationbuffermemory\"\n    )\n    beta = False\n\n    def build_config(self):\n        return {\n            \"input_key\": {\n                \"display_name\": \"Input Key\",\n                \"required\": False,\n                \"value\": \"\",\n                \"info\": \"The variable to be used as Chat Input when more than one variable is available.\",\n            },\n            \"memory_key\": {\n                \"display_name\": \"Memory Key\",\n                \"required\": False,\n                \"value\": \"history\",\n            },\n            \"output_key\": {\n                \"display_name\": \"Output Key\",\n                \"required\": False,\n                \"value\": \"\",\n                \"info\": \"The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)\",\n            },\n            \"return_messages\": {\n                \"display_name\": \"Return Messages\",\n                \"field_type\": \"bool\",\n                \"required\": False,\n                \"value\": True,\n            },\n            \"session_id\": {\n                \"display_name\": \"Session ID\",\n                \"required\": False,\n                \"advanced\": True,\n                \"value\": \"genflow_memory_db\",\n            },\n            \"connection_string\": {\n                \"display_name\": \"Connection String\",\n                \"required\": False,\n                \"advanced\": True,\n                \"value\": \"\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        input_key: Optional[str] = \"\",\n        memory_key: Optional[str] = \"history\",\n        output_key: Optional[str] = \"\",\n        return_messages: Optional[bool] = True,\n        session_id: Optional[str] = \"genflow_memory_db\",\n        connection_string: Optional[str] = \"\",\n    ) -> Union[BaseMemory, BaseChatMemory]:\n        chat_memory = PostgresChatMessageHistory(\n            session_id=session_id, connection_string=connection_string\n        )\n\n        keys = {}\n\n        if input_key and input_key != \"\":\n            keys[\"input_key\"] = input_key\n\n        if output_key and output_key != \"\":\n            keys[\"output_key\"] = output_key\n\n        return ConversationBufferMemory(\n            chat_memory=chat_memory,\n            memory_key=memory_key,\n            return_messages=return_messages,\n            **keys\n        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "connection_string": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "",
+                                "password": false,
+                                "name": "connection_string",
+                                "display_name": "Connection String",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "input_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "question",
+                                "password": false,
+                                "name": "input_key",
+                                "display_name": "Input Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "The variable to be used as Chat Input when more than one variable is available.",
+                                "type": "str",
+                                "list": false
+                            },
+                            "memory_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "chat_history",
+                                "password": false,
+                                "name": "memory_key",
+                                "display_name": "Memory Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "output_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "answer",
+                                "password": false,
+                                "name": "output_key",
+                                "display_name": "Output Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)",
+                                "type": "str",
+                                "list": false
+                            },
+                            "return_messages": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": true,
+                                "password": false,
+                                "name": "return_messages",
+                                "display_name": "Return Messages",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "bool",
+                                "list": false
+                            },
+                            "session_id": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "genflow_memory_db",
+                                "password": false,
+                                "name": "session_id",
+                                "display_name": "Session ID",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            }
+                        },
+                        "description": "Buffer for storing conversation memory.",
+                        "base_classes": [
+                            "BaseMemory",
+                            "BaseChatMemory",
+                            "BaseMemory"
+                        ],
+                        "display_name": "ConversationBufferMemory",
+                        "custom_fields": {
+                            "connection_string": null,
+                            "input_key": null,
+                            "memory_key": null,
+                            "output_key": null,
+                            "return_messages": null,
+                            "session_id": null
+                        },
+                        "output_types": [
+                            "ConversationBufferMemory"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/memories#conversationbuffermemory",
+                        "beta": false,
+                        "error": null
+                    },
+                    "id": "ConversationBufferMemory-AJVe4"
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1318.8412870867949,
+                    "y": -140.67950382978606
+                },
+                "dragging": false
             }
         ],
         "edges": [
             {
-                "source": "PromptTemplate-xZmXS",
-                "sourceHandle": "{œbaseClassesœ:[œBasePromptTemplateœ,œPromptTemplateœ,œStringPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-xZmXSœ}",
-                "target": "CustomComponent-4vHeb",
-                "targetHandle": "{œfieldNameœ:œpromptœ,œidœ:œCustomComponent-4vHebœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "prompt",
-                        "id": "CustomComponent-4vHeb",
-                        "inputTypes": null,
-                        "type": "BasePromptTemplate"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "BasePromptTemplate",
-                            "PromptTemplate",
-                            "StringPromptTemplate"
-                        ],
-                        "dataType": "PromptTemplate",
-                        "id": "PromptTemplate-xZmXS"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-PromptTemplate-xZmXS{œbaseClassesœ:[œBasePromptTemplateœ,œPromptTemplateœ,œStringPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-xZmXSœ}-CustomComponent-4vHeb{œfieldNameœ:œpromptœ,œidœ:œCustomComponent-4vHebœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}"
-            },
-            {
-                "source": "EnsembleRetriever-gn9Tq",
-                "sourceHandle": "{œbaseClassesœ:[œBaseRetrieverœ],œdataTypeœ:œEnsembleRetrieverœ,œidœ:œEnsembleRetriever-gn9Tqœ}",
-                "target": "CustomComponent-4vHeb",
-                "targetHandle": "{œfieldNameœ:œretrieverœ,œidœ:œCustomComponent-4vHebœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "retriever",
-                        "id": "CustomComponent-4vHeb",
-                        "inputTypes": null,
-                        "type": "BaseRetriever"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "BaseRetriever"
-                        ],
-                        "dataType": "EnsembleRetriever",
-                        "id": "EnsembleRetriever-gn9Tq"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-EnsembleRetriever-gn9Tq{œbaseClassesœ:[œBaseRetrieverœ],œdataTypeœ:œEnsembleRetrieverœ,œidœ:œEnsembleRetriever-gn9Tqœ}-CustomComponent-4vHeb{œfieldNameœ:œretrieverœ,œidœ:œCustomComponent-4vHebœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}"
-            },
-            {
-                "source": "RecursiveCharacterTextSplitter-b7krs",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-b7krsœ}",
-                "target": "EnsembleRetriever-gn9Tq",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œEnsembleRetriever-gn9Tqœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "documents",
-                        "id": "EnsembleRetriever-gn9Tq",
-                        "inputTypes": null,
-                        "type": "Document"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "Document"
-                        ],
-                        "dataType": "RecursiveCharacterTextSplitter",
-                        "id": "RecursiveCharacterTextSplitter-b7krs"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-RecursiveCharacterTextSplitter-b7krs{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-b7krsœ}-EnsembleRetriever-gn9Tq{œfieldNameœ:œdocumentsœ,œidœ:œEnsembleRetriever-gn9Tqœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
-            },
-            {
-                "source": "ConversationBufferMemory-cXCe0",
-                "sourceHandle": "{œbaseClassesœ:[œConversationBufferMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-cXCe0œ}",
-                "target": "CustomComponent-4vHeb",
-                "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œCustomComponent-4vHebœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "memory",
-                        "id": "CustomComponent-4vHeb",
-                        "inputTypes": null,
-                        "type": "BaseMemory"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "ConversationBufferMemory",
-                            "BaseChatMemory",
-                            "BaseMemory"
-                        ],
-                        "dataType": "ConversationBufferMemory",
-                        "id": "ConversationBufferMemory-cXCe0"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-ConversationBufferMemory-cXCe0{œbaseClassesœ:[œConversationBufferMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-cXCe0œ}-CustomComponent-4vHeb{œfieldNameœ:œmemoryœ,œidœ:œCustomComponent-4vHebœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
-            },
-            {
-                "source": "HuggingFaceEmbeddingInferenceAPI-ScPc3",
-                "sourceHandle": "{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-ScPc3œ}",
-                "target": "Chroma-i50Cx",
-                "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œChroma-i50Cxœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}",
+                "source": "HuggingFaceEmbeddingInferenceAPI-4RkqI",
+                "sourceHandle": "{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-4RkqIœ}",
+                "target": "Chroma-ck8Mn",
+                "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œChroma-ck8Mnœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "embedding",
-                        "id": "Chroma-i50Cx",
+                        "id": "Chroma-ck8Mn",
                         "inputTypes": null,
                         "type": "Embeddings"
                     },
@@ -1696,7 +1509,7 @@
                             "Embeddings"
                         ],
                         "dataType": "HuggingFaceEmbeddingInferenceAPI",
-                        "id": "HuggingFaceEmbeddingInferenceAPI-ScPc3"
+                        "id": "HuggingFaceEmbeddingInferenceAPI-4RkqI"
                     }
                 },
                 "style": {
@@ -1704,17 +1517,17 @@
                 },
                 "className": "stroke-gray-900  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-HuggingFaceEmbeddingInferenceAPI-ScPc3{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-ScPc3œ}-Chroma-i50Cx{œfieldNameœ:œembeddingœ,œidœ:œChroma-i50Cxœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}"
+                "id": "reactflow__edge-HuggingFaceEmbeddingInferenceAPI-4RkqI{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-4RkqIœ}-Chroma-ck8Mn{œfieldNameœ:œembeddingœ,œidœ:œChroma-ck8Mnœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}"
             },
             {
-                "source": "RecursiveCharacterTextSplitter-b7krs",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-b7krsœ}",
-                "target": "Chroma-i50Cx",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-i50Cxœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "source": "RecursiveCharacterTextSplitter-2AAv7",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-2AAv7œ}",
+                "target": "Chroma-ck8Mn",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-ck8Mnœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "documents",
-                        "id": "Chroma-i50Cx",
+                        "id": "Chroma-ck8Mn",
                         "inputTypes": null,
                         "type": "Document"
                     },
@@ -1723,7 +1536,7 @@
                             "Document"
                         ],
                         "dataType": "RecursiveCharacterTextSplitter",
-                        "id": "RecursiveCharacterTextSplitter-b7krs"
+                        "id": "RecursiveCharacterTextSplitter-2AAv7"
                     }
                 },
                 "style": {
@@ -1731,45 +1544,17 @@
                 },
                 "className": "stroke-gray-900  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-RecursiveCharacterTextSplitter-b7krs{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-b7krsœ}-Chroma-i50Cx{œfieldNameœ:œdocumentsœ,œidœ:œChroma-i50Cxœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+                "id": "reactflow__edge-RecursiveCharacterTextSplitter-2AAv7{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-2AAv7œ}-Chroma-ck8Mn{œfieldNameœ:œdocumentsœ,œidœ:œChroma-ck8Mnœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
             },
             {
-                "source": "Chroma-i50Cx",
-                "sourceHandle": "{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-i50Cxœ}",
-                "target": "EnsembleRetriever-gn9Tq",
-                "targetHandle": "{œfieldNameœ:œretrieversœ,œidœ:œEnsembleRetriever-gn9Tqœ,œinputTypesœ:null,œtypeœ:œVectorStoreœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "retrievers",
-                        "id": "EnsembleRetriever-gn9Tq",
-                        "inputTypes": null,
-                        "type": "VectorStore"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "VectorStore",
-                            "BaseRetriever"
-                        ],
-                        "dataType": "Chroma",
-                        "id": "Chroma-i50Cx"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-Chroma-i50Cx{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-i50Cxœ}-EnsembleRetriever-gn9Tq{œfieldNameœ:œretrieversœ,œidœ:œEnsembleRetriever-gn9Tqœ,œinputTypesœ:null,œtypeœ:œVectorStoreœ}"
-            },
-            {
-                "source": "AzureAIDocumentIntelligenceLoader-6XOX1",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œAzureAIDocumentIntelligenceLoaderœ,œidœ:œAzureAIDocumentIntelligenceLoader-6XOX1œ}",
-                "target": "RecursiveCharacterTextSplitter-b7krs",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-b7krsœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "source": "AzureAIDocumentIntelligenceLoader-GTNRO",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œAzureAIDocumentIntelligenceLoaderœ,œidœ:œAzureAIDocumentIntelligenceLoader-GTNROœ}",
+                "target": "RecursiveCharacterTextSplitter-2AAv7",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-2AAv7œ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "documents",
-                        "id": "RecursiveCharacterTextSplitter-b7krs",
+                        "id": "RecursiveCharacterTextSplitter-2AAv7",
                         "inputTypes": null,
                         "type": "Document"
                     },
@@ -1778,7 +1563,7 @@
                             "Document"
                         ],
                         "dataType": "AzureAIDocumentIntelligenceLoader",
-                        "id": "AzureAIDocumentIntelligenceLoader-6XOX1"
+                        "id": "AzureAIDocumentIntelligenceLoader-GTNRO"
                     }
                 },
                 "style": {
@@ -1786,17 +1571,46 @@
                 },
                 "className": "stroke-gray-900  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-AzureAIDocumentIntelligenceLoader-6XOX1{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œAzureAIDocumentIntelligenceLoaderœ,œidœ:œAzureAIDocumentIntelligenceLoader-6XOX1œ}-RecursiveCharacterTextSplitter-b7krs{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-b7krsœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+                "id": "reactflow__edge-AzureAIDocumentIntelligenceLoader-GTNRO{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œAzureAIDocumentIntelligenceLoaderœ,œidœ:œAzureAIDocumentIntelligenceLoader-GTNROœ}-RecursiveCharacterTextSplitter-2AAv7{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-2AAv7œ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
             },
             {
-                "source": "ChatOpenAI-Z0eQY",
-                "sourceHandle": "{œbaseClassesœ:[œBaseLanguageModelœ,œChatOpenAIœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-Z0eQYœ}",
-                "target": "CustomComponent-4vHeb",
-                "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œCustomComponent-4vHebœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
+                "source": "Input-U7KsH",
+                "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-U7KsHœ}",
+                "target": "AzureAIDocumentIntelligenceLoader-GTNRO",
+                "targetHandle": "{œfieldNameœ:œfile_pathœ,œidœ:œAzureAIDocumentIntelligenceLoader-GTNROœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "file_path",
+                        "id": "AzureAIDocumentIntelligenceLoader-GTNRO",
+                        "inputTypes": [
+                            "Input"
+                        ],
+                        "type": "file"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Input"
+                        ],
+                        "dataType": "Input",
+                        "id": "Input-U7KsH"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-Input-U7KsH{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-U7KsHœ}-AzureAIDocumentIntelligenceLoader-GTNRO{œfieldNameœ:œfile_pathœ,œidœ:œAzureAIDocumentIntelligenceLoader-GTNROœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}"
+            },
+            {
+                "source": "ChatOpenAI-6LMka",
+                "sourceHandle": "{œbaseClassesœ:[œBaseLanguageModelœ,œChatOpenAIœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-6LMkaœ}",
+                "target": "ConversationalRetrievalChain-3JsyN",
+                "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "llm",
-                        "id": "CustomComponent-4vHeb",
+                        "id": "ConversationalRetrievalChain-3JsyN",
                         "inputTypes": null,
                         "type": "BaseLanguageModel"
                     },
@@ -1808,50 +1622,107 @@
                             "BaseLLM"
                         ],
                         "dataType": "ChatOpenAI",
-                        "id": "ChatOpenAI-Z0eQY"
+                        "id": "ChatOpenAI-6LMka"
                     }
                 },
                 "style": {
                     "stroke": "#555"
                 },
-                "className": "stroke-gray-900  stroke-connection",
+                "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-ChatOpenAI-Z0eQY{œbaseClassesœ:[œBaseLanguageModelœ,œChatOpenAIœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-Z0eQYœ}-CustomComponent-4vHeb{œfieldNameœ:œllmœ,œidœ:œCustomComponent-4vHebœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
+                "id": "reactflow__edge-ChatOpenAI-6LMka{œbaseClassesœ:[œBaseLanguageModelœ,œChatOpenAIœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-6LMkaœ}-ConversationalRetrievalChain-3JsyN{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
             },
             {
-                "source": "Input-WCesY",
-                "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-WCesYœ}",
-                "target": "AzureAIDocumentIntelligenceLoader-6XOX1",
-                "targetHandle": "{œfieldNameœ:œfile_pathœ,œidœ:œAzureAIDocumentIntelligenceLoader-6XOX1œ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}",
+                "source": "PromptTemplate-e1r7W",
+                "sourceHandle": "{œbaseClassesœ:[œBasePromptTemplateœ,œPromptTemplateœ,œStringPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-e1r7Wœ}",
+                "target": "ConversationalRetrievalChain-3JsyN",
+                "targetHandle": "{œfieldNameœ:œpromptœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}",
                 "data": {
                     "targetHandle": {
-                        "fieldName": "file_path",
-                        "id": "AzureAIDocumentIntelligenceLoader-6XOX1",
-                        "inputTypes": [
-                            "Input"
-                        ],
-                        "type": "file"
+                        "fieldName": "prompt",
+                        "id": "ConversationalRetrievalChain-3JsyN",
+                        "inputTypes": null,
+                        "type": "BasePromptTemplate"
                     },
                     "sourceHandle": {
                         "baseClasses": [
-                            "Input"
+                            "BasePromptTemplate",
+                            "PromptTemplate",
+                            "StringPromptTemplate"
                         ],
-                        "dataType": "Input",
-                        "id": "Input-WCesY"
+                        "dataType": "PromptTemplate",
+                        "id": "PromptTemplate-e1r7W"
                     }
                 },
                 "style": {
                     "stroke": "#555"
                 },
-                "className": "stroke-gray-900  stroke-connection",
+                "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-Input-WCesY{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-WCesYœ}-AzureAIDocumentIntelligenceLoader-6XOX1{œfieldNameœ:œfile_pathœ,œidœ:œAzureAIDocumentIntelligenceLoader-6XOX1œ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}"
+                "id": "reactflow__edge-PromptTemplate-e1r7W{œbaseClassesœ:[œBasePromptTemplateœ,œPromptTemplateœ,œStringPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-e1r7Wœ}-ConversationalRetrievalChain-3JsyN{œfieldNameœ:œpromptœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}"
+            },
+            {
+                "source": "ConversationBufferMemory-AJVe4",
+                "sourceHandle": "{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-AJVe4œ}",
+                "target": "ConversationalRetrievalChain-3JsyN",
+                "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "memory",
+                        "id": "ConversationalRetrievalChain-3JsyN",
+                        "inputTypes": null,
+                        "type": "BaseMemory"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "BaseMemory",
+                            "BaseChatMemory",
+                            "BaseMemory"
+                        ],
+                        "dataType": "ConversationBufferMemory",
+                        "id": "ConversationBufferMemory-AJVe4"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-foreground  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-ConversationBufferMemory-AJVe4{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-AJVe4œ}-ConversationalRetrievalChain-3JsyN{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
+            },
+            {
+                "source": "Chroma-ck8Mn",
+                "sourceHandle": "{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-ck8Mnœ}",
+                "target": "ConversationalRetrievalChain-3JsyN",
+                "targetHandle": "{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "retriever",
+                        "id": "ConversationalRetrievalChain-3JsyN",
+                        "inputTypes": null,
+                        "type": "BaseRetriever"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "VectorStore",
+                            "BaseRetriever"
+                        ],
+                        "dataType": "Chroma",
+                        "id": "Chroma-ck8Mn"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-foreground  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-Chroma-ck8Mn{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-ck8Mnœ}-ConversationalRetrievalChain-3JsyN{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}"
             }
         ],
         "viewport": {
-            "x": 512.1389688388344,
-            "y": 547.1688536619714,
-            "zoom": 0.2785263290020486
+            "x": 503.63657130803824,
+            "y": 747.0949827800847,
+            "zoom": 0.5741454215765852
         }
     },
     "description": "Chat with your Car Manual . Ask queries related to your car, reads the scanned data and text from car manual.",
