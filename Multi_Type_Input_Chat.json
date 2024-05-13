@@ -1,11 +1,11 @@
 {
-    "id": "6e27416e-abeb-44cf-8679-ddb30bfb243a",
+    "id": "052fae2a-852f-4de1-a22b-07be156479c6",
     "data": {
         "nodes": [
             {
                 "width": 384,
                 "height": 630,
-                "id": "ChatOpenAI-BQzsg",
+                "id": "ChatOpenAI-IJqY8",
                 "type": "genericNode",
                 "position": {
                     "x": 756.0497510222895,
@@ -350,7 +350,7 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "ChatOpenAI-BQzsg"
+                    "id": "ChatOpenAI-IJqY8"
                 },
                 "selected": false,
                 "dragging": false,
@@ -361,78 +361,8 @@
             },
             {
                 "width": 384,
-                "height": 333,
-                "id": "CombineDocsChain-NPOQR",
-                "type": "genericNode",
-                "position": {
-                    "x": 1218.3846833717137,
-                    "y": -348.2804505775313
-                },
-                "data": {
-                    "type": "CombineDocsChain",
-                    "node": {
-                        "template": {
-                            "llm": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "llm",
-                                "display_name": "LLM",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseLanguageModel",
-                                "list": false
-                            },
-                            "chain_type": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "stuff",
-                                "password": false,
-                                "options": [
-                                    "stuff",
-                                    "map_reduce",
-                                    "map_rerank",
-                                    "refine"
-                                ],
-                                "name": "chain_type",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": true
-                            },
-                            "_type": "load_qa_chain"
-                        },
-                        "description": "Load question answering chain.",
-                        "base_classes": [
-                            "BaseCombineDocumentsChain",
-                            "Callable"
-                        ],
-                        "display_name": "CombineDocsChain",
-                        "custom_fields": {},
-                        "output_types": [],
-                        "documentation": "",
-                        "beta": false,
-                        "error": null
-                    },
-                    "id": "CombineDocsChain-NPOQR"
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1218.3846833717137,
-                    "y": -348.2804505775313
-                },
-                "dragging": false
-            },
-            {
-                "width": 384,
                 "height": 408,
-                "id": "HuggingFaceEmbeddingInferenceAPI-Xb3wk",
+                "id": "HuggingFaceEmbeddingInferenceAPI-iFQKq",
                 "type": "genericNode",
                 "position": {
                     "x": 184.11368969846797,
@@ -461,7 +391,7 @@
                                 "placeholder": "",
                                 "show": true,
                                 "multiline": false,
-                                "value": "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",
+                                "value": "",
                                 "password": false,
                                 "name": "inference_api_key",
                                 "display_name": "Inference API Key",
@@ -503,7 +433,7 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "HuggingFaceEmbeddingInferenceAPI-Xb3wk"
+                    "id": "HuggingFaceEmbeddingInferenceAPI-iFQKq"
                 },
                 "positionAbsolute": {
                     "x": 184.11368969846797,
@@ -514,179 +444,8 @@
             },
             {
                 "width": 384,
-                "height": 339,
-                "id": "RetrievalQA-rq1GF",
-                "type": "genericNode",
-                "position": {
-                    "x": 1641.690615569596,
-                    "y": -133.58717757485283
-                },
-                "data": {
-                    "type": "RetrievalQA",
-                    "node": {
-                        "template": {
-                            "callbacks": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": false,
-                                "password": false,
-                                "name": "callbacks",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "langchain.callbacks.base.BaseCallbackHandler",
-                                "list": true
-                            },
-                            "combine_documents_chain": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "combine_documents_chain",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseCombineDocumentsChain",
-                                "list": false
-                            },
-                            "memory": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "memory",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseMemory",
-                                "list": false
-                            },
-                            "retriever": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "retriever",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseRetriever",
-                                "list": false
-                            },
-                            "input_key": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "query",
-                                "password": false,
-                                "name": "input_key",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "metadata": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": false,
-                                "password": false,
-                                "name": "metadata",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "dict",
-                                "list": false
-                            },
-                            "output_key": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "result",
-                                "password": false,
-                                "name": "output_key",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "return_source_documents": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": true,
-                                "password": false,
-                                "name": "return_source_documents",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "bool",
-                                "list": false
-                            },
-                            "tags": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": false,
-                                "password": false,
-                                "name": "tags",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": true
-                            },
-                            "verbose": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": false,
-                                "password": false,
-                                "name": "verbose",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "bool",
-                                "list": false
-                            },
-                            "_type": "RetrievalQA"
-                        },
-                        "description": "Chain for question-answering against an index.",
-                        "base_classes": [
-                            "RetrievalQA",
-                            "BaseRetrievalQA",
-                            "Chain",
-                            "Callable"
-                        ],
-                        "display_name": "RetrievalQA",
-                        "custom_fields": {},
-                        "output_types": [],
-                        "documentation": "https://python.langchain.com/docs/modules/chains/popular/vector_db_qa",
-                        "beta": false,
-                        "error": null
-                    },
-                    "id": "RetrievalQA-rq1GF"
-                },
-                "positionAbsolute": {
-                    "x": 1641.690615569596,
-                    "y": -133.58717757485283
-                },
-                "selected": false,
-                "dragging": false
-            },
-            {
-                "width": 384,
                 "height": 376,
-                "id": "PyPDFLoader-FgNuU",
+                "id": "PyPDFLoader-c6WHE",
                 "type": "genericNode",
                 "position": {
                     "x": -312.35583610591294,
@@ -769,7 +528,7 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "PyPDFLoader-FgNuU"
+                    "id": "PyPDFLoader-c6WHE"
                 },
                 "selected": false,
                 "dragging": false,
@@ -781,7 +540,7 @@
             {
                 "width": 384,
                 "height": 396,
-                "id": "WebBaseLoader-4Y2XI",
+                "id": "WebBaseLoader-Cxcgl",
                 "type": "genericNode",
                 "position": {
                     "x": -320.7330997956069,
@@ -843,7 +602,7 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "WebBaseLoader-4Y2XI"
+                    "id": "WebBaseLoader-Cxcgl"
                 },
                 "positionAbsolute": {
                     "x": -320.7330997956069,
@@ -855,7 +614,7 @@
             {
                 "width": 384,
                 "height": 396,
-                "id": "YoutubeLoader-A8cKE",
+                "id": "YoutubeLoader-6W5CJ",
                 "type": "genericNode",
                 "position": {
                     "x": -344.2232976982365,
@@ -929,7 +688,7 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "YoutubeLoader-A8cKE"
+                    "id": "YoutubeLoader-6W5CJ"
                 },
                 "selected": false,
                 "positionAbsolute": {
@@ -941,7 +700,7 @@
             {
                 "width": 384,
                 "height": 502,
-                "id": "RecursiveCharacterTextSplitter-qUXK1",
+                "id": "RecursiveCharacterTextSplitter-b5848",
                 "type": "genericNode",
                 "position": {
                     "x": 262.162602181627,
@@ -1042,7 +801,7 @@
                         "beta": true,
                         "error": null
                     },
-                    "id": "RecursiveCharacterTextSplitter-qUXK1"
+                    "id": "RecursiveCharacterTextSplitter-b5848"
                 },
                 "selected": false,
                 "positionAbsolute": {
@@ -1054,7 +813,7 @@
             {
                 "width": 384,
                 "height": 291,
-                "id": "Chroma-yV84K",
+                "id": "Chroma-LA1Ve",
                 "type": "genericNode",
                 "position": {
                     "x": 1000.9240185916012,
@@ -1248,7 +1007,7 @@
                         "beta": true,
                         "error": null
                     },
-                    "id": "Chroma-yV84K"
+                    "id": "Chroma-LA1Ve"
                 },
                 "selected": false,
                 "positionAbsolute": {
@@ -1260,95 +1019,7 @@
             {
                 "width": 384,
                 "height": 458,
-                "id": "Input-PWQPE",
-                "type": "genericNode",
-                "position": {
-                    "x": -858.911880385648,
-                    "y": -463.9980900513115
-                },
-                "data": {
-                    "type": "Input",
-                    "node": {
-                        "template": {
-                            "input_value": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": true,
-                                "value": "",
-                                "password": false,
-                                "name": "input_value",
-                                "display_name": "Input Value",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "file",
-                                "list": false,
-                                "file_path": null
-                            },
-                            "input_key": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "PDF File",
-                                "password": false,
-                                "name": "input_key",
-                                "display_name": "Input Key",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "input_type": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "File",
-                                "password": false,
-                                "options": [
-                                    "File",
-                                    "Url",
-                                    "Text"
-                                ],
-                                "name": "input_type",
-                                "display_name": "Input Type",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "_type": "Input"
-                        },
-                        "description": "Input is used to specify the type of input.",
-                        "base_classes": [
-                            "Input"
-                        ],
-                        "display_name": "Input",
-                        "custom_fields": {},
-                        "output_types": [
-                            "Input"
-                        ],
-                        "documentation": "https://docs.aiplanet.com/components/inputs",
-                        "beta": false,
-                        "error": null
-                    },
-                    "id": "Input-PWQPE"
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": -858.911880385648,
-                    "y": -463.9980900513115
-                },
-                "dragging": false
-            },
-            {
-                "width": 384,
-                "height": 458,
-                "id": "Input-YGaBp",
+                "id": "Input-O1USf",
                 "type": "genericNode",
                 "position": {
                     "x": -858.9118803856481,
@@ -1424,7 +1095,7 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "Input-YGaBp"
+                    "id": "Input-O1USf"
                 },
                 "selected": false,
                 "positionAbsolute": {
@@ -1436,7 +1107,7 @@
             {
                 "width": 384,
                 "height": 458,
-                "id": "Input-N8Q0v",
+                "id": "Input-GQNWR",
                 "type": "genericNode",
                 "position": {
                     "x": -847.7429559240031,
@@ -1512,7 +1183,7 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "Input-N8Q0v"
+                    "id": "Input-GQNWR"
                 },
                 "selected": false,
                 "dragging": false,
@@ -1524,7 +1195,7 @@
             {
                 "width": 384,
                 "height": 502,
-                "id": "RecursiveCharacterTextSplitter-aZ49J",
+                "id": "RecursiveCharacterTextSplitter-LwF7O",
                 "type": "genericNode",
                 "position": {
                     "x": 266.0369204795146,
@@ -1625,7 +1296,7 @@
                         "beta": true,
                         "error": null
                     },
-                    "id": "RecursiveCharacterTextSplitter-aZ49J"
+                    "id": "RecursiveCharacterTextSplitter-LwF7O"
                 },
                 "selected": false,
                 "positionAbsolute": {
@@ -1637,7 +1308,7 @@
             {
                 "width": 384,
                 "height": 502,
-                "id": "RecursiveCharacterTextSplitter-lowmy",
+                "id": "RecursiveCharacterTextSplitter-1tnPd",
                 "type": "genericNode",
                 "position": {
                     "x": 121.77782789667378,
@@ -1738,7 +1409,7 @@
                         "beta": true,
                         "error": null
                     },
-                    "id": "RecursiveCharacterTextSplitter-lowmy"
+                    "id": "RecursiveCharacterTextSplitter-1tnPd"
                 },
                 "selected": false,
                 "positionAbsolute": {
@@ -1746,28 +1417,397 @@
                     "y": 659.5997651118655
                 },
                 "dragging": false
+            },
+            {
+                "width": 384,
+                "height": 497,
+                "id": "ConversationalRetrievalChain-RwfJB",
+                "type": "genericNode",
+                "position": {
+                    "x": 1783.0224802085334,
+                    "y": -225.5077523643926
+                },
+                "data": {
+                    "type": "ConversationalRetrievalChain",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from typing import Optional, Union, Callable\nfrom genflow import CustomComponent\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n    BaseRetriever,\n)\nfrom langchain.chains import ConversationalRetrievalChain\nfrom langchain.prompts import PromptTemplate\n\n\nclass ConversationalRetrievalChainComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a RetrievalQA using Prompt.\n    \"\"\"\n\n    display_name: str = \"ConversationalRetrievalChain\"\n    description: str = \"Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever\"\n    documentation: str = \"https://docs.aiplanet.com/components/chains#conversationalretrievalchain\"\n    beta: bool = True\n    \n    CHAIN_TYPE_OPTIONS = [\n        'stuff','map_reduce','refine','map_rerank'\n    ]\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"chain_type\":{\"display\":\"chain_type\",\"value\":\"stuff\",\"options\":self.CHAIN_TYPE_OPTIONS,\"required\":True},\n            \"llm\":{\"display_name\":\"LLM\",\"required\":True},\n            \"prompt\":{\"display_name\":\"Prompt\"},\n            \"memory\":{\"display_name\":\"Memory\"},\n            \"retriever\":{\"display_name\":\"Retriever\",\"required\":True},\n            \"code\": {\"show\": False}, \n        }\n\n    def build(\n       self,\n       llm:BaseLanguageModel,\n       retriever: BaseRetriever,\n       prompt: Optional[BasePromptTemplate] = None,\n       chain_type:str = \"stuff\",\n       memory: BaseMemory = None,\n    ) -> Chain:\n        \"\"\"\n        Builds the RetrievalQA with prompt\n\n        Args:\n        - llm: Large Language Models\n        - chain_type: used to load a specific type of chain for question-answering\n        - chain_type_kwargs: chain keywords argument to pass prompt\n        - retriever: vector store to retrieve k relevant context information\n        - memory: memory to provide chat_history for object\n\n        Returns:\n        - Chain: The ConversationalRetrievalChain.from_llm\n        \"\"\"\n\n        DEFAULT_TEMPLATE = \"\"\"\n            Answer the question based on the chat history(delimited by <hs></hs>) and context(delimited by <ctx> </ctx>) below.\n            -----------\n            <ctx>\n            {context}\n            </ctx>\n            -----------\n            <hs>\n            {chat_history}\n            </hs>\n            -----------\n            Question: {question}\n            Answer:\n        \"\"\"\n\n        DEFAULT_PROMPT = PromptTemplate(\n                input_variables=[\"context\", \"question\", \"chat_history\"],\n                template=DEFAULT_TEMPLATE\n            )\n        \n        if prompt==None:\n            prompt = DEFAULT_PROMPT\n\n        return ConversationalRetrievalChain.from_llm(\n                            llm=llm,\n                            retriever=retriever.as_retriever(), chain_type=chain_type,return_source_documents=True,\n                            verbose = False,\n                            combine_docs_chain_kwargs={'prompt': prompt},\n                            memory = memory,\n                        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "chain_type": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "stuff",
+                                "password": false,
+                                "options": [
+                                    "stuff",
+                                    "map_reduce",
+                                    "refine",
+                                    "map_rerank"
+                                ],
+                                "name": "chain_type",
+                                "display_name": "chain_type",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": true
+                            },
+                            "llm": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "llm",
+                                "display_name": "LLM",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BaseLanguageModel",
+                                "list": false
+                            },
+                            "memory": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "memory",
+                                "display_name": "Memory",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BaseMemory",
+                                "list": false
+                            },
+                            "prompt": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "prompt",
+                                "display_name": "Prompt",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BasePromptTemplate",
+                                "list": false
+                            },
+                            "retriever": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "retriever",
+                                "display_name": "Retriever",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BaseRetriever",
+                                "list": false
+                            }
+                        },
+                        "description": "Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever",
+                        "base_classes": [
+                            "Chain"
+                        ],
+                        "display_name": "ConversationalRetrievalChain",
+                        "custom_fields": {
+                            "chain_type": null,
+                            "llm": null,
+                            "memory": null,
+                            "prompt": null,
+                            "retriever": null
+                        },
+                        "output_types": [
+                            "ConversationalRetrievalChain"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/chains#conversationalretrievalchain",
+                        "beta": true,
+                        "error": null
+                    },
+                    "id": "ConversationalRetrievalChain-RwfJB"
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1783.0224802085334,
+                    "y": -225.5077523643926
+                },
+                "dragging": false
+            },
+            {
+                "width": 384,
+                "height": 531,
+                "id": "ConversationBufferMemory-vJtoo",
+                "type": "genericNode",
+                "position": {
+                    "x": 1228.617126915348,
+                    "y": -750.1482279643783
+                },
+                "data": {
+                    "type": "ConversationBufferMemory",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from typing import Optional, Union\nfrom langchain.memory.chat_memory import BaseMemory, BaseChatMemory\nfrom langchain.memory.buffer import ConversationBufferMemory\nfrom langchain.memory.chat_message_histories.postgres import PostgresChatMessageHistory\n\nfrom genflow import CustomComponent\n\n\nclass ConversationBufferMemoryComponent(CustomComponent):\n    display_name: str = \"ConversationBufferMemory\"\n    description: str = \"Buffer for storing conversation memory.\"\n    documentation: str = (\n        \"https://docs.aiplanet.com/components/memories#conversationbuffermemory\"\n    )\n    beta = False\n\n    def build_config(self):\n        return {\n            \"input_key\": {\n                \"display_name\": \"Input Key\",\n                \"required\": False,\n                \"value\": \"\",\n                \"info\": \"The variable to be used as Chat Input when more than one variable is available.\",\n            },\n            \"memory_key\": {\n                \"display_name\": \"Memory Key\",\n                \"required\": False,\n                \"value\": \"history\",\n            },\n            \"output_key\": {\n                \"display_name\": \"Output Key\",\n                \"required\": False,\n                \"value\": \"\",\n                \"info\": \"The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)\",\n            },\n            \"return_messages\": {\n                \"display_name\": \"Return Messages\",\n                \"field_type\": \"bool\",\n                \"required\": False,\n                \"value\": True,\n            },\n            \"session_id\": {\n                \"display_name\": \"Session ID\",\n                \"required\": False,\n                \"advanced\": True,\n                \"value\": \"genflow_memory_db\",\n            },\n            \"connection_string\": {\n                \"display_name\": \"Connection String\",\n                \"required\": False,\n                \"advanced\": True,\n                \"value\": \"\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        input_key: Optional[str] = \"\",\n        memory_key: Optional[str] = \"history\",\n        output_key: Optional[str] = \"\",\n        return_messages: Optional[bool] = True,\n        session_id: Optional[str] = \"genflow_memory_db\",\n        connection_string: Optional[str] = \"\",\n    ) -> Union[BaseMemory, BaseChatMemory]:\n        chat_memory = PostgresChatMessageHistory(\n            session_id=session_id, connection_string=connection_string\n        )\n\n        keys = {}\n\n        if input_key and input_key != \"\":\n            keys[\"input_key\"] = input_key\n\n        if output_key and output_key != \"\":\n            keys[\"output_key\"] = output_key\n\n        return ConversationBufferMemory(\n            chat_memory=chat_memory,\n            memory_key=memory_key,\n            return_messages=return_messages,\n            **keys\n        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "connection_string": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "",
+                                "password": false,
+                                "name": "connection_string",
+                                "display_name": "Connection String",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "input_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "question",
+                                "password": false,
+                                "name": "input_key",
+                                "display_name": "Input Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "The variable to be used as Chat Input when more than one variable is available.",
+                                "type": "str",
+                                "list": false
+                            },
+                            "memory_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "chat_history",
+                                "password": false,
+                                "name": "memory_key",
+                                "display_name": "Memory Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "output_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "answer",
+                                "password": false,
+                                "name": "output_key",
+                                "display_name": "Output Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)",
+                                "type": "str",
+                                "list": false
+                            },
+                            "return_messages": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": true,
+                                "password": false,
+                                "name": "return_messages",
+                                "display_name": "Return Messages",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "bool",
+                                "list": false
+                            },
+                            "session_id": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "genflow_memory_db",
+                                "password": false,
+                                "name": "session_id",
+                                "display_name": "Session ID",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            }
+                        },
+                        "description": "Buffer for storing conversation memory.",
+                        "base_classes": [
+                            "BaseMemory",
+                            "BaseChatMemory",
+                            "BaseMemory"
+                        ],
+                        "display_name": "ConversationBufferMemory",
+                        "custom_fields": {
+                            "connection_string": null,
+                            "input_key": null,
+                            "memory_key": null,
+                            "output_key": null,
+                            "return_messages": null,
+                            "session_id": null
+                        },
+                        "output_types": [
+                            "ConversationBufferMemory"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/memories#conversationbuffermemory",
+                        "beta": false,
+                        "error": null
+                    },
+                    "id": "ConversationBufferMemory-vJtoo"
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1228.617126915348,
+                    "y": -750.1482279643783
+                },
+                "dragging": false
+            },
+            {
+                "width": 384,
+                "height": 458,
+                "id": "Input-GhqFJ",
+                "type": "genericNode",
+                "position": {
+                    "x": -833.699949725084,
+                    "y": -496.4613163810564
+                },
+                "data": {
+                    "type": "Input",
+                    "node": {
+                        "template": {
+                            "input_value": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": true,
+                                "value": "",
+                                "password": false,
+                                "name": "input_value",
+                                "display_name": "Input Value",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "file",
+                                "list": false,
+                                "file_path": null
+                            },
+                            "input_key": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "PDF File",
+                                "password": false,
+                                "name": "input_key",
+                                "display_name": "Input Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "input_type": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "File",
+                                "password": false,
+                                "options": [
+                                    "File",
+                                    "Url",
+                                    "Text"
+                                ],
+                                "name": "input_type",
+                                "display_name": "Input Type",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "_type": "Input"
+                        },
+                        "description": "Input is used to specify the type of input.",
+                        "base_classes": [
+                            "Input"
+                        ],
+                        "display_name": "Input",
+                        "custom_fields": {},
+                        "output_types": [
+                            "Input"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/inputs",
+                        "beta": false,
+                        "error": null
+                    },
+                    "id": "Input-GhqFJ"
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -833.699949725084,
+                    "y": -496.4613163810564
+                },
+                "dragging": false
             }
         ],
         "edges": [
             {
-                "source": "CombineDocsChain-NPOQR",
-                "sourceHandle": "{œbaseClassesœ:[œBaseCombineDocumentsChainœ,œCallableœ],œdataTypeœ:œCombineDocsChainœ,œidœ:œCombineDocsChain-NPOQRœ}",
-                "target": "RetrievalQA-rq1GF",
-                "targetHandle": "{œfieldNameœ:œcombine_documents_chainœ,œidœ:œRetrievalQA-rq1GFœ,œinputTypesœ:null,œtypeœ:œBaseCombineDocumentsChainœ}",
+                "source": "RecursiveCharacterTextSplitter-b5848",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-b5848œ}",
+                "target": "Chroma-LA1Ve",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-LA1Veœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
                 "data": {
                     "targetHandle": {
-                        "fieldName": "combine_documents_chain",
-                        "id": "RetrievalQA-rq1GF",
+                        "fieldName": "documents",
+                        "id": "Chroma-LA1Ve",
                         "inputTypes": null,
-                        "type": "BaseCombineDocumentsChain"
+                        "type": "Document"
                     },
                     "sourceHandle": {
                         "baseClasses": [
-                            "BaseCombineDocumentsChain",
-                            "Callable"
+                            "Document"
                         ],
-                        "dataType": "CombineDocsChain",
-                        "id": "CombineDocsChain-NPOQR"
+                        "dataType": "RecursiveCharacterTextSplitter",
+                        "id": "RecursiveCharacterTextSplitter-b5848"
                     }
                 },
                 "style": {
@@ -1775,17 +1815,237 @@
                 },
                 "className": "stroke-gray-900  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-CombineDocsChain-NPOQR{œbaseClassesœ:[œBaseCombineDocumentsChainœ,œCallableœ],œdataTypeœ:œCombineDocsChainœ,œidœ:œCombineDocsChain-NPOQRœ}-RetrievalQA-rq1GF{œfieldNameœ:œcombine_documents_chainœ,œidœ:œRetrievalQA-rq1GFœ,œinputTypesœ:null,œtypeœ:œBaseCombineDocumentsChainœ}"
+                "id": "reactflow__edge-RecursiveCharacterTextSplitter-b5848{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-b5848œ}-Chroma-LA1Ve{œfieldNameœ:œdocumentsœ,œidœ:œChroma-LA1Veœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
             },
             {
-                "source": "ChatOpenAI-BQzsg",
-                "sourceHandle": "{œbaseClassesœ:[œChatOpenAIœ,œBaseLanguageModelœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-BQzsgœ}",
-                "target": "CombineDocsChain-NPOQR",
-                "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œCombineDocsChain-NPOQRœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
+                "source": "HuggingFaceEmbeddingInferenceAPI-iFQKq",
+                "sourceHandle": "{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-iFQKqœ}",
+                "target": "Chroma-LA1Ve",
+                "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œChroma-LA1Veœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "embedding",
+                        "id": "Chroma-LA1Ve",
+                        "inputTypes": null,
+                        "type": "Embeddings"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Embeddings"
+                        ],
+                        "dataType": "HuggingFaceEmbeddingInferenceAPI",
+                        "id": "HuggingFaceEmbeddingInferenceAPI-iFQKq"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-HuggingFaceEmbeddingInferenceAPI-iFQKq{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-iFQKqœ}-Chroma-LA1Ve{œfieldNameœ:œembeddingœ,œidœ:œChroma-LA1Veœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}"
+            },
+            {
+                "source": "Input-O1USf",
+                "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-O1USfœ}",
+                "target": "WebBaseLoader-Cxcgl",
+                "targetHandle": "{œfieldNameœ:œweb_pathœ,œidœ:œWebBaseLoader-Cxcglœ,œinputTypesœ:[œInputœ],œtypeœ:œstrœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "web_path",
+                        "id": "WebBaseLoader-Cxcgl",
+                        "inputTypes": [
+                            "Input"
+                        ],
+                        "type": "str"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Input"
+                        ],
+                        "dataType": "Input",
+                        "id": "Input-O1USf"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-Input-O1USf{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-O1USfœ}-WebBaseLoader-Cxcgl{œfieldNameœ:œweb_pathœ,œidœ:œWebBaseLoader-Cxcglœ,œinputTypesœ:[œInputœ],œtypeœ:œstrœ}"
+            },
+            {
+                "source": "Input-GQNWR",
+                "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-GQNWRœ}",
+                "target": "YoutubeLoader-6W5CJ",
+                "targetHandle": "{œfieldNameœ:œyoutube_urlœ,œidœ:œYoutubeLoader-6W5CJœ,œinputTypesœ:[œInputœ],œtypeœ:œstrœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "youtube_url",
+                        "id": "YoutubeLoader-6W5CJ",
+                        "inputTypes": [
+                            "Input"
+                        ],
+                        "type": "str"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Input"
+                        ],
+                        "dataType": "Input",
+                        "id": "Input-GQNWR"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-Input-GQNWR{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-GQNWRœ}-YoutubeLoader-6W5CJ{œfieldNameœ:œyoutube_urlœ,œidœ:œYoutubeLoader-6W5CJœ,œinputTypesœ:[œInputœ],œtypeœ:œstrœ}"
+            },
+            {
+                "source": "RecursiveCharacterTextSplitter-LwF7O",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-LwF7Oœ}",
+                "target": "Chroma-LA1Ve",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-LA1Veœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "documents",
+                        "id": "Chroma-LA1Ve",
+                        "inputTypes": null,
+                        "type": "Document"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Document"
+                        ],
+                        "dataType": "RecursiveCharacterTextSplitter",
+                        "id": "RecursiveCharacterTextSplitter-LwF7O"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-RecursiveCharacterTextSplitter-LwF7O{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-LwF7Oœ}-Chroma-LA1Ve{œfieldNameœ:œdocumentsœ,œidœ:œChroma-LA1Veœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+            },
+            {
+                "source": "RecursiveCharacterTextSplitter-1tnPd",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-1tnPdœ}",
+                "target": "Chroma-LA1Ve",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-LA1Veœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "documents",
+                        "id": "Chroma-LA1Ve",
+                        "inputTypes": null,
+                        "type": "Document"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Document"
+                        ],
+                        "dataType": "RecursiveCharacterTextSplitter",
+                        "id": "RecursiveCharacterTextSplitter-1tnPd"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-RecursiveCharacterTextSplitter-1tnPd{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-1tnPdœ}-Chroma-LA1Ve{œfieldNameœ:œdocumentsœ,œidœ:œChroma-LA1Veœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+            },
+            {
+                "source": "YoutubeLoader-6W5CJ",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œYoutubeLoaderœ,œidœ:œYoutubeLoader-6W5CJœ}",
+                "target": "RecursiveCharacterTextSplitter-1tnPd",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-1tnPdœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "documents",
+                        "id": "RecursiveCharacterTextSplitter-1tnPd",
+                        "inputTypes": null,
+                        "type": "Document"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Document"
+                        ],
+                        "dataType": "YoutubeLoader",
+                        "id": "YoutubeLoader-6W5CJ"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-YoutubeLoader-6W5CJ{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œYoutubeLoaderœ,œidœ:œYoutubeLoader-6W5CJœ}-RecursiveCharacterTextSplitter-1tnPd{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-1tnPdœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+            },
+            {
+                "source": "WebBaseLoader-Cxcgl",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-Cxcglœ}",
+                "target": "RecursiveCharacterTextSplitter-LwF7O",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-LwF7Oœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "documents",
+                        "id": "RecursiveCharacterTextSplitter-LwF7O",
+                        "inputTypes": null,
+                        "type": "Document"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Document"
+                        ],
+                        "dataType": "WebBaseLoader",
+                        "id": "WebBaseLoader-Cxcgl"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-WebBaseLoader-Cxcgl{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-Cxcglœ}-RecursiveCharacterTextSplitter-LwF7O{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-LwF7Oœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+            },
+            {
+                "source": "PyPDFLoader-c6WHE",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œPyPDFLoaderœ,œidœ:œPyPDFLoader-c6WHEœ}",
+                "target": "RecursiveCharacterTextSplitter-b5848",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-b5848œ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "documents",
+                        "id": "RecursiveCharacterTextSplitter-b5848",
+                        "inputTypes": null,
+                        "type": "Document"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Document"
+                        ],
+                        "dataType": "PyPDFLoader",
+                        "id": "PyPDFLoader-c6WHE"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-PyPDFLoader-c6WHE{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œPyPDFLoaderœ,œidœ:œPyPDFLoader-c6WHEœ}-RecursiveCharacterTextSplitter-b5848{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-b5848œ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+            },
+            {
+                "source": "ChatOpenAI-IJqY8",
+                "sourceHandle": "{œbaseClassesœ:[œChatOpenAIœ,œBaseLanguageModelœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-IJqY8œ}",
+                "target": "ConversationalRetrievalChain-RwfJB",
+                "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-RwfJBœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "llm",
-                        "id": "CombineDocsChain-NPOQR",
+                        "id": "ConversationalRetrievalChain-RwfJB",
                         "inputTypes": null,
                         "type": "BaseLanguageModel"
                     },
@@ -1797,25 +2057,25 @@
                             "BaseLLM"
                         ],
                         "dataType": "ChatOpenAI",
-                        "id": "ChatOpenAI-BQzsg"
+                        "id": "ChatOpenAI-IJqY8"
                     }
                 },
                 "style": {
                     "stroke": "#555"
                 },
-                "className": "stroke-gray-900  stroke-connection",
+                "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-ChatOpenAI-BQzsg{œbaseClassesœ:[œChatOpenAIœ,œBaseLanguageModelœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-BQzsgœ}-CombineDocsChain-NPOQR{œfieldNameœ:œllmœ,œidœ:œCombineDocsChain-NPOQRœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
+                "id": "reactflow__edge-ChatOpenAI-IJqY8{œbaseClassesœ:[œChatOpenAIœ,œBaseLanguageModelœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-IJqY8œ}-ConversationalRetrievalChain-RwfJB{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-RwfJBœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
             },
             {
-                "source": "Chroma-yV84K",
-                "sourceHandle": "{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-yV84Kœ}",
-                "target": "RetrievalQA-rq1GF",
-                "targetHandle": "{œfieldNameœ:œretrieverœ,œidœ:œRetrievalQA-rq1GFœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}",
+                "source": "Chroma-LA1Ve",
+                "sourceHandle": "{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-LA1Veœ}",
+                "target": "ConversationalRetrievalChain-RwfJB",
+                "targetHandle": "{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-RwfJBœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "retriever",
-                        "id": "RetrievalQA-rq1GF",
+                        "id": "ConversationalRetrievalChain-RwfJB",
                         "inputTypes": null,
                         "type": "BaseRetriever"
                     },
@@ -1825,79 +2085,54 @@
                             "BaseRetriever"
                         ],
                         "dataType": "Chroma",
-                        "id": "Chroma-yV84K"
+                        "id": "Chroma-LA1Ve"
                     }
                 },
                 "style": {
                     "stroke": "#555"
                 },
-                "className": "stroke-gray-900  stroke-connection",
+                "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-Chroma-yV84K{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-yV84Kœ}-RetrievalQA-rq1GF{œfieldNameœ:œretrieverœ,œidœ:œRetrievalQA-rq1GFœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}"
+                "id": "reactflow__edge-Chroma-LA1Ve{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-LA1Veœ}-ConversationalRetrievalChain-RwfJB{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-RwfJBœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}"
             },
             {
-                "source": "RecursiveCharacterTextSplitter-qUXK1",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-qUXK1œ}",
-                "target": "Chroma-yV84K",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-yV84Kœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "source": "ConversationBufferMemory-vJtoo",
+                "sourceHandle": "{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-vJtooœ}",
+                "target": "ConversationalRetrievalChain-RwfJB",
+                "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-RwfJBœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
                 "data": {
                     "targetHandle": {
-                        "fieldName": "documents",
-                        "id": "Chroma-yV84K",
+                        "fieldName": "memory",
+                        "id": "ConversationalRetrievalChain-RwfJB",
                         "inputTypes": null,
-                        "type": "Document"
+                        "type": "BaseMemory"
                     },
                     "sourceHandle": {
                         "baseClasses": [
-                            "Document"
+                            "BaseMemory",
+                            "BaseChatMemory",
+                            "BaseMemory"
                         ],
-                        "dataType": "RecursiveCharacterTextSplitter",
-                        "id": "RecursiveCharacterTextSplitter-qUXK1"
+                        "dataType": "ConversationBufferMemory",
+                        "id": "ConversationBufferMemory-vJtoo"
                     }
                 },
                 "style": {
                     "stroke": "#555"
                 },
-                "className": "stroke-gray-900  stroke-connection",
+                "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-RecursiveCharacterTextSplitter-qUXK1{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-qUXK1œ}-Chroma-yV84K{œfieldNameœ:œdocumentsœ,œidœ:œChroma-yV84Kœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+                "id": "reactflow__edge-ConversationBufferMemory-vJtoo{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-vJtooœ}-ConversationalRetrievalChain-RwfJB{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-RwfJBœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
             },
             {
-                "source": "HuggingFaceEmbeddingInferenceAPI-Xb3wk",
-                "sourceHandle": "{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-Xb3wkœ}",
-                "target": "Chroma-yV84K",
-                "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œChroma-yV84Kœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "embedding",
-                        "id": "Chroma-yV84K",
-                        "inputTypes": null,
-                        "type": "Embeddings"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "Embeddings"
-                        ],
-                        "dataType": "HuggingFaceEmbeddingInferenceAPI",
-                        "id": "HuggingFaceEmbeddingInferenceAPI-Xb3wk"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-HuggingFaceEmbeddingInferenceAPI-Xb3wk{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-Xb3wkœ}-Chroma-yV84K{œfieldNameœ:œembeddingœ,œidœ:œChroma-yV84Kœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}"
-            },
-            {
-                "source": "Input-PWQPE",
-                "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-PWQPEœ}",
-                "target": "PyPDFLoader-FgNuU",
-                "targetHandle": "{œfieldNameœ:œfile_pathœ,œidœ:œPyPDFLoader-FgNuUœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}",
+                "source": "Input-GhqFJ",
+                "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-GhqFJœ}",
+                "target": "PyPDFLoader-c6WHE",
+                "targetHandle": "{œfieldNameœ:œfile_pathœ,œidœ:œPyPDFLoader-c6WHEœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "file_path",
-                        "id": "PyPDFLoader-FgNuU",
+                        "id": "PyPDFLoader-c6WHE",
                         "inputTypes": [
                             "Input"
                         ],
@@ -1908,214 +2143,21 @@
                             "Input"
                         ],
                         "dataType": "Input",
-                        "id": "Input-PWQPE"
+                        "id": "Input-GhqFJ"
                     }
                 },
                 "style": {
                     "stroke": "#555"
                 },
-                "className": "stroke-gray-900  stroke-connection",
+                "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-Input-PWQPE{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-PWQPEœ}-PyPDFLoader-FgNuU{œfieldNameœ:œfile_pathœ,œidœ:œPyPDFLoader-FgNuUœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}"
-            },
-            {
-                "source": "Input-YGaBp",
-                "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-YGaBpœ}",
-                "target": "WebBaseLoader-4Y2XI",
-                "targetHandle": "{œfieldNameœ:œweb_pathœ,œidœ:œWebBaseLoader-4Y2XIœ,œinputTypesœ:[œInputœ],œtypeœ:œstrœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "web_path",
-                        "id": "WebBaseLoader-4Y2XI",
-                        "inputTypes": [
-                            "Input"
-                        ],
-                        "type": "str"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "Input"
-                        ],
-                        "dataType": "Input",
-                        "id": "Input-YGaBp"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-Input-YGaBp{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-YGaBpœ}-WebBaseLoader-4Y2XI{œfieldNameœ:œweb_pathœ,œidœ:œWebBaseLoader-4Y2XIœ,œinputTypesœ:[œInputœ],œtypeœ:œstrœ}"
-            },
-            {
-                "source": "Input-N8Q0v",
-                "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-N8Q0vœ}",
-                "target": "YoutubeLoader-A8cKE",
-                "targetHandle": "{œfieldNameœ:œyoutube_urlœ,œidœ:œYoutubeLoader-A8cKEœ,œinputTypesœ:[œInputœ],œtypeœ:œstrœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "youtube_url",
-                        "id": "YoutubeLoader-A8cKE",
-                        "inputTypes": [
-                            "Input"
-                        ],
-                        "type": "str"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "Input"
-                        ],
-                        "dataType": "Input",
-                        "id": "Input-N8Q0v"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-Input-N8Q0v{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-N8Q0vœ}-YoutubeLoader-A8cKE{œfieldNameœ:œyoutube_urlœ,œidœ:œYoutubeLoader-A8cKEœ,œinputTypesœ:[œInputœ],œtypeœ:œstrœ}"
-            },
-            {
-                "source": "RecursiveCharacterTextSplitter-aZ49J",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-aZ49Jœ}",
-                "target": "Chroma-yV84K",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-yV84Kœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "documents",
-                        "id": "Chroma-yV84K",
-                        "inputTypes": null,
-                        "type": "Document"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "Document"
-                        ],
-                        "dataType": "RecursiveCharacterTextSplitter",
-                        "id": "RecursiveCharacterTextSplitter-aZ49J"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-RecursiveCharacterTextSplitter-aZ49J{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-aZ49Jœ}-Chroma-yV84K{œfieldNameœ:œdocumentsœ,œidœ:œChroma-yV84Kœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
-            },
-            {
-                "source": "RecursiveCharacterTextSplitter-lowmy",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-lowmyœ}",
-                "target": "Chroma-yV84K",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-yV84Kœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "documents",
-                        "id": "Chroma-yV84K",
-                        "inputTypes": null,
-                        "type": "Document"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "Document"
-                        ],
-                        "dataType": "RecursiveCharacterTextSplitter",
-                        "id": "RecursiveCharacterTextSplitter-lowmy"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-RecursiveCharacterTextSplitter-lowmy{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-lowmyœ}-Chroma-yV84K{œfieldNameœ:œdocumentsœ,œidœ:œChroma-yV84Kœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
-            },
-            {
-                "source": "YoutubeLoader-A8cKE",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œYoutubeLoaderœ,œidœ:œYoutubeLoader-A8cKEœ}",
-                "target": "RecursiveCharacterTextSplitter-lowmy",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-lowmyœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "documents",
-                        "id": "RecursiveCharacterTextSplitter-lowmy",
-                        "inputTypes": null,
-                        "type": "Document"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "Document"
-                        ],
-                        "dataType": "YoutubeLoader",
-                        "id": "YoutubeLoader-A8cKE"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-YoutubeLoader-A8cKE{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œYoutubeLoaderœ,œidœ:œYoutubeLoader-A8cKEœ}-RecursiveCharacterTextSplitter-lowmy{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-lowmyœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
-            },
-            {
-                "source": "WebBaseLoader-4Y2XI",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-4Y2XIœ}",
-                "target": "RecursiveCharacterTextSplitter-aZ49J",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-aZ49Jœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "documents",
-                        "id": "RecursiveCharacterTextSplitter-aZ49J",
-                        "inputTypes": null,
-                        "type": "Document"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "Document"
-                        ],
-                        "dataType": "WebBaseLoader",
-                        "id": "WebBaseLoader-4Y2XI"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-WebBaseLoader-4Y2XI{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-4Y2XIœ}-RecursiveCharacterTextSplitter-aZ49J{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-aZ49Jœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
-            },
-            {
-                "source": "PyPDFLoader-FgNuU",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œPyPDFLoaderœ,œidœ:œPyPDFLoader-FgNuUœ}",
-                "target": "RecursiveCharacterTextSplitter-qUXK1",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-qUXK1œ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "documents",
-                        "id": "RecursiveCharacterTextSplitter-qUXK1",
-                        "inputTypes": null,
-                        "type": "Document"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "Document"
-                        ],
-                        "dataType": "PyPDFLoader",
-                        "id": "PyPDFLoader-FgNuU"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-PyPDFLoader-FgNuU{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œPyPDFLoaderœ,œidœ:œPyPDFLoader-FgNuUœ}-RecursiveCharacterTextSplitter-qUXK1{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-qUXK1œ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+                "id": "reactflow__edge-Input-GhqFJ{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-GhqFJœ}-PyPDFLoader-c6WHE{œfieldNameœ:œfile_pathœ,œidœ:œPyPDFLoader-c6WHEœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}"
             }
         ],
         "viewport": {
-            "x": 681.1348028130053,
-            "y": 311.2066413138375,
-            "zoom": 0.40001619870146776
+            "x": 555.637761409818,
+            "y": 529.4116504953637,
+            "zoom": 0.4773802129517936
         }
     },
     "description": "Chat with multiple types of inputs. Youtube, URL, PDF.",
