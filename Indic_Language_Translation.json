@@ -1,703 +1,841 @@
 {
-  "id": "1e69c23b-4a08-46af-9814-921b230ad550",
-  "data": {
-    "nodes": [
-      {
-        "width": 384,
-        "height": 469,
-        "id": "PromptTemplate-5oeyK",
-        "type": "genericNode",
-        "position": {
-          "x": 205.66380483112482,
-          "y": 1040.1365474246986
-        },
-        "data": {
-          "type": "PromptTemplate",
-          "node": {
-            "template": {
-              "output_parser": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "output_parser",
-                "advanced": false,
-                "dynamic": true,
-                "info": "",
-                "type": "BaseOutputParser",
-                "list": false
-              },
-              "input_types": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "input_types",
-                "advanced": false,
-                "dynamic": true,
-                "info": "",
-                "type": "dict",
-                "list": false
-              },
-              "input_variables": {
-                "required": true,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "input_variables",
-                "advanced": false,
-                "dynamic": true,
-                "info": "",
-                "type": "str",
-                "list": true,
-                "value": [
-                  "text",
-                  "lang"
-                ]
-              },
-              "partial_variables": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "partial_variables",
-                "advanced": false,
-                "dynamic": true,
-                "info": "",
-                "type": "dict",
-                "list": false
-              },
-              "template": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": true,
-                "password": false,
-                "name": "template",
-                "advanced": false,
-                "dynamic": true,
-                "info": "",
-                "type": "prompt",
-                "list": false,
-                "value": "Translate the given TEXT into the given LANGUAGE. You are only Indic language translator, you only support Hindi, Kannada, Telugu, Tamil, Punjabi and Gujrati LANGUAGE. If they LANGUAGE is not among languages, give a feedback to a user saying LANGUAGE not supported. \n\nTEXT: {text}\nLANGUAGE: {lang}"
-              },
-              "template_format": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "value": "f-string",
-                "password": false,
-                "name": "template_format",
-                "advanced": false,
-                "dynamic": true,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "validate_template": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "value": false,
-                "password": false,
-                "name": "validate_template",
-                "advanced": false,
-                "dynamic": true,
-                "info": "",
-                "type": "bool",
-                "list": false
-              },
-              "_type": "PromptTemplate",
-              "text": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": true,
-                "value": "",
-                "password": false,
-                "name": "text",
-                "display_name": "text",
-                "advanced": false,
-                "input_types": [
-                  "Document",
-                  "BaseOutputParser",
-                  "Input"
-                ],
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "lang": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": true,
-                "value": "",
-                "password": false,
-                "name": "lang",
-                "display_name": "lang",
-                "advanced": false,
-                "input_types": [
-                  "Document",
-                  "BaseOutputParser",
-                  "Input"
-                ],
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              }
+    "id": "b45ab6f8-0816-4e15-bae6-881c76a5c569",
+    "data": {
+        "nodes": [
+            {
+                "width": 384,
+                "height": 470,
+                "id": "PromptTemplate-NBiBO",
+                "type": "genericNode",
+                "position": {
+                    "x": 205.66380483112482,
+                    "y": 1040.1365474246986
+                },
+                "data": {
+                    "type": "PromptTemplate",
+                    "node": {
+                        "template": {
+                            "output_parser": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": false,
+                                "password": false,
+                                "name": "output_parser",
+                                "advanced": false,
+                                "dynamic": true,
+                                "info": "",
+                                "type": "BaseOutputParser",
+                                "list": false
+                            },
+                            "input_types": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": false,
+                                "password": false,
+                                "name": "input_types",
+                                "advanced": false,
+                                "dynamic": true,
+                                "info": "",
+                                "type": "dict",
+                                "list": false
+                            },
+                            "input_variables": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": false,
+                                "password": false,
+                                "name": "input_variables",
+                                "advanced": false,
+                                "dynamic": true,
+                                "info": "",
+                                "type": "str",
+                                "list": true,
+                                "value": [
+                                    "text",
+                                    "language"
+                                ]
+                            },
+                            "partial_variables": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": false,
+                                "password": false,
+                                "name": "partial_variables",
+                                "advanced": false,
+                                "dynamic": true,
+                                "info": "",
+                                "type": "dict",
+                                "list": false
+                            },
+                            "template": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": true,
+                                "password": false,
+                                "name": "template",
+                                "advanced": false,
+                                "dynamic": true,
+                                "info": "",
+                                "type": "prompt",
+                                "list": false,
+                                "value": "Translate the given TEXT into the given LANGUAGE. You are only Indic language translator, you only support Hindi, Kannada, Telugu, Tamil, Punjabi and Gujrati LANGUAGE. If they LANGUAGE is not among languages, give a feedback to a user saying LANGUAGE not supported. \n\nTEXT: {text}\nLANGUAGE: {language}"
+                            },
+                            "template_format": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": false,
+                                "value": "f-string",
+                                "password": false,
+                                "name": "template_format",
+                                "advanced": false,
+                                "dynamic": true,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "validate_template": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": false,
+                                "value": false,
+                                "password": false,
+                                "name": "validate_template",
+                                "advanced": false,
+                                "dynamic": true,
+                                "info": "",
+                                "type": "bool",
+                                "list": false
+                            },
+                            "_type": "PromptTemplate",
+                            "text": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": true,
+                                "value": "",
+                                "password": false,
+                                "name": "text",
+                                "display_name": "text",
+                                "advanced": false,
+                                "input_types": [
+                                    "Document",
+                                    "BaseOutputParser",
+                                    "Input"
+                                ],
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "language": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": true,
+                                "value": "",
+                                "password": false,
+                                "name": "language",
+                                "display_name": "language",
+                                "advanced": false,
+                                "input_types": [
+                                    "Document",
+                                    "BaseOutputParser",
+                                    "Input"
+                                ],
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            }
+                        },
+                        "description": "A prompt template for a language model.",
+                        "base_classes": [
+                            "BasePromptTemplate",
+                            "StringPromptTemplate",
+                            "PromptTemplate"
+                        ],
+                        "name": "",
+                        "display_name": "PromptTemplate",
+                        "documentation": "https://python.langchain.com/docs/modules/model_io/prompts/prompt_templates/",
+                        "custom_fields": {
+                            "": [
+                                "text",
+                                "language"
+                            ],
+                            "template": [
+                                "text",
+                                "lang"
+                            ]
+                        },
+                        "output_types": [],
+                        "field_formatters": {},
+                        "beta": false,
+                        "error": null
+                    },
+                    "id": "PromptTemplate-NBiBO"
+                },
+                "positionAbsolute": {
+                    "x": 205.66380483112482,
+                    "y": 1040.1365474246986
+                },
+                "selected": false,
+                "dragging": false
             },
-            "description": "A prompt template for a language model.",
-            "base_classes": [
-              "BasePromptTemplate",
-              "StringPromptTemplate",
-              "PromptTemplate"
-            ],
-            "name": "",
-            "display_name": "PromptTemplate",
-            "documentation": "https://python.langchain.com/docs/modules/model_io/prompts/prompt_templates/",
-            "custom_fields": {
-              "": [
-                "text",
-                "lang"
-              ],
-              "template": [
-                "text",
-                "lang"
-              ]
+            {
+                "width": 384,
+                "height": 339,
+                "id": "LLMChain-owwbr",
+                "type": "genericNode",
+                "position": {
+                    "x": 935.6327267229701,
+                    "y": 805.7504241146173
+                },
+                "data": {
+                    "type": "LLMChain",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from genflow import CustomComponent\nfrom langchain.chains import LLMChain\nfrom typing import Optional, Union, Callable\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n)\n\n\nclass LLMChainComponent(CustomComponent):\n    display_name = \"LLMChain\"\n    description = \"Chain to run queries against LLMs\"\n\n    def build_config(self):\n        return {\n            \"prompt\": {\"display_name\": \"Prompt\"},\n            \"llm\": {\"display_name\": \"LLM\"},\n            \"memory\": {\"display_name\": \"Memory\"},\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        prompt: BasePromptTemplate,\n        llm: BaseLanguageModel,\n        memory: Optional[BaseMemory] = None,\n    ) -> Chain:\n        return LLMChain(prompt=prompt, llm=llm, memory=memory)\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "llm": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "llm",
+                                "display_name": "LLM",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BaseLanguageModel",
+                                "list": false
+                            },
+                            "memory": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "memory",
+                                "display_name": "Memory",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BaseMemory",
+                                "list": false
+                            },
+                            "prompt": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "prompt",
+                                "display_name": "Prompt",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "BasePromptTemplate",
+                                "list": false
+                            }
+                        },
+                        "description": "Chain to run queries against LLMs",
+                        "base_classes": [
+                            "Chain"
+                        ],
+                        "display_name": "LLMChain",
+                        "custom_fields": {
+                            "llm": null,
+                            "memory": null,
+                            "prompt": null
+                        },
+                        "output_types": [
+                            "LLMChain"
+                        ],
+                        "documentation": "",
+                        "beta": true,
+                        "error": null
+                    },
+                    "id": "LLMChain-owwbr"
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 935.6327267229701,
+                    "y": 805.7504241146173
+                },
+                "dragging": false
             },
-            "output_types": [],
-            "field_formatters": {},
-            "beta": false,
-            "error": null
-          },
-          "id": "PromptTemplate-5oeyK"
-        },
-        "positionAbsolute": {
-          "x": 205.66380483112482,
-          "y": 1040.1365474246986
-        },
-        "selected": false,
-        "dragging": false
-      },
-      {
-        "width": 384,
-        "height": 577,
-        "id": "ConversationBufferMemory-RaAnO",
-        "type": "genericNode",
-        "position": {
-          "x": -301.6608215112713,
-          "y": 471.0798092882832
-        },
-        "data": {
-          "type": "ConversationBufferMemory",
-          "node": {
-            "template": {
-              "chat_memory": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "chat_memory",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "BaseChatMessageHistory",
-                "list": false
-              },
-              "ai_prefix": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "value": "AI",
-                "password": false,
-                "name": "ai_prefix",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "human_prefix": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "value": "Human",
-                "password": false,
-                "name": "human_prefix",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "input_key": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "",
-                "password": false,
-                "name": "input_key",
-                "advanced": false,
-                "dynamic": false,
-                "info": "The variable to be used as Chat Input when more than one variable is available.",
-                "type": "str",
-                "list": false
-              },
-              "memory_key": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "chat_history",
-                "password": false,
-                "name": "memory_key",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "output_key": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "",
-                "password": false,
-                "name": "output_key",
-                "advanced": false,
-                "dynamic": false,
-                "info": "The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)",
-                "type": "str",
-                "list": false
-              },
-              "return_messages": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "return_messages",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "bool",
-                "list": false
-              },
-              "_type": "ConversationBufferMemory"
+            {
+                "width": 384,
+                "height": 736,
+                "id": "AzureChatOpenAI-TCvCM",
+                "type": "genericNode",
+                "position": {
+                    "x": 179.09529943012853,
+                    "y": 172.0221035260039
+                },
+                "data": {
+                    "type": "AzureChatOpenAI",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from typing import Optional\nfrom genflow.interface.custom import CustomComponent\nfrom langchain.llms.base import BaseLLM\nfrom langchain.chat_models import AzureChatOpenAI\n\n\nclass AzureChatOpenAILLM(CustomComponent):\n    display_name: str = \"AzureChatOpenAI\"\n    description: str = \"Azure Chat Open AI Chat&Completion large language models.\"\n\n    AZURE_OPENAI_MODELS = [\n        \"gpt-4\",\n        \"gpt-4-32k\",\n        \"gpt-4-vision\",\n    ]\n\n    def build_config(self):\n        return {\n            \"model\": {\n                \"display_name\": \"Model Name\",\n                \"value\": \"gpt-4\",\n                \"options\": self.AZURE_OPENAI_MODELS,\n                \"required\": True,\n            },\n            \"api_key\": {\n                \"display_name\": \"AzureChatOpenAI API Key\",\n                \"required\": True,\n                \"password\": True,\n            },\n            \"api_base\": {\n                \"display_name\": \"AzureChatOpenAI API Base\",\n                \"required\": True,\n            },\n            \"api_type\": {\"display_name\": \"AzureChatOpenAI API Type\", \"required\": True},\n            \"azure_deployment\": {\n                \"display_name\": \"Deployment Name\",\n                \"required\": True,\n            },\n            \"api_version\": {\n                \"display_name\": \"API Version\",\n                \"value\": \"2023-07-01-preview\",\n                \"required\": True,\n                \"advanced\": True,\n            },\n            \"temperature\": {\n                \"display_name\": \"Temperature\",\n                \"value\": 0.5,\n                \"field_type\": \"float\",\n                \"required\": False,\n            },\n            \"max_tokens\": {\n                \"display_name\": \"Max Tokens\",\n                \"value\": 512,\n                \"required\": False,\n                \"field_type\": \"int\",\n                \"advanced\": True,\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        model: str,\n        api_base: str,\n        api_type: str,\n        api_key: str,\n        azure_deployment: str,\n        api_version: str = \"2023-05-15\",\n        temperature: Optional[float] = 0.7,\n        max_tokens: Optional[int] = 512,\n    ) -> BaseLLM:\n        try:\n            output = AzureChatOpenAI(\n                model_name=model,\n                openai_api_base=api_base,\n                openai_api_type=api_type,\n                openai_api_key=api_key,\n                openai_api_version=api_version,\n                deployment_name=azure_deployment,\n                temperature=temperature,\n                max_tokens=max_tokens,\n            )\n        except Exception as e:\n            raise ValueError(\"Could not connect to Azure ChatOpenAI model.\") from e\n        return output\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "api_base": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "api_base",
+                                "display_name": "AzureChatOpenAI API Base",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false,
+                                "value": ""
+                            },
+                            "api_key": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": true,
+                                "name": "api_key",
+                                "display_name": "AzureChatOpenAI API Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false,
+                                "value": ""
+                            },
+                            "api_type": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "api_type",
+                                "display_name": "AzureChatOpenAI API Type",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false,
+                                "value": "azure"
+                            },
+                            "api_version": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "2023-07-01-preview",
+                                "password": false,
+                                "name": "api_version",
+                                "display_name": "API Version",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "azure_deployment": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "azure_deployment",
+                                "display_name": "Deployment Name",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false,
+                                "value": ""
+                            },
+                            "max_tokens": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": 512,
+                                "password": false,
+                                "name": "max_tokens",
+                                "display_name": "Max Tokens",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "int",
+                                "list": false
+                            },
+                            "model": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "gpt-4",
+                                "password": false,
+                                "options": [
+                                    "gpt-4",
+                                    "gpt-4-32k",
+                                    "gpt-4-vision"
+                                ],
+                                "name": "model",
+                                "display_name": "Model Name",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": true
+                            },
+                            "temperature": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "0.1",
+                                "password": false,
+                                "name": "temperature",
+                                "display_name": "Temperature",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "float",
+                                "list": false
+                            }
+                        },
+                        "description": "Azure Chat Open AI Chat&Completion large language models.",
+                        "base_classes": [
+                            "BaseLLM",
+                            "BaseLanguageModel"
+                        ],
+                        "display_name": "AzureChatOpenAI",
+                        "custom_fields": {
+                            "api_base": null,
+                            "api_key": null,
+                            "api_type": null,
+                            "api_version": null,
+                            "azure_deployment": null,
+                            "max_tokens": null,
+                            "model": null,
+                            "temperature": null
+                        },
+                        "output_types": [
+                            "AzureChatOpenAI"
+                        ],
+                        "documentation": "",
+                        "beta": true,
+                        "error": null
+                    },
+                    "id": "AzureChatOpenAI-TCvCM"
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 179.09529943012853,
+                    "y": 172.0221035260039
+                },
+                "dragging": false
             },
-            "description": "Buffer for storing conversation memory.",
-            "base_classes": [
-              "BaseChatMemory",
-              "ConversationBufferMemory",
-              "BaseMemory"
-            ],
-            "display_name": "ConversationBufferMemory",
-            "custom_fields": {},
-            "output_types": [],
-            "documentation": "https://python.langchain.com/docs/modules/memory/how_to/buffer",
-            "beta": false,
-            "error": null
-          },
-          "id": "ConversationBufferMemory-RaAnO"
-        },
-        "selected": false,
-        "positionAbsolute": {
-          "x": -301.6608215112713,
-          "y": 471.0798092882832
-        },
-        "dragging": false
-      },
-      {
-        "width": 384,
-        "height": 339,
-        "id": "LLMChain-IuWvk",
-        "type": "genericNode",
-        "position": {
-          "x": 935.6327267229701,
-          "y": 805.7504241146173
-        },
-        "data": {
-          "type": "LLMChain",
-          "node": {
-            "template": {
-              "code": {
-                "dynamic": true,
-                "required": true,
-                "placeholder": "",
-                "show": false,
-                "multiline": true,
-                "value": "from genflow import CustomComponent\nfrom langchain.chains import LLMChain\nfrom typing import Optional, Union, Callable\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n)\n\n\nclass LLMChainComponent(CustomComponent):\n    display_name = \"LLMChain\"\n    description = \"Chain to run queries against LLMs\"\n\n    def build_config(self):\n        return {\n            \"prompt\": {\"display_name\": \"Prompt\"},\n            \"llm\": {\"display_name\": \"LLM\"},\n            \"memory\": {\"display_name\": \"Memory\"},\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        prompt: BasePromptTemplate,\n        llm: BaseLanguageModel,\n        memory: Optional[BaseMemory] = None,\n    ) -> Chain:\n        return LLMChain(prompt=prompt, llm=llm, memory=memory)\n",
-                "password": false,
-                "name": "code",
-                "advanced": false,
-                "type": "code",
-                "list": false
-              },
-              "_type": "CustomComponent",
-              "llm": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "llm",
-                "display_name": "LLM",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "BaseLanguageModel",
-                "list": false
-              },
-              "memory": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "memory",
-                "display_name": "Memory",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "BaseMemory",
-                "list": false
-              },
-              "prompt": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "prompt",
-                "display_name": "Prompt",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "BasePromptTemplate",
-                "list": false
-              }
+            {
+                "width": 384,
+                "height": 531,
+                "id": "ConversationBufferMemory-3h7pZ",
+                "type": "genericNode",
+                "position": {
+                    "x": -320.6140741652454,
+                    "y": 470.76547255919036
+                },
+                "data": {
+                    "type": "ConversationBufferMemory",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from typing import Optional, Union\nfrom langchain.memory.chat_memory import BaseMemory, BaseChatMemory\nfrom langchain.memory.buffer import ConversationBufferMemory\nfrom langchain.memory.chat_message_histories.postgres import PostgresChatMessageHistory\n\nfrom genflow import CustomComponent\n\n\nclass ConversationBufferMemoryComponent(CustomComponent):\n    display_name: str = \"ConversationBufferMemory\"\n    description: str = \"Buffer for storing conversation memory.\"\n    documentation: str = (\n        \"https://docs.aiplanet.com/components/memories#conversationbuffermemory\"\n    )\n    beta = False\n\n    def build_config(self):\n        return {\n            \"input_key\": {\n                \"display_name\": \"Input Key\",\n                \"required\": False,\n                \"value\": \"\",\n                \"info\": \"The variable to be used as Chat Input when more than one variable is available.\",\n            },\n            \"memory_key\": {\n                \"display_name\": \"Memory Key\",\n                \"required\": False,\n                \"value\": \"history\",\n            },\n            \"output_key\": {\n                \"display_name\": \"Output Key\",\n                \"required\": False,\n                \"value\": \"\",\n                \"info\": \"The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)\",\n            },\n            \"return_messages\": {\n                \"display_name\": \"Return Messages\",\n                \"field_type\": \"bool\",\n                \"required\": False,\n                \"value\": True,\n            },\n            \"session_id\": {\n                \"display_name\": \"Session ID\",\n                \"required\": False,\n                \"advanced\": True,\n                \"value\": \"genflow_memory_db\",\n            },\n            \"connection_string\": {\n                \"display_name\": \"Connection String\",\n                \"required\": False,\n                \"advanced\": True,\n                \"value\": \"\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        input_key: Optional[str] = \"\",\n        memory_key: Optional[str] = \"history\",\n        output_key: Optional[str] = \"\",\n        return_messages: Optional[bool] = True,\n        session_id: Optional[str] = \"genflow_memory_db\",\n        connection_string: Optional[str] = \"\",\n    ) -> Union[BaseMemory, BaseChatMemory]:\n        chat_memory = PostgresChatMessageHistory(\n            session_id=session_id, connection_string=connection_string\n        )\n\n        keys = {}\n\n        if input_key and input_key != \"\":\n            keys[\"input_key\"] = input_key\n\n        if output_key and output_key != \"\":\n            keys[\"output_key\"] = output_key\n\n        return ConversationBufferMemory(\n            chat_memory=chat_memory,\n            memory_key=memory_key,\n            return_messages=return_messages,\n            **keys\n        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "connection_string": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "",
+                                "password": false,
+                                "name": "connection_string",
+                                "display_name": "Connection String",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "input_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "text",
+                                "password": false,
+                                "name": "input_key",
+                                "display_name": "Input Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "The variable to be used as Chat Input when more than one variable is available.",
+                                "type": "str",
+                                "list": false
+                            },
+                            "memory_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "history",
+                                "password": false,
+                                "name": "memory_key",
+                                "display_name": "Memory Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            },
+                            "output_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "",
+                                "password": false,
+                                "name": "output_key",
+                                "display_name": "Output Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)",
+                                "type": "str",
+                                "list": false
+                            },
+                            "return_messages": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": true,
+                                "password": false,
+                                "name": "return_messages",
+                                "display_name": "Return Messages",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "bool",
+                                "list": false
+                            },
+                            "session_id": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "genflow_memory_db",
+                                "password": false,
+                                "name": "session_id",
+                                "display_name": "Session ID",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "str",
+                                "list": false
+                            }
+                        },
+                        "description": "Buffer for storing conversation memory.",
+                        "base_classes": [
+                            "BaseMemory",
+                            "BaseChatMemory",
+                            "BaseMemory"
+                        ],
+                        "display_name": "ConversationBufferMemory",
+                        "custom_fields": {
+                            "connection_string": null,
+                            "input_key": null,
+                            "memory_key": null,
+                            "output_key": null,
+                            "return_messages": null,
+                            "session_id": null
+                        },
+                        "output_types": [
+                            "ConversationBufferMemory"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/memories#conversationbuffermemory",
+                        "beta": false,
+                        "error": null
+                    },
+                    "id": "ConversationBufferMemory-3h7pZ"
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": -320.6140741652454,
+                    "y": 470.76547255919036
+                },
+                "dragging": false
             },
-            "description": "Chain to run queries against LLMs",
-            "base_classes": [
-              "Chain"
-            ],
-            "display_name": "LLMChain",
-            "custom_fields": {
-              "llm": null,
-              "memory": null,
-              "prompt": null
+            {
+                "width": 384,
+                "height": 505,
+                "id": "TextGenerationOutput-ZOU1O",
+                "type": "genericNode",
+                "position": {
+                    "x": 1534.1845768426365,
+                    "y": 977.1507829611686
+                },
+                "data": {
+                    "type": "TextGenerationOutput",
+                    "node": {
+                        "template": {
+                            "chain": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "chain",
+                                "display_name": "Chain",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "Chain",
+                                "list": false
+                            },
+                            "documents": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "documents",
+                                "display_name": "Documents",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "Document",
+                                "list": true
+                            },
+                            "download": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "download",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "type": "output",
+                                "list": false
+                            },
+                            "query": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "query",
+                                "display_name": "Query",
+                                "advanced": false,
+                                "input_types": [
+                                    "Input"
+                                ],
+                                "dynamic": false,
+                                "info": "Provide a Query to invoke a chain if stack doesn't contain prompt template and memory.",
+                                "type": "str",
+                                "list": false
+                            },
+                            "_type": "TextGenerationOutput"
+                        },
+                        "description": "Text Generation Output is used to download the Documents, Connect a component that returns Documents or connect a Chain Component and provide the Query to invoke a chain.",
+                        "base_classes": [
+                            "TextGenerationOutput"
+                        ],
+                        "display_name": "TextGenerationOutput",
+                        "custom_fields": {},
+                        "output_types": [
+                            "Output"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/outputs",
+                        "beta": false,
+                        "error": null
+                    },
+                    "id": "TextGenerationOutput-ZOU1O"
+                },
+                "selected": false,
+                "positionAbsolute": {
+                    "x": 1534.1845768426365,
+                    "y": 977.1507829611686
+                },
+                "dragging": false
+            }
+        ],
+        "edges": [
+            {
+                "source": "AzureChatOpenAI-TCvCM",
+                "sourceHandle": "{œbaseClassesœ:[œBaseLLMœ,œBaseLanguageModelœ],œdataTypeœ:œAzureChatOpenAIœ,œidœ:œAzureChatOpenAI-TCvCMœ}",
+                "target": "LLMChain-owwbr",
+                "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œLLMChain-owwbrœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "llm",
+                        "id": "LLMChain-owwbr",
+                        "inputTypes": null,
+                        "type": "BaseLanguageModel"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "BaseLLM",
+                            "BaseLanguageModel"
+                        ],
+                        "dataType": "AzureChatOpenAI",
+                        "id": "AzureChatOpenAI-TCvCM"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-AzureChatOpenAI-TCvCM{œbaseClassesœ:[œBaseLLMœ,œBaseLanguageModelœ],œdataTypeœ:œAzureChatOpenAIœ,œidœ:œAzureChatOpenAI-TCvCMœ}-LLMChain-owwbr{œfieldNameœ:œllmœ,œidœ:œLLMChain-owwbrœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
             },
-            "output_types": [
-              "LLMChain"
-            ],
-            "documentation": "",
-            "beta": true,
-            "error": null
-          },
-          "id": "LLMChain-IuWvk"
-        },
-        "selected": false,
-        "positionAbsolute": {
-          "x": 935.6327267229701,
-          "y": 805.7504241146173
-        },
-        "dragging": false
-      },
-      {
-        "width": 384,
-        "height": 735,
-        "id": "AzureChatOpenAI-OaJFP",
-        "type": "genericNode",
-        "position": {
-          "x": 179.09529943012853,
-          "y": 172.0221035260039
-        },
-        "data": {
-          "type": "AzureChatOpenAI",
-          "node": {
-            "template": {
-              "code": {
-                "dynamic": true,
-                "required": true,
-                "placeholder": "",
-                "show": false,
-                "multiline": true,
-                "value": "from typing import Optional\nfrom genflow.interface.custom import CustomComponent\nfrom langchain.llms.base import BaseLLM\nfrom langchain.chat_models import AzureChatOpenAI\n\n\nclass AzureChatOpenAILLM(CustomComponent):\n    display_name: str = \"AzureChatOpenAI\"\n    description: str = \"Azure Chat Open AI Chat&Completion large language models.\"\n\n    AZURE_OPENAI_MODELS = [\n        \"gpt-4\",\n        \"gpt-4-32k\",\n        \"gpt-4-vision\",\n    ]\n\n    def build_config(self):\n        return {\n            \"model\": {\n                \"display_name\": \"Model Name\",\n                \"value\": \"gpt-4\",\n                \"options\": self.AZURE_OPENAI_MODELS,\n                \"required\": True,\n            },\n            \"api_key\": {\n                \"display_name\": \"AzureChatOpenAI API Key\",\n                \"required\": True,\n                \"password\": True,\n            },\n            \"api_base\": {\n                \"display_name\": \"AzureChatOpenAI API Base\",\n                \"required\": True,\n            },\n            \"api_type\": {\"display_name\": \"AzureChatOpenAI API Type\", \"required\": True},\n            \"azure_deployment\": {\n                \"display_name\": \"Deployment Name\",\n                \"required\": True,\n            },\n            \"api_version\": {\n                \"display_name\": \"API Version\",\n                \"value\": \"2023-07-01-preview\",\n                \"required\": True,\n                \"advanced\": True,\n            },\n            \"temperature\": {\n                \"display_name\": \"Temperature\",\n                \"value\": 0.5,\n                \"field_type\": \"float\",\n                \"required\": False,\n            },\n            \"max_tokens\": {\n                \"display_name\": \"Max Tokens\",\n                \"value\": 512,\n                \"required\": False,\n                \"field_type\": \"int\",\n                \"advanced\": True,\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        model: str,\n        api_base: str,\n        api_type: str,\n        api_key: str,\n        azure_deployment: str,\n        api_version: str = \"2023-05-15\",\n        temperature: Optional[float] = 0.7,\n        max_tokens: Optional[int] = 512,\n    ) -> BaseLLM:\n        try:\n            output = AzureChatOpenAI(\n                model_name=model,\n                openai_api_base=api_base,\n                openai_api_type=api_type,\n                openai_api_key=api_key,\n                openai_api_version=api_version,\n                deployment_name=azure_deployment,\n                temperature=temperature,\n                max_tokens=max_tokens,\n            )\n        except Exception as e:\n            raise ValueError(\"Could not connect to Azure ChatOpenAI model.\") from e\n        return output\n",
-                "password": false,
-                "name": "code",
-                "advanced": false,
-                "type": "code",
-                "list": false
-              },
-              "_type": "CustomComponent",
-              "api_base": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "api_base",
-                "display_name": "AzureChatOpenAI API Base",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false,
-                "value": ""
-              },
-              "api_key": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": true,
-                "name": "api_key",
-                "display_name": "AzureChatOpenAI API Key",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false,
-                "value": ""
-              },
-              "api_type": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "api_type",
-                "display_name": "AzureChatOpenAI API Type",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false,
-                "value": "azure"
-              },
-              "api_version": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "2023-07-01-preview",
-                "password": false,
-                "name": "api_version",
-                "display_name": "API Version",
-                "advanced": true,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "azure_deployment": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "azure_deployment",
-                "display_name": "Deployment Name",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false,
-                "value": ""
-              },
-              "max_tokens": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": 512,
-                "password": false,
-                "name": "max_tokens",
-                "display_name": "Max Tokens",
-                "advanced": true,
-                "dynamic": false,
-                "info": "",
-                "type": "int",
-                "list": false
-              },
-              "model": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "gpt-4",
-                "password": false,
-                "options": [
-                  "gpt-4",
-                  "gpt-4-32k",
-                  "gpt-4-vision"
-                ],
-                "name": "model",
-                "display_name": "Model Name",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": true
-              },
-              "temperature": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "0.1",
-                "password": false,
-                "name": "temperature",
-                "display_name": "Temperature",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "float",
-                "list": false
-              }
+            {
+                "source": "PromptTemplate-NBiBO",
+                "sourceHandle": "{œbaseClassesœ:[œBasePromptTemplateœ,œStringPromptTemplateœ,œPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-NBiBOœ}",
+                "target": "LLMChain-owwbr",
+                "targetHandle": "{œfieldNameœ:œpromptœ,œidœ:œLLMChain-owwbrœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "prompt",
+                        "id": "LLMChain-owwbr",
+                        "inputTypes": null,
+                        "type": "BasePromptTemplate"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "BasePromptTemplate",
+                            "StringPromptTemplate",
+                            "PromptTemplate"
+                        ],
+                        "dataType": "PromptTemplate",
+                        "id": "PromptTemplate-NBiBO"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-gray-900  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-PromptTemplate-NBiBO{œbaseClassesœ:[œBasePromptTemplateœ,œStringPromptTemplateœ,œPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-NBiBOœ}-LLMChain-owwbr{œfieldNameœ:œpromptœ,œidœ:œLLMChain-owwbrœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}"
             },
-            "description": "Azure Chat Open AI Chat&Completion large language models.",
-            "base_classes": [
-              "BaseLLM",
-              "BaseLanguageModel"
-            ],
-            "display_name": "AzureChatOpenAI",
-            "custom_fields": {
-              "api_base": null,
-              "api_key": null,
-              "api_type": null,
-              "api_version": null,
-              "azure_deployment": null,
-              "max_tokens": null,
-              "model": null,
-              "temperature": null
+            {
+                "source": "ConversationBufferMemory-3h7pZ",
+                "sourceHandle": "{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-3h7pZœ}",
+                "target": "LLMChain-owwbr",
+                "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œLLMChain-owwbrœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "memory",
+                        "id": "LLMChain-owwbr",
+                        "inputTypes": null,
+                        "type": "BaseMemory"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "BaseMemory",
+                            "BaseChatMemory",
+                            "BaseMemory"
+                        ],
+                        "dataType": "ConversationBufferMemory",
+                        "id": "ConversationBufferMemory-3h7pZ"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-foreground  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-ConversationBufferMemory-3h7pZ{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-3h7pZœ}-LLMChain-owwbr{œfieldNameœ:œmemoryœ,œidœ:œLLMChain-owwbrœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
             },
-            "output_types": [
-              "AzureChatOpenAI"
-            ],
-            "documentation": "",
-            "beta": true,
-            "error": null
-          },
-          "id": "AzureChatOpenAI-OaJFP"
-        },
-        "selected": false,
-        "positionAbsolute": {
-          "x": 179.09529943012853,
-          "y": 172.0221035260039
-        },
-        "dragging": false
-      }
-    ],
-    "edges": [
-      {
-        "source": "AzureChatOpenAI-OaJFP",
-        "sourceHandle": "{œbaseClassesœ:[œBaseLLMœ,œBaseLanguageModelœ],œdataTypeœ:œAzureChatOpenAIœ,œidœ:œAzureChatOpenAI-OaJFPœ}",
-        "target": "LLMChain-IuWvk",
-        "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œLLMChain-IuWvkœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
-        "data": {
-          "targetHandle": {
-            "fieldName": "llm",
-            "id": "LLMChain-IuWvk",
-            "inputTypes": null,
-            "type": "BaseLanguageModel"
-          },
-          "sourceHandle": {
-            "baseClasses": [
-              "BaseLLM",
-              "BaseLanguageModel"
-            ],
-            "dataType": "AzureChatOpenAI",
-            "id": "AzureChatOpenAI-OaJFP"
-          }
-        },
-        "style": {
-          "stroke": "#555"
-        },
-        "className": "stroke-gray-900  stroke-connection",
-        "animated": false,
-        "id": "reactflow__edge-AzureChatOpenAI-OaJFP{œbaseClassesœ:[œBaseLLMœ,œBaseLanguageModelœ],œdataTypeœ:œAzureChatOpenAIœ,œidœ:œAzureChatOpenAI-OaJFPœ}-LLMChain-IuWvk{œfieldNameœ:œllmœ,œidœ:œLLMChain-IuWvkœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
-      },
-      {
-        "source": "ConversationBufferMemory-RaAnO",
-        "sourceHandle": "{œbaseClassesœ:[œBaseChatMemoryœ,œConversationBufferMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-RaAnOœ}",
-        "target": "LLMChain-IuWvk",
-        "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œLLMChain-IuWvkœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
-        "data": {
-          "targetHandle": {
-            "fieldName": "memory",
-            "id": "LLMChain-IuWvk",
-            "inputTypes": null,
-            "type": "BaseMemory"
-          },
-          "sourceHandle": {
-            "baseClasses": [
-              "BaseChatMemory",
-              "ConversationBufferMemory",
-              "BaseMemory"
-            ],
-            "dataType": "ConversationBufferMemory",
-            "id": "ConversationBufferMemory-RaAnO"
-          }
-        },
-        "style": {
-          "stroke": "#555"
-        },
-        "className": "stroke-gray-900  stroke-connection",
-        "animated": false,
-        "id": "reactflow__edge-ConversationBufferMemory-RaAnO{œbaseClassesœ:[œBaseChatMemoryœ,œConversationBufferMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-RaAnOœ}-LLMChain-IuWvk{œfieldNameœ:œmemoryœ,œidœ:œLLMChain-IuWvkœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
-      },
-      {
-        "source": "PromptTemplate-5oeyK",
-        "sourceHandle": "{œbaseClassesœ:[œBasePromptTemplateœ,œStringPromptTemplateœ,œPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-5oeyKœ}",
-        "target": "LLMChain-IuWvk",
-        "targetHandle": "{œfieldNameœ:œpromptœ,œidœ:œLLMChain-IuWvkœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}",
-        "data": {
-          "targetHandle": {
-            "fieldName": "prompt",
-            "id": "LLMChain-IuWvk",
-            "inputTypes": null,
-            "type": "BasePromptTemplate"
-          },
-          "sourceHandle": {
-            "baseClasses": [
-              "BasePromptTemplate",
-              "StringPromptTemplate",
-              "PromptTemplate"
-            ],
-            "dataType": "PromptTemplate",
-            "id": "PromptTemplate-5oeyK"
-          }
-        },
-        "style": {
-          "stroke": "#555"
-        },
-        "className": "stroke-gray-900  stroke-connection",
-        "animated": false,
-        "id": "reactflow__edge-PromptTemplate-5oeyK{œbaseClassesœ:[œBasePromptTemplateœ,œStringPromptTemplateœ,œPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-5oeyKœ}-LLMChain-IuWvk{œfieldNameœ:œpromptœ,œidœ:œLLMChain-IuWvkœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}"
-      }
-    ],
-    "viewport": {
-      "x": 544.170268455903,
-      "y": -65.4800776672447,
-      "zoom": 0.6126489934498701
-    }
-  },
-  "description": "Language Translation assistant for Indian language support: Hindi, Kannada, Tamil, Telugu, Punjabi and Gujarati ",
-  "name": "Indic_Language",
-  "flow_type": "chat"
+            {
+                "source": "LLMChain-owwbr",
+                "sourceHandle": "{œbaseClassesœ:[œChainœ],œdataTypeœ:œLLMChainœ,œidœ:œLLMChain-owwbrœ}",
+                "target": "TextGenerationOutput-ZOU1O",
+                "targetHandle": "{œfieldNameœ:œchainœ,œidœ:œTextGenerationOutput-ZOU1Oœ,œinputTypesœ:null,œtypeœ:œChainœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "chain",
+                        "id": "TextGenerationOutput-ZOU1O",
+                        "inputTypes": null,
+                        "type": "Chain"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Chain"
+                        ],
+                        "dataType": "LLMChain",
+                        "id": "LLMChain-owwbr"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-foreground  stroke-connection",
+                "animated": false,
+                "id": "reactflow__edge-LLMChain-owwbr{œbaseClassesœ:[œChainœ],œdataTypeœ:œLLMChainœ,œidœ:œLLMChain-owwbrœ}-TextGenerationOutput-ZOU1O{œfieldNameœ:œchainœ,œidœ:œTextGenerationOutput-ZOU1Oœ,œinputTypesœ:null,œtypeœ:œChainœ}"
+            }
+        ],
+        "viewport": {
+            "x": 426.4187598211104,
+            "y": 57.07638393158118,
+            "zoom": 0.6003873170372308
+        }
+    },
+    "description": "Language Translation assistant for Indian language support: Hindi, Kannada, Tamil, Telugu, Punjabi and Gujarati ",
+    "name": "Indic_Language",
+    "flow_type": "chat"
 }
