@@ -1,13 +1,16 @@
 {
-  "id": "8d7e02d0-501e-4e0d-9f2c-41bd64322c3e",
+  "id": "99dd3c18-61b2-463c-ace1-afe78c58b139",
   "data": {
     "nodes": [
       {
         "width": 384,
-        "height": 626,
-        "id": "ChatOpenAI-58i4p",
+        "height": 629,
+        "id": "ChatOpenAI-LaMPL",
         "type": "genericNode",
-        "position": { "x": 597.1974640856098, "y": -74.99878439797845 },
+        "position": {
+          "x": 597.1974640856098,
+          "y": -74.99878439797845
+        },
         "data": {
           "type": "ChatOpenAI",
           "node": {
@@ -347,146 +350,24 @@
             "beta": false,
             "error": null
           },
-          "id": "ChatOpenAI-58i4p"
+          "id": "ChatOpenAI-LaMPL"
         },
         "selected": false,
-        "positionAbsolute": { "x": 597.1974640856098, "y": -74.99878439797845 },
+        "positionAbsolute": {
+          "x": 597.1974640856098,
+          "y": -74.99878439797845
+        },
         "dragging": false
       },
       {
         "width": 384,
-        "height": 575,
-        "id": "ConversationBufferMemory-0FaPA",
+        "height": 311,
+        "id": "ConversationChain-zrNbw",
         "type": "genericNode",
-        "position": { "x": 595.2008359371066, "y": 623.5277864969802 },
-        "data": {
-          "type": "ConversationBufferMemory",
-          "node": {
-            "template": {
-              "chat_memory": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "chat_memory",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "BaseChatMessageHistory",
-                "list": false
-              },
-              "ai_prefix": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "value": "AI",
-                "password": false,
-                "name": "ai_prefix",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "human_prefix": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "value": "Human",
-                "password": false,
-                "name": "human_prefix",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "input_key": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "",
-                "password": false,
-                "name": "input_key",
-                "advanced": false,
-                "dynamic": false,
-                "info": "The variable to be used as Chat Input when more than one variable is available.",
-                "type": "str",
-                "list": false
-              },
-              "memory_key": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "history",
-                "password": false,
-                "name": "memory_key",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "output_key": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "",
-                "password": false,
-                "name": "output_key",
-                "advanced": false,
-                "dynamic": false,
-                "info": "The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)",
-                "type": "str",
-                "list": false
-              },
-              "return_messages": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "return_messages",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "bool",
-                "list": false,
-                "value": true
-              },
-              "_type": "ConversationBufferMemory"
-            },
-            "description": "Buffer for storing conversation memory.",
-            "base_classes": [
-              "BaseChatMemory",
-              "ConversationBufferMemory",
-              "BaseMemory"
-            ],
-            "display_name": "ConversationBufferMemory",
-            "custom_fields": {},
-            "output_types": [],
-            "documentation": "https://docs.aiplanet.com/components/memories#conversationbuffermemory",
-            "beta": false,
-            "error": null
-          },
-          "id": "ConversationBufferMemory-0FaPA"
+        "position": {
+          "x": 1241.9895683290458,
+          "y": 420.29741173043556
         },
-        "selected": false,
-        "positionAbsolute": { "x": 595.2008359371066, "y": 623.5277864969802 },
-        "dragging": false
-      },
-      {
-        "width": 384,
-        "height": 310,
-        "id": "ConversationChain-VaHzw",
-        "type": "genericNode",
-        "position": { "x": 1241.9895683290458, "y": 420.29741173043556 },
         "data": {
           "type": "ConversationChain",
           "node": {
@@ -535,56 +416,186 @@
               }
             },
             "description": "Chain to have a conversation and load context from memory.",
-            "base_classes": ["Chain"],
+            "base_classes": [
+              "Chain"
+            ],
             "display_name": "ConversationChain",
-            "custom_fields": { "llm": null, "memory": null },
-            "output_types": ["ConversationChain"],
+            "custom_fields": {
+              "llm": null,
+              "memory": null
+            },
+            "output_types": [
+              "ConversationChain"
+            ],
             "documentation": "https://docs.aiplanet.com/components/chains#conversationalretrievalchain",
             "beta": true,
             "error": null
           },
-          "id": "ConversationChain-VaHzw"
+          "id": "ConversationChain-zrNbw"
         },
-        "positionAbsolute": { "x": 1241.9895683290458, "y": 420.29741173043556 }
+        "positionAbsolute": {
+          "x": 1241.9895683290458,
+          "y": 420.29741173043556
+        }
+      },
+      {
+        "width": 384,
+        "height": 529,
+        "id": "ConversationBufferMemory-YTdKE",
+        "type": "genericNode",
+        "position": {
+          "x": 609.7708523821489,
+          "y": 633.1654709389743
+        },
+        "data": {
+          "type": "ConversationBufferMemory",
+          "node": {
+            "template": {
+              "code": {
+                "dynamic": true,
+                "required": true,
+                "placeholder": "",
+                "show": false,
+                "multiline": true,
+                "value": "from typing import Optional, Union\nfrom langchain.memory.chat_memory import BaseMemory, BaseChatMemory\nfrom langchain.memory.buffer import ConversationBufferMemory\nfrom langchain.memory.chat_message_histories.postgres import PostgresChatMessageHistory\n\nfrom genflow import CustomComponent\n\n\nclass ConversationBufferMemoryComponent(CustomComponent):\n    display_name: str = \"ConversationBufferMemory\"\n    description: str = \"Buffer for storing conversation memory.\"\n    documentation: str = (\n        \"https://docs.aiplanet.com/components/memories#conversationbuffermemory\"\n    )\n    beta = False\n\n    def build_config(self):\n        return {\n            \"input_key\": {\n                \"display_name\": \"Input Key\",\n                \"required\": False,\n                \"value\": \"\",\n                \"info\": \"The variable to be used as Chat Input when more than one variable is available.\",\n            },\n            \"memory_key\": {\n                \"display_name\": \"Memory Key\",\n                \"required\": False,\n                \"value\": \"history\",\n            },\n            \"output_key\": {\n                \"display_name\": \"Output Key\",\n                \"required\": False,\n                \"value\": \"\",\n                \"info\": \"The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)\",\n            },\n            \"return_messages\": {\n                \"display_name\": \"Return Messages\",\n                \"field_type\": \"bool\",\n                \"required\": False,\n                \"value\": True,\n            },\n            \"session_id\": {\n                \"display_name\": \"Session ID\",\n                \"required\": False,\n                \"advanced\": True,\n                \"value\": \"genflow_memory_db\",\n            },\n            \"connection_string\": {\n                \"display_name\": \"Connection String\",\n                \"required\": False,\n                \"advanced\": True,\n                \"value\": \"\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        input_key: Optional[str] = \"\",\n        memory_key: Optional[str] = \"history\",\n        output_key: Optional[str] = \"\",\n        return_messages: Optional[bool] = True,\n        session_id: Optional[str] = \"genflow_memory_db\",\n        connection_string: Optional[str] = \"\",\n    ) -> Union[BaseMemory, BaseChatMemory]:\n        chat_memory = PostgresChatMessageHistory(\n            session_id=session_id, connection_string=connection_string\n        )\n\n        keys = {}\n\n        if input_key and input_key != \"\":\n            keys[\"input_key\"] = input_key\n\n        if output_key and output_key != \"\":\n            keys[\"output_key\"] = output_key\n\n        return ConversationBufferMemory(\n            chat_memory=chat_memory,\n            memory_key=memory_key,\n            return_messages=return_messages,\n            **keys\n        )\n",
+                "password": false,
+                "name": "code",
+                "advanced": false,
+                "type": "code",
+                "list": false
+              },
+              "_type": "CustomComponent",
+              "connection_string": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "",
+                "password": false,
+                "name": "connection_string",
+                "display_name": "Connection String",
+                "advanced": true,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false
+              },
+              "input_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "input",
+                "password": false,
+                "name": "input_key",
+                "display_name": "Input Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "The variable to be used as Chat Input when more than one variable is available.",
+                "type": "str",
+                "list": false
+              },
+              "memory_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "history",
+                "password": false,
+                "name": "memory_key",
+                "display_name": "Memory Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false
+              },
+              "output_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "",
+                "password": false,
+                "name": "output_key",
+                "display_name": "Output Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "The variable to be used as Chat Output (e.g. answer in a ConversationalRetrievalChain)",
+                "type": "str",
+                "list": false
+              },
+              "return_messages": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": true,
+                "password": false,
+                "name": "return_messages",
+                "display_name": "Return Messages",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "bool",
+                "list": false
+              },
+              "session_id": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "genflow_memory_db",
+                "password": false,
+                "name": "session_id",
+                "display_name": "Session ID",
+                "advanced": true,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false
+              }
+            },
+            "description": "Buffer for storing conversation memory.",
+            "base_classes": [
+              "BaseMemory",
+              "BaseChatMemory",
+              "BaseMemory"
+            ],
+            "display_name": "ConversationBufferMemory",
+            "custom_fields": {
+              "connection_string": null,
+              "input_key": null,
+              "memory_key": null,
+              "output_key": null,
+              "return_messages": null,
+              "session_id": null
+            },
+            "output_types": [
+              "ConversationBufferMemory"
+            ],
+            "documentation": "https://docs.aiplanet.com/components/memories#conversationbuffermemory",
+            "beta": false,
+            "error": null
+          },
+          "id": "ConversationBufferMemory-YTdKE"
+        },
+        "positionAbsolute": {
+          "x": 609.7708523821489,
+          "y": 633.1654709389743
+        }
       }
     ],
     "edges": [
       {
-        "source": "ConversationBufferMemory-0FaPA",
-        "sourceHandle": "{œbaseClassesœ:[œBaseChatMemoryœ,œConversationBufferMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-0FaPAœ}",
-        "target": "ConversationChain-VaHzw",
-        "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œConversationChain-VaHzwœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
-        "data": {
-          "targetHandle": {
-            "fieldName": "memory",
-            "id": "ConversationChain-VaHzw",
-            "inputTypes": null,
-            "type": "BaseMemory"
-          },
-          "sourceHandle": {
-            "baseClasses": [
-              "BaseChatMemory",
-              "ConversationBufferMemory",
-              "BaseMemory"
-            ],
-            "dataType": "ConversationBufferMemory",
-            "id": "ConversationBufferMemory-0FaPA"
-          }
-        },
-        "style": { "stroke": "#555" },
-        "className": "stroke-gray-900  stroke-connection",
-        "animated": false,
-        "id": "reactflow__edge-ConversationBufferMemory-0FaPA{œbaseClassesœ:[œBaseChatMemoryœ,œConversationBufferMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-0FaPAœ}-ConversationChain-VaHzw{œfieldNameœ:œmemoryœ,œidœ:œConversationChain-VaHzwœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
-      },
-      {
-        "source": "ChatOpenAI-58i4p",
-        "sourceHandle": "{œbaseClassesœ:[œChatOpenAIœ,œBaseLanguageModelœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-58i4pœ}",
-        "target": "ConversationChain-VaHzw",
-        "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œConversationChain-VaHzwœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
+        "source": "ChatOpenAI-LaMPL",
+        "sourceHandle": "{œbaseClassesœ:[œChatOpenAIœ,œBaseLanguageModelœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-LaMPLœ}",
+        "target": "ConversationChain-zrNbw",
+        "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œConversationChain-zrNbwœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
         "data": {
           "targetHandle": {
             "fieldName": "llm",
-            "id": "ConversationChain-VaHzw",
+            "id": "ConversationChain-zrNbw",
             "inputTypes": null,
             "type": "BaseLanguageModel"
           },
@@ -596,22 +607,53 @@
               "BaseLLM"
             ],
             "dataType": "ChatOpenAI",
-            "id": "ChatOpenAI-58i4p"
+            "id": "ChatOpenAI-LaMPL"
           }
         },
-        "style": { "stroke": "#555" },
+        "style": {
+          "stroke": "#555"
+        },
         "className": "stroke-gray-900  stroke-connection",
         "animated": false,
-        "id": "reactflow__edge-ChatOpenAI-58i4p{œbaseClassesœ:[œChatOpenAIœ,œBaseLanguageModelœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-58i4pœ}-ConversationChain-VaHzw{œfieldNameœ:œllmœ,œidœ:œConversationChain-VaHzwœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
+        "id": "reactflow__edge-ChatOpenAI-LaMPL{œbaseClassesœ:[œChatOpenAIœ,œBaseLanguageModelœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-LaMPLœ}-ConversationChain-zrNbw{œfieldNameœ:œllmœ,œidœ:œConversationChain-zrNbwœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
+      },
+      {
+        "source": "ConversationBufferMemory-YTdKE",
+        "sourceHandle": "{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-YTdKEœ}",
+        "target": "ConversationChain-zrNbw",
+        "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œConversationChain-zrNbwœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
+        "data": {
+          "targetHandle": {
+            "fieldName": "memory",
+            "id": "ConversationChain-zrNbw",
+            "inputTypes": null,
+            "type": "BaseMemory"
+          },
+          "sourceHandle": {
+            "baseClasses": [
+              "BaseMemory",
+              "BaseChatMemory",
+              "BaseMemory"
+            ],
+            "dataType": "ConversationBufferMemory",
+            "id": "ConversationBufferMemory-YTdKE"
+          }
+        },
+        "style": {
+          "stroke": "#555"
+        },
+        "className": "stroke-foreground  stroke-connection",
+        "animated": false,
+        "id": "reactflow__edge-ConversationBufferMemory-YTdKE{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-YTdKEœ}-ConversationChain-zrNbw{œfieldNameœ:œmemoryœ,œidœ:œConversationChain-zrNbwœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
       }
     ],
     "viewport": {
-      "x": -23.75195713177618,
-      "y": 68.53220165782534,
-      "zoom": 0.5742868008963588
+      "x": 48.959789688735555,
+      "y": 78.53972697997804,
+      "zoom": 0.5232132842442248
     }
   },
-  "description": "Simple Chat with LLM on GenAI Stack.",
+  "description": "Simple Chat with OpenAI and a Memory component on GenAI Stack.",
   "name": "Simple Chat",
   "flow_type": "chat"
 }
