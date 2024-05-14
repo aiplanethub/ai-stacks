@@ -1,457 +1,15 @@
 {
-  "id": "999a2e01-9a61-430a-96cb-9da23b79cc87",
+  "id": "08ca082c-3bd7-4db0-aa63-6f79a22f575d",
   "data": {
     "nodes": [
       {
         "width": 384,
-        "height": 395,
-        "id": "YoutubeLoader-Bft2P",
-        "type": "genericNode",
-        "position": {
-          "x": -882.0924015079247,
-          "y": 162.22728154654024
-        },
-        "data": {
-          "type": "YoutubeLoader",
-          "node": {
-            "template": {
-              "code": {
-                "dynamic": true,
-                "required": true,
-                "placeholder": "",
-                "show": false,
-                "multiline": true,
-                "value": "from typing import List\nfrom genflow import CustomComponent\nfrom langchain.document_loaders import YoutubeLoader\nfrom langchain.schema import Document\n\n\nclass YoutubeLoaderComponent(CustomComponent):\n    display_name: str = \"Youtube Loader\"\n    description: str = \"Downloads the YouTube transcripts and video information.\"\n    documentation: str = (\n        \"https://docs.aiplanet.com/components/document-loaders#youtubeloader\"\n    )\n    beta = False\n\n    def build_config(self):\n        return {\n            \"youtube_url\": {\n                \"display_name\": \"Video URL\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n                \"input_types\":[\"Input\"]\n            },\n            \"language\": {\n                \"display_name\": \"Language\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"en\",\n                \"info\": \"language code to extract transcript. please check subtitles/cc to know available transcripts.\",\n            },\n            \"code\": {\"show\": False},\n            # error : <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify\n            # failed: unable to get local issuer certificate (_ssl.c:1007)>\n            # \"add_video_info\": {\n            #     \"display_name\": \"Add Video Information\",\n            #     \"is_list\": False,\n            #     \"required\": False,\n            #     \"value\": False,\n            # },\n            # translation not working\n            # \"translation\": {\n            #     \"display_name\": \"Translation\",\n            #     \"is_list\": False,\n            #     \"required\": True,\n            #     \"value\": \"en\",\n            # },\n        }\n\n    def build(self, youtube_url: str, language: str) -> List[Document]:\n        loader_instance = YoutubeLoader.from_youtube_url(\n            youtube_url=youtube_url, add_video_info=False, language=language\n        )\n        return loader_instance.load()\n",
-                "password": false,
-                "name": "code",
-                "advanced": false,
-                "type": "code",
-                "list": false
-              },
-              "_type": "CustomComponent",
-              "language": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "en",
-                "password": false,
-                "name": "language",
-                "display_name": "Language",
-                "advanced": false,
-                "dynamic": false,
-                "info": "language code to extract transcript. please check subtitles/cc to know available transcripts.",
-                "type": "str",
-                "list": false
-              },
-              "youtube_url": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "",
-                "password": false,
-                "name": "youtube_url",
-                "display_name": "Video URL",
-                "advanced": false,
-                "input_types": [
-                  "Input"
-                ],
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              }
-            },
-            "description": "Downloads the YouTube transcripts and video information.",
-            "base_classes": [
-              "Document"
-            ],
-            "display_name": "Youtube Loader",
-            "custom_fields": {
-              "language": null,
-              "youtube_url": null
-            },
-            "output_types": [
-              "YoutubeLoader"
-            ],
-            "documentation": "https://docs.aiplanet.com/components/document-loaders#youtubeloader",
-            "beta": false,
-            "error": null
-          },
-          "id": "YoutubeLoader-Bft2P"
-        },
-        "positionAbsolute": {
-          "x": -882.0924015079247,
-          "y": 162.22728154654024
-        },
-        "selected": false,
-        "dragging": false
-      },
-      {
-        "width": 384,
-        "height": 629,
-        "id": "ChatOpenAI-PJn2M",
-        "type": "genericNode",
-        "position": {
-          "x": 914.140468740194,
-          "y": -829.132310942757
-        },
-        "data": {
-          "type": "ChatOpenAI",
-          "node": {
-            "template": {
-              "callbacks": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "callbacks",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "langchain.callbacks.base.BaseCallbackHandler",
-                "list": true
-              },
-              "async_client": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "async_client",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "Any",
-                "list": false
-              },
-              "cache": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "cache",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "bool",
-                "list": false
-              },
-              "client": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "client",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "Any",
-                "list": false
-              },
-              "default_headers": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "default_headers",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "dict",
-                "list": false
-              },
-              "default_query": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "default_query",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "dict",
-                "list": false
-              },
-              "http_client": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "http_client",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "Any",
-                "list": false
-              },
-              "max_retries": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "value": 2,
-                "password": false,
-                "name": "max_retries",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "int",
-                "list": false
-              },
-              "max_tokens": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": true,
-                "name": "max_tokens",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "int",
-                "list": false,
-                "value": ""
-              },
-              "metadata": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "metadata",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "dict",
-                "list": false
-              },
-              "model_kwargs": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "model_kwargs",
-                "advanced": true,
-                "dynamic": false,
-                "info": "",
-                "type": "dict",
-                "list": false
-              },
-              "model_name": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "gpt-3.5-turbo",
-                "password": false,
-                "options": [
-                  "gpt-4-1106-preview",
-                  "gpt-4",
-                  "gpt-4-32k",
-                  "gpt-3.5-turbo",
-                  "gpt-3.5-turbo-16k"
-                ],
-                "name": "model_name",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": true
-              },
-              "n": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "value": 1,
-                "password": false,
-                "name": "n",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "int",
-                "list": false
-              },
-              "openai_api_base": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "openai_api_base",
-                "display_name": "OpenAI API Base",
-                "advanced": false,
-                "dynamic": false,
-                "info": "\nThe base URL of the OpenAI API. Defaults to https://api.openai.com/v1.\n\nYou can change this to use other APIs like JinaChat, LocalAI and Prem.\n",
-                "type": "str",
-                "list": false
-              },
-              "openai_api_key": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "",
-                "password": true,
-                "name": "openai_api_key",
-                "display_name": "OpenAI API Key",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "openai_organization": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "openai_organization",
-                "display_name": "OpenAI Organization",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "openai_proxy": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "openai_proxy",
-                "display_name": "OpenAI Proxy",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "request_timeout": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "request_timeout",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "float",
-                "list": false
-              },
-              "streaming": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "value": false,
-                "password": false,
-                "name": "streaming",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "bool",
-                "list": false
-              },
-              "tags": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "tags",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": true
-              },
-              "temperature": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "0.5",
-                "password": false,
-                "name": "temperature",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "float",
-                "list": false
-              },
-              "tiktoken_model_name": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "password": false,
-                "name": "tiktoken_model_name",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": false
-              },
-              "verbose": {
-                "required": false,
-                "placeholder": "",
-                "show": false,
-                "multiline": false,
-                "value": false,
-                "password": false,
-                "name": "verbose",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "bool",
-                "list": false
-              },
-              "_type": "ChatOpenAI"
-            },
-            "description": "`OpenAI` Chat large language models API.",
-            "base_classes": [
-              "BaseLanguageModel",
-              "BaseChatModel",
-              "ChatOpenAI",
-              "BaseLLM"
-            ],
-            "display_name": "ChatOpenAI",
-            "custom_fields": {},
-            "output_types": [],
-            "documentation": "https://docs.aiplanet.com/components/large-language-models#chatopenai",
-            "beta": false,
-            "error": null
-          },
-          "id": "ChatOpenAI-PJn2M"
-        },
-        "selected": false,
-        "dragging": false,
-        "positionAbsolute": {
-          "x": 914.140468740194,
-          "y": -829.132310942757
-        }
-      },
-      {
-        "width": 384,
         "height": 501,
-        "id": "RecursiveCharacterTextSplitter-HtVjB",
+        "id": "RecursiveCharacterTextSplitter-vfMTH",
         "type": "genericNode",
         "position": {
-          "x": -130.38177521945022,
-          "y": 305.4495251478226
+          "x": 715.1591932077537,
+          "y": 0.764544979573671
         },
         "data": {
           "type": "RecursiveCharacterTextSplitter",
@@ -548,26 +106,26 @@
             "beta": true,
             "error": null
           },
-          "id": "RecursiveCharacterTextSplitter-HtVjB"
+          "id": "RecursiveCharacterTextSplitter-vfMTH"
+        },
+        "positionAbsolute": {
+          "x": 715.1591932077537,
+          "y": 0.764544979573671
         },
         "selected": false,
-        "positionAbsolute": {
-          "x": -130.38177521945022,
-          "y": 305.4495251478226
-        },
         "dragging": false
       },
       {
         "width": 384,
-        "height": 387,
-        "id": "HuggingFaceEmbeddingInferenceAPI-Js8ED",
+        "height": 735,
+        "id": "AzureChatOpenAI-W4KxI",
         "type": "genericNode",
         "position": {
-          "x": 271.4917167959959,
-          "y": 939.9378502576751
+          "x": 1608.665462080407,
+          "y": -681.0252314723016
         },
         "data": {
-          "type": "HuggingFaceEmbeddingInferenceAPI",
+          "type": "AzureChatOpenAI",
           "node": {
             "template": {
               "code": {
@@ -576,7 +134,7 @@
                 "placeholder": "",
                 "show": false,
                 "multiline": true,
-                "value": "from genflow import CustomComponent\nfrom langchain.embeddings.base import Embeddings\nfrom langchain.embeddings import HuggingFaceInferenceAPIEmbeddings\n\n\nclass HuggingFaceInferenceAPIEmbeddingsComponent(CustomComponent):\n    display_name: str = \"HuggingFaceInferenceAPI Embeddings\"\n    description: str = \"\"\"Access HuggingFaceEmbedding model via inference api,download models locally.\"\"\"\n    documentation: str = \"https://docs.aiplanet.com/components/embeddings#huggingface-inference-api-embeddings\"\n    beta = False\n\n    def build_config(self):\n        return {\n            \"inference_api_key\": {\n                \"display_name\": \"Inference API Key\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n            },\n            \"model_name\": {\n                \"display_name\": \"Model Name\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(self, inference_api_key: str, model_name: str) -> Embeddings:\n        return HuggingFaceInferenceAPIEmbeddings(\n            api_key=inference_api_key, model_name=model_name\n        )\n",
+                "value": "from typing import Optional\nfrom genflow.interface.custom import CustomComponent\nfrom langchain.llms.base import BaseLLM\nfrom langchain.chat_models import AzureChatOpenAI\n\n\nclass AzureChatOpenAILLM(CustomComponent):\n    display_name: str = \"AzureChatOpenAI\"\n    description: str = \"Azure Chat Open AI Chat&Completion large language models.\"\n    documentation: str = \"https://docs.aiplanet.com/components/large-language-models#azurechatopenai\"\n    \n    AZURE_OPENAI_MODELS = [\n        \"gpt-4\",\n        \"gpt-4-32k\",\n        \"gpt-4-vision\",\n    ]\n\n    def build_config(self):\n        return {\n            \"model\": {\n                \"display_name\": \"Model Name\",\n                \"value\": \"gpt-4\",\n                \"options\": self.AZURE_OPENAI_MODELS,\n                \"required\": True,\n            },\n            \"api_key\": {\n                \"display_name\": \"AzureChatOpenAI API Key\",\n                \"required\": True,\n                \"password\": True,\n            },\n            \"api_base\": {\n                \"display_name\": \"AzureChatOpenAI API Base\",\n                \"required\": True,\n            },\n            \"api_type\": {\"display_name\": \"AzureChatOpenAI API Type\", \"required\": True},\n            \"azure_deployment\": {\n                \"display_name\": \"Deployment Name\",\n                \"required\": True,\n            },\n            \"api_version\": {\n                \"display_name\": \"API Version\",\n                \"value\": \"2023-07-01-preview\",\n                \"required\": True,\n                \"advanced\": True,\n            },\n            \"temperature\": {\n                \"display_name\": \"Temperature\",\n                \"value\": 0.5,\n                \"field_type\": \"float\",\n                \"required\": False,\n            },\n            \"max_tokens\": {\n                \"display_name\": \"Max Tokens\",\n                \"value\": 512,\n                \"required\": False,\n                \"field_type\": \"int\",\n                \"advanced\": True,\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        model: str,\n        api_base: str,\n        api_type: str,\n        api_key: str,\n        azure_deployment: str,\n        api_version: str = \"2023-05-15\",\n        temperature: Optional[float] = 0.7,\n        max_tokens: Optional[int] = 512,\n    ) -> BaseLLM:\n        try:\n            output = AzureChatOpenAI(\n                model_name=model,\n                openai_api_base=api_base,\n                openai_api_type=api_type,\n                openai_api_key=api_key,\n                openai_api_version=api_version,\n                deployment_name=azure_deployment,\n                temperature=temperature,\n                max_tokens=max_tokens,\n            )\n        except Exception as e:\n            raise ValueError(\"Could not connect to Azure ChatOpenAI model.\") from e\n        return output\n",
                 "password": false,
                 "name": "code",
                 "advanced": false,
@@ -584,70 +142,172 @@
                 "list": false
               },
               "_type": "CustomComponent",
-              "inference_api_key": {
+              "api_base": {
                 "required": true,
                 "placeholder": "",
                 "show": true,
                 "multiline": false,
-                "value": "",
                 "password": false,
-                "name": "inference_api_key",
-                "display_name": "Inference API Key",
+                "name": "api_base",
+                "display_name": "AzureChatOpenAI API Base",
                 "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false,
+                "value": ""
+              },
+              "api_key": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": true,
+                "name": "api_key",
+                "display_name": "AzureChatOpenAI API Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false,
+                "value": ""
+              },
+              "api_type": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "api_type",
+                "display_name": "AzureChatOpenAI API Type",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false,
+                "value": ""
+              },
+              "api_version": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "2023-07-01-preview",
+                "password": false,
+                "name": "api_version",
+                "display_name": "API Version",
+                "advanced": true,
                 "dynamic": false,
                 "info": "",
                 "type": "str",
                 "list": false
               },
-              "model_name": {
+              "azure_deployment": {
                 "required": true,
                 "placeholder": "",
                 "show": true,
                 "multiline": false,
-                "value": "BAAI/bge-small-en-v1.5",
                 "password": false,
-                "name": "model_name",
+                "name": "azure_deployment",
+                "display_name": "Deployment Name",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false,
+                "value": ""
+              },
+              "max_tokens": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": 512,
+                "password": false,
+                "name": "max_tokens",
+                "display_name": "Max Tokens",
+                "advanced": true,
+                "dynamic": false,
+                "info": "",
+                "type": "int",
+                "list": false
+              },
+              "model": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "gpt-4-32k",
+                "password": false,
+                "options": [
+                  "gpt-4",
+                  "gpt-4-32k",
+                  "gpt-4-vision"
+                ],
+                "name": "model",
                 "display_name": "Model Name",
                 "advanced": false,
                 "dynamic": false,
                 "info": "",
                 "type": "str",
+                "list": true
+              },
+              "temperature": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "0.1",
+                "password": false,
+                "name": "temperature",
+                "display_name": "Temperature",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "float",
                 "list": false
               }
             },
-            "description": "Access HuggingFaceEmbedding model via inference api,download models locally.",
+            "description": "Azure Chat Open AI Chat&Completion large language models.",
             "base_classes": [
-              "Embeddings"
+              "BaseLanguageModel",
+              "BaseLLM"
             ],
-            "display_name": "HuggingFaceInferenceAPI Embeddings",
+            "display_name": "AzureChatOpenAI",
             "custom_fields": {
-              "inference_api_key": null,
-              "model_name": null
+              "api_base": null,
+              "api_key": null,
+              "api_type": null,
+              "api_version": null,
+              "azure_deployment": null,
+              "max_tokens": null,
+              "model": null,
+              "temperature": null
             },
             "output_types": [
-              "HuggingFaceEmbeddingInferenceAPI"
+              "AzureChatOpenAI"
             ],
-            "documentation": "https://docs.aiplanet.com/components/embeddings#huggingface-inference-api-embeddings",
-            "beta": false,
+            "documentation": "https://docs.aiplanet.com/components/large-language-models#azurechatopenai",
+            "beta": true,
             "error": null
           },
-          "id": "HuggingFaceEmbeddingInferenceAPI-Js8ED"
+          "id": "AzureChatOpenAI-W4KxI"
         },
         "selected": false,
         "positionAbsolute": {
-          "x": 271.4917167959959,
-          "y": 939.9378502576751
+          "x": 1608.665462080407,
+          "y": -681.0252314723016
         },
         "dragging": false
       },
       {
         "width": 384,
         "height": 291,
-        "id": "Chroma-t2cN0",
+        "id": "Chroma-MSsd9",
         "type": "genericNode",
         "position": {
-          "x": 1023.0331680425575,
-          "y": 316.4798015872982
+          "x": 1430.3803245394756,
+          "y": 827.7544464822664
         },
         "data": {
           "type": "Chroma",
@@ -837,23 +497,200 @@
             "beta": true,
             "error": null
           },
-          "id": "Chroma-t2cN0"
-        },
-        "positionAbsolute": {
-          "x": 1023.0331680425575,
-          "y": 316.4798015872982
+          "id": "Chroma-MSsd9"
         },
         "selected": false,
+        "positionAbsolute": {
+          "x": 1430.3803245394756,
+          "y": 827.7544464822664
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 387,
+        "id": "HuggingFaceEmbeddingInferenceAPI-USZgM",
+        "type": "genericNode",
+        "position": {
+          "x": 701.3217227112808,
+          "y": -598.0857498885518
+        },
+        "data": {
+          "type": "HuggingFaceEmbeddingInferenceAPI",
+          "node": {
+            "template": {
+              "code": {
+                "dynamic": true,
+                "required": true,
+                "placeholder": "",
+                "show": false,
+                "multiline": true,
+                "value": "from genflow import CustomComponent\nfrom langchain.embeddings.base import Embeddings\nfrom langchain.embeddings import HuggingFaceInferenceAPIEmbeddings\n\n\nclass HuggingFaceInferenceAPIEmbeddingsComponent(CustomComponent):\n    display_name: str = \"HuggingFaceInferenceAPI Embeddings\"\n    description: str = \"\"\"Access HuggingFaceEmbedding model via inference api,download models locally.\"\"\"\n    documentation: str = \"https://docs.aiplanet.com/components/embeddings#huggingface-inference-api-embeddings\"\n    beta = False\n\n    def build_config(self):\n        return {\n            \"inference_api_key\": {\n                \"display_name\": \"Inference API Key\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n            },\n            \"model_name\": {\n                \"display_name\": \"Model Name\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(self, inference_api_key: str, model_name: str) -> Embeddings:\n        return HuggingFaceInferenceAPIEmbeddings(\n            api_key=inference_api_key, model_name=model_name\n        )\n",
+                "password": false,
+                "name": "code",
+                "advanced": false,
+                "type": "code",
+                "list": false
+              },
+              "_type": "CustomComponent",
+              "inference_api_key": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "",
+                "password": false,
+                "name": "inference_api_key",
+                "display_name": "Inference API Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false
+              },
+              "model_name": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "BAAI/bge-large-en-v1.5",
+                "password": false,
+                "name": "model_name",
+                "display_name": "Model Name",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false
+              }
+            },
+            "description": "Access HuggingFaceEmbedding model via inference api,download models locally.",
+            "base_classes": [
+              "Embeddings"
+            ],
+            "display_name": "HuggingFaceInferenceAPI Embeddings",
+            "custom_fields": {
+              "inference_api_key": null,
+              "model_name": null
+            },
+            "output_types": [
+              "HuggingFaceEmbeddingInferenceAPI"
+            ],
+            "documentation": "https://docs.aiplanet.com/components/embeddings#huggingface-inference-api-embeddings",
+            "beta": false,
+            "error": null
+          },
+          "id": "HuggingFaceEmbeddingInferenceAPI-USZgM"
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 701.3217227112808,
+          "y": -598.0857498885518
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 469,
+        "id": "CustomComponent-N37VV",
+        "type": "genericNode",
+        "position": {
+          "x": -26.27771861343183,
+          "y": -70.17469282079313
+        },
+        "data": {
+          "type": "CustomComponent",
+          "node": {
+            "template": {
+              "code": {
+                "dynamic": true,
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": true,
+                "value": "from genflow import CustomComponent\nfrom typing import Optional, List, Dict, Union\nfrom openai import OpenAI\nfrom langchain.schema import Document\nfrom langchain.docstore.document import Document\n\nclass Component(CustomComponent):\n    display_name: str = \"Whisper Transcriber\"\n    description: str = \"Converts audio to text using OpenAI's Whisper.\"\n\n    def build_config(self):\n        return {\"audio\":\n            {\"field_type\":\"file\",\n            \"suffixes\":[\".mp3\", \".mp4\"],\"input_types\":[\"Input\"]},\n            \"OpenAIKey\":\n                {\"field_type\":\"str\",\"password\":True,\"input_types\":[\"Input\"]}\n        }\n\n    def build(self, audio:str, OpenAIKey:str) -> List[Document]:\n        client = OpenAI(api_key=OpenAIKey)\n        \n        audio_file= open(audio, \"rb\")\n        transcript = client.audio.transcriptions.create(\n          model=\"whisper-1\", \n          file=audio_file,\n          response_format=\"text\"\n        )\n        \n        self.status = transcript\n        doc =  Document(page_content=transcript, metadata={\"source\": \"audio\"})\n        return doc",
+                "password": false,
+                "name": "code",
+                "advanced": false,
+                "type": "code",
+                "list": false
+              },
+              "_type": "CustomComponent",
+              "OpenAIKey": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": true,
+                "name": "OpenAIKey",
+                "display_name": "OpenAIKey",
+                "advanced": false,
+                "input_types": [
+                  "Input"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false,
+                "value": ""
+              },
+              "audio": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "suffixes": [
+                  ".mp3",
+                  ".mp4"
+                ],
+                "password": false,
+                "name": "audio",
+                "display_name": "audio",
+                "advanced": false,
+                "input_types": [
+                  "Input"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "file",
+                "list": false,
+                "file_path": "/mnt/models/files/837a52da-ca1d-471e-aa8a-385b804ed470/2749b44e3cfd3c70eea9097cf2e97d91d07a6ce6b44fca9e71bdd1c3317106ba.mp3",
+                "value": ""
+              }
+            },
+            "description": "Converts audio to text using OpenAI's Whisper.",
+            "base_classes": [
+              "Document"
+            ],
+            "display_name": "Whisper Transcriber",
+            "custom_fields": {
+              "OpenAIKey": null,
+              "audio": null
+            },
+            "output_types": [
+              "Document"
+            ],
+            "documentation": "",
+            "beta": true,
+            "error": null
+          },
+          "id": "CustomComponent-N37VV"
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": -26.27771861343183,
+          "y": -70.17469282079313
+        },
         "dragging": false
       },
       {
         "width": 384,
         "height": 457,
-        "id": "Input-ajPgQ",
+        "id": "Input-V4esj",
         "type": "genericNode",
         "position": {
-          "x": -1631.3150182036766,
-          "y": 218.0759284175915
+          "x": -702.320697451038,
+          "y": 14.33095181856649
         },
         "data": {
           "type": "Input",
@@ -871,7 +708,7 @@
                 "advanced": false,
                 "dynamic": false,
                 "info": "",
-                "type": "str",
+                "type": "file",
                 "list": false,
                 "file_path": null
               },
@@ -880,7 +717,7 @@
                 "placeholder": "",
                 "show": true,
                 "multiline": false,
-                "value": "Video URL",
+                "value": "File ",
                 "password": false,
                 "name": "input_key",
                 "display_name": "Input Key",
@@ -895,7 +732,7 @@
                 "placeholder": "",
                 "show": true,
                 "multiline": false,
-                "value": "Url",
+                "value": "File",
                 "password": false,
                 "options": [
                   "File",
@@ -925,156 +762,23 @@
             "beta": false,
             "error": null
           },
-          "id": "Input-ajPgQ"
+          "id": "Input-V4esj"
         },
         "selected": false,
         "positionAbsolute": {
-          "x": -1631.3150182036766,
-          "y": 218.0759284175915
+          "x": -702.320697451038,
+          "y": 14.33095181856649
         },
-        "dragging": false
-      },
-      {
-        "width": 384,
-        "height": 497,
-        "id": "ConversationalRetrievalChain-9M29b",
-        "type": "genericNode",
-        "position": {
-          "x": 1756.7477410020833,
-          "y": -140.24272871301406
-        },
-        "data": {
-          "type": "ConversationalRetrievalChain",
-          "node": {
-            "template": {
-              "code": {
-                "dynamic": true,
-                "required": true,
-                "placeholder": "",
-                "show": false,
-                "multiline": true,
-                "value": "from typing import Optional, Union, Callable\nfrom genflow import CustomComponent\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n    BaseRetriever,\n)\nfrom langchain.chains import ConversationalRetrievalChain\nfrom langchain.prompts import PromptTemplate\n\n\nclass ConversationalRetrievalChainComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a RetrievalQA using Prompt.\n    \"\"\"\n\n    display_name: str = \"ConversationalRetrievalChain\"\n    description: str = \"Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever\"\n    documentation: str = \"https://docs.aiplanet.com/components/chains#conversationalretrievalchain\"\n    beta: bool = True\n    \n    CHAIN_TYPE_OPTIONS = [\n        'stuff','map_reduce','refine','map_rerank'\n    ]\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"chain_type\":{\"display\":\"chain_type\",\"value\":\"stuff\",\"options\":self.CHAIN_TYPE_OPTIONS,\"required\":True},\n            \"llm\":{\"display_name\":\"LLM\",\"required\":True},\n            \"prompt\":{\"display_name\":\"Prompt\"},\n            \"memory\":{\"display_name\":\"Memory\"},\n            \"retriever\":{\"display_name\":\"Retriever\",\"required\":True},\n            \"code\": {\"show\": False}, \n        }\n\n    def build(\n       self,\n       llm:BaseLanguageModel,\n       retriever: BaseRetriever,\n       prompt: Optional[BasePromptTemplate] = None,\n       chain_type:str = \"stuff\",\n       memory: BaseMemory = None,\n    ) -> Chain:\n        \"\"\"\n        Builds the RetrievalQA with prompt\n\n        Args:\n        - llm: Large Language Models\n        - chain_type: used to load a specific type of chain for question-answering\n        - chain_type_kwargs: chain keywords argument to pass prompt\n        - retriever: vector store to retrieve k relevant context information\n        - memory: memory to provide chat_history for object\n\n        Returns:\n        - Chain: The ConversationalRetrievalChain.from_llm\n        \"\"\"\n\n        DEFAULT_TEMPLATE = \"\"\"\n            Answer the question based on the chat history(delimited by <hs></hs>) and context(delimited by <ctx> </ctx>) below.\n            -----------\n            <ctx>\n            {context}\n            </ctx>\n            -----------\n            <hs>\n            {chat_history}\n            </hs>\n            -----------\n            Question: {question}\n            Answer:\n        \"\"\"\n\n        DEFAULT_PROMPT = PromptTemplate(\n                input_variables=[\"context\", \"question\", \"chat_history\"],\n                template=DEFAULT_TEMPLATE\n            )\n        \n        if prompt==None:\n            prompt = DEFAULT_PROMPT\n\n        return ConversationalRetrievalChain.from_llm(\n                            llm=llm,\n                            retriever=retriever.as_retriever(), chain_type=chain_type,return_source_documents=True,\n                            verbose = False,\n                            combine_docs_chain_kwargs={'prompt': prompt},\n                            memory = memory,\n                        )\n",
-                "password": false,
-                "name": "code",
-                "advanced": false,
-                "type": "code",
-                "list": false
-              },
-              "_type": "CustomComponent",
-              "chain_type": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "value": "stuff",
-                "password": false,
-                "options": [
-                  "stuff",
-                  "map_reduce",
-                  "refine",
-                  "map_rerank"
-                ],
-                "name": "chain_type",
-                "display_name": "chain_type",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "str",
-                "list": true
-              },
-              "llm": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "llm",
-                "display_name": "LLM",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "BaseLanguageModel",
-                "list": false
-              },
-              "memory": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "memory",
-                "display_name": "Memory",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "BaseMemory",
-                "list": false
-              },
-              "prompt": {
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "prompt",
-                "display_name": "Prompt",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "BasePromptTemplate",
-                "list": false
-              },
-              "retriever": {
-                "required": true,
-                "placeholder": "",
-                "show": true,
-                "multiline": false,
-                "password": false,
-                "name": "retriever",
-                "display_name": "Retriever",
-                "advanced": false,
-                "dynamic": false,
-                "info": "",
-                "type": "BaseRetriever",
-                "list": false
-              }
-            },
-            "description": "Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever",
-            "base_classes": [
-              "Chain"
-            ],
-            "display_name": "ConversationalRetrievalChain",
-            "custom_fields": {
-              "chain_type": null,
-              "llm": null,
-              "memory": null,
-              "prompt": null,
-              "retriever": null
-            },
-            "output_types": [
-              "ConversationalRetrievalChain"
-            ],
-            "documentation": "https://docs.aiplanet.com/components/chains#conversationalretrievalchain",
-            "beta": true,
-            "error": null
-          },
-          "id": "ConversationalRetrievalChain-9M29b"
-        },
-        "positionAbsolute": {
-          "x": 1756.7477410020833,
-          "y": -140.24272871301406
-        },
-        "selected": false,
         "dragging": false
       },
       {
         "width": 384,
         "height": 529,
-        "id": "ConversationBufferMemory-AdHbc",
+        "id": "ConversationBufferMemory-Bbv66",
         "type": "genericNode",
         "position": {
-          "x": 464.07695000453236,
-          "y": -202.30804814832692
+          "x": 1801.2704708238798,
+          "y": 230.17579978325892
         },
         "data": {
           "type": "ConversationBufferMemory",
@@ -1207,80 +911,159 @@
             "beta": false,
             "error": null
           },
-          "id": "ConversationBufferMemory-AdHbc"
+          "id": "ConversationBufferMemory-Bbv66"
         },
         "selected": false,
         "positionAbsolute": {
-          "x": 464.07695000453236,
-          "y": -202.30804814832692
+          "x": 1801.2704708238798,
+          "y": 230.17579978325892
         },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 497,
+        "id": "ConversationalRetrievalChain-x01sl",
+        "type": "genericNode",
+        "position": {
+          "x": 2531.265923045576,
+          "y": 243.75711052226725
+        },
+        "data": {
+          "type": "ConversationalRetrievalChain",
+          "node": {
+            "template": {
+              "code": {
+                "dynamic": true,
+                "required": true,
+                "placeholder": "",
+                "show": false,
+                "multiline": true,
+                "value": "from typing import Optional, Union, Callable\nfrom genflow import CustomComponent\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n    BaseRetriever,\n)\nfrom langchain.chains import ConversationalRetrievalChain\nfrom langchain.prompts import PromptTemplate\n\n\nclass ConversationalRetrievalChainComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a RetrievalQA using Prompt.\n    \"\"\"\n\n    display_name: str = \"ConversationalRetrievalChain\"\n    description: str = \"Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever\"\n    documentation: str = \"https://docs.aiplanet.com/components/chains#conversationalretrievalchain\"\n    beta: bool = True\n    \n    CHAIN_TYPE_OPTIONS = [\n        'stuff','map_reduce','refine','map_rerank'\n    ]\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"chain_type\":{\"display\":\"chain_type\",\"value\":\"stuff\",\"options\":self.CHAIN_TYPE_OPTIONS,\"required\":True},\n            \"llm\":{\"display_name\":\"LLM\",\"required\":True},\n            \"prompt\":{\"display_name\":\"Prompt\"},\n            \"memory\":{\"display_name\":\"Memory\"},\n            \"retriever\":{\"display_name\":\"Retriever\",\"required\":True},\n            \"code\": {\"show\": False}, \n        }\n\n    def build(\n       self,\n       llm:BaseLanguageModel,\n       retriever: BaseRetriever,\n       prompt: Optional[BasePromptTemplate] = None,\n       chain_type:str = \"stuff\",\n       memory: BaseMemory = None,\n    ) -> Chain:\n        \"\"\"\n        Builds the RetrievalQA with prompt\n\n        Args:\n        - llm: Large Language Models\n        - chain_type: used to load a specific type of chain for question-answering\n        - chain_type_kwargs: chain keywords argument to pass prompt\n        - retriever: vector store to retrieve k relevant context information\n        - memory: memory to provide chat_history for object\n\n        Returns:\n        - Chain: The ConversationalRetrievalChain.from_llm\n        \"\"\"\n\n        DEFAULT_TEMPLATE = \"\"\"\n            Answer the question based on the chat history(delimited by <hs></hs>) and context(delimited by <ctx> </ctx>) below.\n            -----------\n            <ctx>\n            {context}\n            </ctx>\n            -----------\n            <hs>\n            {chat_history}\n            </hs>\n            -----------\n            Question: {question}\n            Answer:\n        \"\"\"\n\n        DEFAULT_PROMPT = PromptTemplate(\n                input_variables=[\"context\", \"question\", \"chat_history\"],\n                template=DEFAULT_TEMPLATE\n            )\n        \n        if prompt==None:\n            prompt = DEFAULT_PROMPT\n\n        return ConversationalRetrievalChain.from_llm(\n                            llm=llm,\n                            retriever=retriever.as_retriever(), chain_type=chain_type,return_source_documents=True,\n                            verbose = False,\n                            combine_docs_chain_kwargs={'prompt': prompt},\n                            memory = memory,\n                        )\n",
+                "password": false,
+                "name": "code",
+                "advanced": false,
+                "type": "code",
+                "list": false
+              },
+              "_type": "CustomComponent",
+              "chain_type": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "stuff",
+                "password": false,
+                "options": [
+                  "stuff",
+                  "map_reduce",
+                  "refine",
+                  "map_rerank"
+                ],
+                "name": "chain_type",
+                "display_name": "chain_type",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": true
+              },
+              "llm": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "llm",
+                "display_name": "LLM",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "BaseLanguageModel",
+                "list": false
+              },
+              "memory": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "memory",
+                "display_name": "Memory",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "BaseMemory",
+                "list": false
+              },
+              "prompt": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "prompt",
+                "display_name": "Prompt",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "BasePromptTemplate",
+                "list": false
+              },
+              "retriever": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "retriever",
+                "display_name": "Retriever",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "BaseRetriever",
+                "list": false
+              }
+            },
+            "description": "Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever",
+            "base_classes": [
+              "Chain"
+            ],
+            "display_name": "ConversationalRetrievalChain",
+            "custom_fields": {
+              "chain_type": null,
+              "llm": null,
+              "memory": null,
+              "prompt": null,
+              "retriever": null
+            },
+            "output_types": [
+              "ConversationalRetrievalChain"
+            ],
+            "documentation": "https://docs.aiplanet.com/components/chains#conversationalretrievalchain",
+            "beta": true,
+            "error": null
+          },
+          "id": "ConversationalRetrievalChain-x01sl"
+        },
+        "positionAbsolute": {
+          "x": 2531.265923045576,
+          "y": 243.75711052226725
+        },
+        "selected": false,
         "dragging": false
       }
     ],
     "edges": [
       {
-        "source": "YoutubeLoader-Bft2P",
-        "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œYoutubeLoaderœ,œidœ:œYoutubeLoader-Bft2Pœ}",
-        "target": "RecursiveCharacterTextSplitter-HtVjB",
-        "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-HtVjBœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
-        "data": {
-          "targetHandle": {
-            "fieldName": "documents",
-            "id": "RecursiveCharacterTextSplitter-HtVjB",
-            "inputTypes": null,
-            "type": "Document"
-          },
-          "sourceHandle": {
-            "baseClasses": [
-              "Document"
-            ],
-            "dataType": "YoutubeLoader",
-            "id": "YoutubeLoader-Bft2P"
-          }
-        },
-        "style": {
-          "stroke": "#555"
-        },
-        "className": "stroke-gray-900  stroke-connection",
-        "animated": false,
-        "id": "reactflow__edge-YoutubeLoader-Bft2P{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œYoutubeLoaderœ,œidœ:œYoutubeLoader-Bft2Pœ}-RecursiveCharacterTextSplitter-HtVjB{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-HtVjBœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
-      },
-      {
-        "source": "RecursiveCharacterTextSplitter-HtVjB",
-        "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-HtVjBœ}",
-        "target": "Chroma-t2cN0",
-        "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-t2cN0œ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
-        "data": {
-          "targetHandle": {
-            "fieldName": "documents",
-            "id": "Chroma-t2cN0",
-            "inputTypes": null,
-            "type": "Document"
-          },
-          "sourceHandle": {
-            "baseClasses": [
-              "Document"
-            ],
-            "dataType": "RecursiveCharacterTextSplitter",
-            "id": "RecursiveCharacterTextSplitter-HtVjB"
-          }
-        },
-        "style": {
-          "stroke": "#555"
-        },
-        "className": "stroke-gray-900  stroke-connection",
-        "animated": false,
-        "id": "reactflow__edge-RecursiveCharacterTextSplitter-HtVjB{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-HtVjBœ}-Chroma-t2cN0{œfieldNameœ:œdocumentsœ,œidœ:œChroma-t2cN0œ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
-      },
-      {
-        "source": "HuggingFaceEmbeddingInferenceAPI-Js8ED",
-        "sourceHandle": "{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-Js8EDœ}",
-        "target": "Chroma-t2cN0",
-        "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œChroma-t2cN0œ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}",
+        "source": "HuggingFaceEmbeddingInferenceAPI-USZgM",
+        "sourceHandle": "{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-USZgMœ}",
+        "target": "Chroma-MSsd9",
+        "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œChroma-MSsd9œ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}",
         "data": {
           "targetHandle": {
             "fieldName": "embedding",
-            "id": "Chroma-t2cN0",
+            "id": "Chroma-MSsd9",
             "inputTypes": null,
             "type": "Embeddings"
           },
@@ -1289,7 +1072,7 @@
               "Embeddings"
             ],
             "dataType": "HuggingFaceEmbeddingInferenceAPI",
-            "id": "HuggingFaceEmbeddingInferenceAPI-Js8ED"
+            "id": "HuggingFaceEmbeddingInferenceAPI-USZgM"
           }
         },
         "style": {
@@ -1297,28 +1080,82 @@
         },
         "className": "stroke-gray-900  stroke-connection",
         "animated": false,
-        "id": "reactflow__edge-HuggingFaceEmbeddingInferenceAPI-Js8ED{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-Js8EDœ}-Chroma-t2cN0{œfieldNameœ:œembeddingœ,œidœ:œChroma-t2cN0œ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}"
+        "id": "reactflow__edge-HuggingFaceEmbeddingInferenceAPI-USZgM{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-USZgMœ}-Chroma-MSsd9{œfieldNameœ:œembeddingœ,œidœ:œChroma-MSsd9œ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}"
       },
       {
-        "source": "Input-ajPgQ",
-        "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-ajPgQœ}",
-        "target": "YoutubeLoader-Bft2P",
-        "targetHandle": "{œfieldNameœ:œyoutube_urlœ,œidœ:œYoutubeLoader-Bft2Pœ,œinputTypesœ:[œInputœ],œtypeœ:œstrœ}",
+        "source": "RecursiveCharacterTextSplitter-vfMTH",
+        "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-vfMTHœ}",
+        "target": "Chroma-MSsd9",
+        "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-MSsd9œ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
         "data": {
           "targetHandle": {
-            "fieldName": "youtube_url",
-            "id": "YoutubeLoader-Bft2P",
+            "fieldName": "documents",
+            "id": "Chroma-MSsd9",
+            "inputTypes": null,
+            "type": "Document"
+          },
+          "sourceHandle": {
+            "baseClasses": [
+              "Document"
+            ],
+            "dataType": "RecursiveCharacterTextSplitter",
+            "id": "RecursiveCharacterTextSplitter-vfMTH"
+          }
+        },
+        "style": {
+          "stroke": "#555"
+        },
+        "className": "stroke-gray-900  stroke-connection",
+        "animated": false,
+        "id": "reactflow__edge-RecursiveCharacterTextSplitter-vfMTH{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-vfMTHœ}-Chroma-MSsd9{œfieldNameœ:œdocumentsœ,œidœ:œChroma-MSsd9œ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+      },
+      {
+        "source": "CustomComponent-N37VV",
+        "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œCustomComponentœ,œidœ:œCustomComponent-N37VVœ}",
+        "target": "RecursiveCharacterTextSplitter-vfMTH",
+        "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-vfMTHœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+        "data": {
+          "targetHandle": {
+            "fieldName": "documents",
+            "id": "RecursiveCharacterTextSplitter-vfMTH",
+            "inputTypes": null,
+            "type": "Document"
+          },
+          "sourceHandle": {
+            "baseClasses": [
+              "Document"
+            ],
+            "dataType": "CustomComponent",
+            "id": "CustomComponent-N37VV"
+          }
+        },
+        "style": {
+          "stroke": "#555"
+        },
+        "className": "stroke-gray-900  stroke-connection",
+        "animated": false,
+        "id": "reactflow__edge-CustomComponent-N37VV{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œCustomComponentœ,œidœ:œCustomComponent-N37VVœ}-RecursiveCharacterTextSplitter-vfMTH{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-vfMTHœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+      },
+      {
+        "source": "Input-V4esj",
+        "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-V4esjœ}",
+        "target": "CustomComponent-N37VV",
+        "targetHandle": "{œfieldNameœ:œaudioœ,œidœ:œCustomComponent-N37VVœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}",
+        "data": {
+          "targetHandle": {
+            "fieldName": "audio",
+            "id": "CustomComponent-N37VV",
             "inputTypes": [
               "Input"
             ],
-            "type": "str"
+            "type": "file"
           },
           "sourceHandle": {
             "baseClasses": [
               "Input"
             ],
             "dataType": "Input",
-            "id": "Input-ajPgQ"
+            "id": "Input-V4esj"
           }
         },
         "style": {
@@ -1326,29 +1163,27 @@
         },
         "className": "stroke-gray-900  stroke-connection",
         "animated": false,
-        "id": "reactflow__edge-Input-ajPgQ{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-ajPgQœ}-YoutubeLoader-Bft2P{œfieldNameœ:œyoutube_urlœ,œidœ:œYoutubeLoader-Bft2Pœ,œinputTypesœ:[œInputœ],œtypeœ:œstrœ}"
+        "id": "reactflow__edge-Input-V4esj{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-V4esjœ}-CustomComponent-N37VV{œfieldNameœ:œaudioœ,œidœ:œCustomComponent-N37VVœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}"
       },
       {
-        "source": "ChatOpenAI-PJn2M",
-        "sourceHandle": "{œbaseClassesœ:[œBaseLanguageModelœ,œBaseChatModelœ,œChatOpenAIœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-PJn2Mœ}",
-        "target": "ConversationalRetrievalChain-9M29b",
-        "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-9M29bœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
+        "source": "AzureChatOpenAI-W4KxI",
+        "sourceHandle": "{œbaseClassesœ:[œBaseLanguageModelœ,œBaseLLMœ],œdataTypeœ:œAzureChatOpenAIœ,œidœ:œAzureChatOpenAI-W4KxIœ}",
+        "target": "ConversationalRetrievalChain-x01sl",
+        "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-x01slœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
         "data": {
           "targetHandle": {
             "fieldName": "llm",
-            "id": "ConversationalRetrievalChain-9M29b",
+            "id": "ConversationalRetrievalChain-x01sl",
             "inputTypes": null,
             "type": "BaseLanguageModel"
           },
           "sourceHandle": {
             "baseClasses": [
               "BaseLanguageModel",
-              "BaseChatModel",
-              "ChatOpenAI",
               "BaseLLM"
             ],
-            "dataType": "ChatOpenAI",
-            "id": "ChatOpenAI-PJn2M"
+            "dataType": "AzureChatOpenAI",
+            "id": "AzureChatOpenAI-W4KxI"
           }
         },
         "style": {
@@ -1356,45 +1191,17 @@
         },
         "className": "stroke-foreground  stroke-connection",
         "animated": false,
-        "id": "reactflow__edge-ChatOpenAI-PJn2M{œbaseClassesœ:[œBaseLanguageModelœ,œBaseChatModelœ,œChatOpenAIœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-PJn2Mœ}-ConversationalRetrievalChain-9M29b{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-9M29bœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
+        "id": "reactflow__edge-AzureChatOpenAI-W4KxI{œbaseClassesœ:[œBaseLanguageModelœ,œBaseLLMœ],œdataTypeœ:œAzureChatOpenAIœ,œidœ:œAzureChatOpenAI-W4KxIœ}-ConversationalRetrievalChain-x01sl{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-x01slœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
       },
       {
-        "source": "Chroma-t2cN0",
-        "sourceHandle": "{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-t2cN0œ}",
-        "target": "ConversationalRetrievalChain-9M29b",
-        "targetHandle": "{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-9M29bœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}",
-        "data": {
-          "targetHandle": {
-            "fieldName": "retriever",
-            "id": "ConversationalRetrievalChain-9M29b",
-            "inputTypes": null,
-            "type": "BaseRetriever"
-          },
-          "sourceHandle": {
-            "baseClasses": [
-              "VectorStore",
-              "BaseRetriever"
-            ],
-            "dataType": "Chroma",
-            "id": "Chroma-t2cN0"
-          }
-        },
-        "style": {
-          "stroke": "#555"
-        },
-        "className": "stroke-foreground  stroke-connection",
-        "animated": false,
-        "id": "reactflow__edge-Chroma-t2cN0{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-t2cN0œ}-ConversationalRetrievalChain-9M29b{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-9M29bœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}"
-      },
-      {
-        "source": "ConversationBufferMemory-AdHbc",
-        "sourceHandle": "{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-AdHbcœ}",
-        "target": "ConversationalRetrievalChain-9M29b",
-        "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-9M29bœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
+        "source": "ConversationBufferMemory-Bbv66",
+        "sourceHandle": "{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-Bbv66œ}",
+        "target": "ConversationalRetrievalChain-x01sl",
+        "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-x01slœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
         "data": {
           "targetHandle": {
             "fieldName": "memory",
-            "id": "ConversationalRetrievalChain-9M29b",
+            "id": "ConversationalRetrievalChain-x01sl",
             "inputTypes": null,
             "type": "BaseMemory"
           },
@@ -1405,7 +1212,7 @@
               "BaseMemory"
             ],
             "dataType": "ConversationBufferMemory",
-            "id": "ConversationBufferMemory-AdHbc"
+            "id": "ConversationBufferMemory-Bbv66"
           }
         },
         "style": {
@@ -1413,16 +1220,44 @@
         },
         "className": "stroke-foreground  stroke-connection",
         "animated": false,
-        "id": "reactflow__edge-ConversationBufferMemory-AdHbc{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-AdHbcœ}-ConversationalRetrievalChain-9M29b{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-9M29bœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
+        "id": "reactflow__edge-ConversationBufferMemory-Bbv66{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-Bbv66œ}-ConversationalRetrievalChain-x01sl{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-x01slœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
+      },
+      {
+        "source": "Chroma-MSsd9",
+        "sourceHandle": "{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-MSsd9œ}",
+        "target": "ConversationalRetrievalChain-x01sl",
+        "targetHandle": "{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-x01slœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}",
+        "data": {
+          "targetHandle": {
+            "fieldName": "retriever",
+            "id": "ConversationalRetrievalChain-x01sl",
+            "inputTypes": null,
+            "type": "BaseRetriever"
+          },
+          "sourceHandle": {
+            "baseClasses": [
+              "VectorStore",
+              "BaseRetriever"
+            ],
+            "dataType": "Chroma",
+            "id": "Chroma-MSsd9"
+          }
+        },
+        "style": {
+          "stroke": "#555"
+        },
+        "className": "stroke-foreground  stroke-connection",
+        "animated": false,
+        "id": "reactflow__edge-Chroma-MSsd9{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-MSsd9œ}-ConversationalRetrievalChain-x01sl{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-x01slœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}"
       }
     ],
     "viewport": {
-      "x": 88.08587961165506,
-      "y": 604.4294787962489,
-      "zoom": 0.5025474502129447
+      "x": 226.36200412635026,
+      "y": 230.68077585358526,
+      "zoom": 0.4151900698125826
     }
   },
-  "description": "Put a YouTube video URL in the input, the API keys for the LLM, and the Huggingface access token for the embedding model. Then the RAG pipeline will be ready to build.",
-  "name": "Youtube Chat",
+  "description": "This stack allows you to extract text from an audio file and chat with the information present in it. You just have to put the Huggingface Access token and the Azure API key, deployment name, and URL for the LLM.",
+  "name": "Whisper Speech to Text",
   "flow_type": "chat"
 }
