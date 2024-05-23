@@ -1,1 +1,553 @@
-{"id":"dbd35c95-7581-499b-a03b-9ae760d4d221","data":{"nodes":[{"width":384,"height":513,"id":"TextGenerationOutput-k7U9e","type":"genericNode","position":{"x":598.2061021756518,"y":114.53046984864216},"data":{"type":"TextGenerationOutput","node":{"template":{"chain":{"required":false,"placeholder":"","show":true,"multiline":false,"password":false,"name":"chain","display_name":"Chain","advanced":false,"dynamic":false,"info":"","type":"Chain","list":false},"documents":{"required":false,"placeholder":"","show":true,"multiline":false,"password":false,"name":"documents","display_name":"Documents","advanced":false,"dynamic":false,"info":"","type":"Document","list":true},"multimodal":{"required":false,"placeholder":"","show":true,"multiline":false,"password":false,"name":"multimodal","display_name":"Multi Modal","advanced":false,"dynamic":false,"info":"","type":"MultiModal","list":false},"query":{"required":false,"placeholder":"","show":true,"multiline":false,"password":false,"name":"query","display_name":"Query","advanced":false,"input_types":["Input"],"dynamic":false,"info":"Provide a Query to invoke a chain if stack doesn't contain prompt template and memory.","type":"str","list":false},"_type":"TextGenerationOutput"},"description":"TextGenerationOutput component is used to view and download the generated output. Connect a component that returns Documents or connect a MultiModal component or connect a Chain Component and provide the Query to invoke a chain.","base_classes":["TextGenerationOutput"],"display_name":"TextGenerationOutput","custom_fields":{},"output_types":["Output"],"documentation":"https://docs.aiplanet.com/components/outputs","beta":false,"error":null},"id":"TextGenerationOutput-k7U9e"},"positionAbsolute":{"x":598.2061021756518,"y":114.53046984864216},"selected":false,"dragging":false},{"width":384,"height":419,"id":"OpenAITextToImage-9rHCV","type":"genericNode","position":{"x":-51.57221614853313,"y":218.86653186498876},"data":{"type":"OpenAITextToImage","node":{"template":{"code":{"dynamic":true,"required":true,"placeholder":"","show":false,"multiline":true,"value":"from genflow import CustomComponent\nfrom langchain.schema import BasePromptTemplate\nfrom openai import OpenAI\nfrom genflow.base.multimodal import MultiModal, SourceType, MediaType, MediaFormat\n\n\nclass OpenAITextToImage(CustomComponent):\n    display_name: str = \"OpenAITextToImage\"\n    description: str = \"Convert your text into Image using Dall-E-3\"\n\n    QUALITY = [\"standard\", \"hd\"]\n\n    def build_config(self):\n        return {\n            \"api_key\": {\n                \"display_name\": \"OpenAI API Key\",\n                \"password\": True,\n                \"required\": True,\n            },\n            \"quality\": {\n                \"display_name\": \"Quality of Image\",\n                \"value\": \"standard\",\n                \"options\": self.QUALITY,\n            },\n            \"prompt\": {\"display_name\": \"Prompt\", \"required\": True},\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self, api_key: str, quality: str, prompt: BasePromptTemplate\n    ) -> MultiModal:\n        client = OpenAI(api_key=api_key)\n\n        template_text: str = prompt.template\n\n        response = client.images.generate(\n            model=\"dall-e-3\", prompt=template_text, size=\"1024x1024\", quality=quality, n=1, response_format=\"b64_json\"\n        )\n\n        return MultiModal(\n            source=response.data[0].b64_json,\n            source_type=SourceType.BASE64,\n            media_type=MediaType.IMAGE,\n            media_format=MediaFormat.PNG,\n            prompt=template_text,\n        )\n","password":false,"name":"code","advanced":false,"type":"code","list":false},"_type":"CustomComponent","api_key":{"required":true,"placeholder":"","show":true,"multiline":false,"password":true,"name":"api_key","display_name":"OpenAI API Key","advanced":false,"dynamic":false,"info":"","type":"str","list":false,"value":""},"prompt":{"required":true,"placeholder":"","show":true,"multiline":false,"password":false,"name":"prompt","display_name":"Prompt","advanced":false,"dynamic":false,"info":"","type":"BasePromptTemplate","list":false},"quality":{"required":true,"placeholder":"","show":true,"multiline":false,"value":"hd","password":false,"options":["standard","hd"],"name":"quality","display_name":"Quality of Image","advanced":false,"dynamic":false,"info":"","type":"str","list":true}},"description":"Convert your text into Image using Dall-E-3","base_classes":["MultiModal"],"display_name":"OpenAITextToImage","custom_fields":{"api_key":null,"prompt":null,"quality":null},"output_types":["OpenAITextToImage"],"documentation":"","beta":true,"error":null},"id":"OpenAITextToImage-9rHCV"},"selected":false,"positionAbsolute":{"x":-51.57221614853313,"y":218.86653186498876},"dragging":false},{"width":384,"height":375,"id":"PromptTemplate-yR8h2","type":"genericNode","position":{"x":-578.1124989676225,"y":250.5456495773469},"data":{"type":"PromptTemplate","node":{"template":{"output_parser":{"required":false,"placeholder":"","show":false,"multiline":false,"password":false,"name":"output_parser","advanced":false,"dynamic":true,"info":"","type":"BaseOutputParser","list":false},"input_types":{"required":false,"placeholder":"","show":false,"multiline":false,"password":false,"name":"input_types","advanced":false,"dynamic":true,"info":"","type":"dict","list":false},"input_variables":{"required":true,"placeholder":"","show":false,"multiline":false,"password":false,"name":"input_variables","advanced":false,"dynamic":true,"info":"","type":"str","list":true,"value":["animal"]},"partial_variables":{"required":false,"placeholder":"","show":false,"multiline":false,"password":false,"name":"partial_variables","advanced":false,"dynamic":true,"info":"","type":"dict","list":false},"template":{"required":true,"placeholder":"","show":true,"multiline":true,"password":false,"name":"template","advanced":false,"dynamic":true,"info":"","type":"prompt","list":false,"value":"Generate the image of an {animal} as captain America."},"template_format":{"required":false,"placeholder":"","show":false,"multiline":false,"value":"f-string","password":false,"name":"template_format","advanced":false,"dynamic":true,"info":"","type":"str","list":false},"validate_template":{"required":false,"placeholder":"","show":false,"multiline":false,"value":false,"password":false,"name":"validate_template","advanced":false,"dynamic":true,"info":"","type":"bool","list":false},"_type":"PromptTemplate","animal":{"required":false,"placeholder":"","show":true,"multiline":true,"value":"","password":false,"name":"animal","display_name":"animal","advanced":false,"input_types":["Document","BaseOutputParser","Input"],"dynamic":false,"info":"","type":"str","list":false}},"description":"A prompt template for a language model.","base_classes":["PromptTemplate","StringPromptTemplate","BasePromptTemplate"],"name":"","display_name":"PromptTemplate","documentation":"https://docs.aiplanet.com/components/prompts#prompt-template","custom_fields":{"":["animal"],"template":["animal"]},"output_types":[],"field_formatters":{},"beta":false,"error":null},"id":"PromptTemplate-yR8h2"},"selected":false,"positionAbsolute":{"x":-578.1124989676225,"y":250.5456495773469},"dragging":false},{"width":384,"height":457,"id":"Input-Xdqi8","type":"genericNode","position":{"x":-1071.3063420894928,"y":128.8311446824973},"data":{"type":"Input","node":{"template":{"input_value":{"required":false,"placeholder":"","show":true,"multiline":true,"value":"racoon","password":false,"name":"input_value","display_name":"Input Value","advanced":false,"dynamic":false,"info":"","type":"str","list":false,"file_path":null},"input_key":{"required":true,"placeholder":"","show":true,"multiline":false,"value":"animal","password":false,"name":"input_key","display_name":"Input Key","advanced":false,"dynamic":false,"info":"","type":"str","list":false},"input_type":{"required":true,"placeholder":"","show":true,"multiline":false,"value":"Text","password":false,"options":["File","Url","Text"],"name":"input_type","display_name":"Input Type","advanced":false,"dynamic":false,"info":"","type":"str","list":false},"_type":"Input"},"description":"Input is used to specify the type of input.","base_classes":["Input"],"display_name":"Input","custom_fields":{},"output_types":["Input"],"documentation":"https://docs.aiplanet.com/components/inputs","beta":false,"error":null},"id":"Input-Xdqi8"},"selected":false,"positionAbsolute":{"x":-1071.3063420894928,"y":128.8311446824973},"dragging":false}],"edges":[{"source":"OpenAITextToImage-9rHCV","sourceHandle":"{œbaseClassesœ:[œMultiModalœ],œdataTypeœ:œOpenAITextToImageœ,œidœ:œOpenAITextToImage-9rHCVœ}","target":"TextGenerationOutput-k7U9e","targetHandle":"{œfieldNameœ:œmultimodalœ,œidœ:œTextGenerationOutput-k7U9eœ,œinputTypesœ:null,œtypeœ:œMultiModalœ}","data":{"targetHandle":{"fieldName":"multimodal","id":"TextGenerationOutput-k7U9e","inputTypes":null,"type":"MultiModal"},"sourceHandle":{"baseClasses":["MultiModal"],"dataType":"OpenAITextToImage","id":"OpenAITextToImage-9rHCV"}},"style":{"stroke":"#555"},"className":"stroke-foreground  stroke-connection","animated":false,"id":"reactflow__edge-OpenAITextToImage-9rHCV{œbaseClassesœ:[œMultiModalœ],œdataTypeœ:œOpenAITextToImageœ,œidœ:œOpenAITextToImage-9rHCVœ}-TextGenerationOutput-k7U9e{œfieldNameœ:œmultimodalœ,œidœ:œTextGenerationOutput-k7U9eœ,œinputTypesœ:null,œtypeœ:œMultiModalœ}"},{"source":"PromptTemplate-yR8h2","sourceHandle":"{œbaseClassesœ:[œPromptTemplateœ,œStringPromptTemplateœ,œBasePromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-yR8h2œ}","target":"OpenAITextToImage-9rHCV","targetHandle":"{œfieldNameœ:œpromptœ,œidœ:œOpenAITextToImage-9rHCVœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}","data":{"targetHandle":{"fieldName":"prompt","id":"OpenAITextToImage-9rHCV","inputTypes":null,"type":"BasePromptTemplate"},"sourceHandle":{"baseClasses":["PromptTemplate","StringPromptTemplate","BasePromptTemplate"],"dataType":"PromptTemplate","id":"PromptTemplate-yR8h2"}},"style":{"stroke":"#555"},"className":"stroke-foreground  stroke-connection","animated":false,"id":"reactflow__edge-PromptTemplate-yR8h2{œbaseClassesœ:[œPromptTemplateœ,œStringPromptTemplateœ,œBasePromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-yR8h2œ}-OpenAITextToImage-9rHCV{œfieldNameœ:œpromptœ,œidœ:œOpenAITextToImage-9rHCVœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}"},{"source":"Input-Xdqi8","sourceHandle":"{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-Xdqi8œ}","target":"PromptTemplate-yR8h2","targetHandle":"{œfieldNameœ:œanimalœ,œidœ:œPromptTemplate-yR8h2œ,œinputTypesœ:[œDocumentœ,œBaseOutputParserœ,œInputœ],œtypeœ:œstrœ}","data":{"targetHandle":{"fieldName":"animal","id":"PromptTemplate-yR8h2","inputTypes":["Document","BaseOutputParser","Input"],"type":"str"},"sourceHandle":{"baseClasses":["Input"],"dataType":"Input","id":"Input-Xdqi8"}},"style":{"stroke":"#555"},"className":"stroke-foreground  stroke-connection","animated":false,"id":"reactflow__edge-Input-Xdqi8{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-Xdqi8œ}-PromptTemplate-yR8h2{œfieldNameœ:œanimalœ,œidœ:œPromptTemplate-yR8h2œ,œinputTypesœ:[œDocumentœ,œBaseOutputParserœ,œInputœ],œtypeœ:œstrœ}"}],"viewport":{"x":627.5311678348885,"y":54.55200688640784,"zoom":0.5997641781730569}},"description":"Stack that generates an image of an animal in a Captain America suit with a simple text prompt and the dall-e-3 model from OpenAI.","name":"multimodal_image","flow_type":"text_generation"}
+{
+  "id": "dbd35c95-7581-499b-a03b-9ae760d4d221",
+  "data": {
+    "nodes": [
+      {
+        "width": 384,
+        "height": 513,
+        "id": "TextGenerationOutput-k7U9e",
+        "type": "genericNode",
+        "position": {
+          "x": 598.2061021756518,
+          "y": 114.53046984864216
+        },
+        "data": {
+          "type": "TextGenerationOutput",
+          "node": {
+            "template": {
+              "chain": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "chain",
+                "display_name": "Chain",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "Chain",
+                "list": false
+              },
+              "documents": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "documents",
+                "display_name": "Documents",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "Document",
+                "list": true
+              },
+              "multimodal": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "multimodal",
+                "display_name": "Multi Modal",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "MultiModal",
+                "list": false
+              },
+              "query": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "query",
+                "display_name": "Query",
+                "advanced": false,
+                "input_types": [
+                  "Input"
+                ],
+                "dynamic": false,
+                "info": "Provide a Query to invoke a chain if stack doesn't contain prompt template and memory.",
+                "type": "str",
+                "list": false
+              },
+              "_type": "TextGenerationOutput"
+            },
+            "description": "TextGenerationOutput component is used to view and download the generated output. Connect a component that returns Documents or connect a MultiModal component or connect a Chain Component and provide the Query to invoke a chain.",
+            "base_classes": [
+              "TextGenerationOutput"
+            ],
+            "display_name": "TextGenerationOutput",
+            "custom_fields": {},
+            "output_types": [
+              "Output"
+            ],
+            "documentation": "https://docs.aiplanet.com/components/outputs",
+            "beta": false,
+            "error": null
+          },
+          "id": "TextGenerationOutput-k7U9e"
+        },
+        "positionAbsolute": {
+          "x": 598.2061021756518,
+          "y": 114.53046984864216
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 419,
+        "id": "OpenAITextToImage-9rHCV",
+        "type": "genericNode",
+        "position": {
+          "x": -51.57221614853313,
+          "y": 218.86653186498876
+        },
+        "data": {
+          "type": "OpenAITextToImage",
+          "node": {
+            "template": {
+              "code": {
+                "dynamic": true,
+                "required": true,
+                "placeholder": "",
+                "show": false,
+                "multiline": true,
+                "value": "from genflow import CustomComponent\nfrom langchain.schema import BasePromptTemplate\nfrom openai import OpenAI\nfrom genflow.base.multimodal import MultiModal, SourceType, MediaType, MediaFormat\n\n\nclass OpenAITextToImage(CustomComponent):\n    display_name: str = \"OpenAITextToImage\"\n    description: str = \"Convert your text into Image using Dall-E-3\"\n\n    QUALITY = [\"standard\", \"hd\"]\n\n    def build_config(self):\n        return {\n            \"api_key\": {\n                \"display_name\": \"OpenAI API Key\",\n                \"password\": True,\n                \"required\": True,\n            },\n            \"quality\": {\n                \"display_name\": \"Quality of Image\",\n                \"value\": \"standard\",\n                \"options\": self.QUALITY,\n            },\n            \"prompt\": {\"display_name\": \"Prompt\", \"required\": True},\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self, api_key: str, quality: str, prompt: BasePromptTemplate\n    ) -> MultiModal:\n        client = OpenAI(api_key=api_key)\n\n        template_text: str = prompt.template\n\n        response = client.images.generate(\n            model=\"dall-e-3\", prompt=template_text, size=\"1024x1024\", quality=quality, n=1, response_format=\"b64_json\"\n        )\n\n        return MultiModal(\n            source=response.data[0].b64_json,\n            source_type=SourceType.BASE64,\n            media_type=MediaType.IMAGE,\n            media_format=MediaFormat.PNG,\n            prompt=template_text,\n        )\n",
+                "password": false,
+                "name": "code",
+                "advanced": false,
+                "type": "code",
+                "list": false
+              },
+              "_type": "CustomComponent",
+              "api_key": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": true,
+                "name": "api_key",
+                "display_name": "OpenAI API Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false,
+                "value": ""
+              },
+              "prompt": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "prompt",
+                "display_name": "Prompt",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "BasePromptTemplate",
+                "list": false
+              },
+              "quality": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "hd",
+                "password": false,
+                "options": [
+                  "standard",
+                  "hd"
+                ],
+                "name": "quality",
+                "display_name": "Quality of Image",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": true
+              }
+            },
+            "description": "Convert your text into Image using Dall-E-3",
+            "base_classes": [
+              "MultiModal"
+            ],
+            "display_name": "OpenAITextToImage",
+            "custom_fields": {
+              "api_key": null,
+              "prompt": null,
+              "quality": null
+            },
+            "output_types": [
+              "OpenAITextToImage"
+            ],
+            "documentation": "",
+            "beta": true,
+            "error": null
+          },
+          "id": "OpenAITextToImage-9rHCV"
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": -51.57221614853313,
+          "y": 218.86653186498876
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 375,
+        "id": "PromptTemplate-yR8h2",
+        "type": "genericNode",
+        "position": {
+          "x": -578.1124989676225,
+          "y": 250.5456495773469
+        },
+        "data": {
+          "type": "PromptTemplate",
+          "node": {
+            "template": {
+              "output_parser": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "output_parser",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "BaseOutputParser",
+                "list": false
+              },
+              "input_types": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "input_types",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "dict",
+                "list": false
+              },
+              "input_variables": {
+                "required": true,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "input_variables",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "str",
+                "list": true,
+                "value": [
+                  "animal"
+                ]
+              },
+              "partial_variables": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "partial_variables",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "dict",
+                "list": false
+              },
+              "template": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": true,
+                "password": false,
+                "name": "template",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "prompt",
+                "list": false,
+                "value": "Generate the image of an {animal} as captain America."
+              },
+              "template_format": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": "f-string",
+                "password": false,
+                "name": "template_format",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "str",
+                "list": false
+              },
+              "validate_template": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": false,
+                "password": false,
+                "name": "validate_template",
+                "advanced": false,
+                "dynamic": true,
+                "info": "",
+                "type": "bool",
+                "list": false
+              },
+              "_type": "PromptTemplate",
+              "animal": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": true,
+                "value": "",
+                "password": false,
+                "name": "animal",
+                "display_name": "animal",
+                "advanced": false,
+                "input_types": [
+                  "Document",
+                  "BaseOutputParser",
+                  "Input"
+                ],
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false
+              }
+            },
+            "description": "A prompt template for a language model.",
+            "base_classes": [
+              "PromptTemplate",
+              "StringPromptTemplate",
+              "BasePromptTemplate"
+            ],
+            "name": "",
+            "display_name": "PromptTemplate",
+            "documentation": "https://docs.aiplanet.com/components/prompts#prompt-template",
+            "custom_fields": {
+              "": [
+                "animal"
+              ],
+              "template": [
+                "animal"
+              ]
+            },
+            "output_types": [],
+            "field_formatters": {},
+            "beta": false,
+            "error": null
+          },
+          "id": "PromptTemplate-yR8h2"
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": -578.1124989676225,
+          "y": 250.5456495773469
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 457,
+        "id": "Input-Xdqi8",
+        "type": "genericNode",
+        "position": {
+          "x": -1071.3063420894928,
+          "y": 128.8311446824973
+        },
+        "data": {
+          "type": "Input",
+          "node": {
+            "template": {
+              "input_value": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": true,
+                "value": "racoon",
+                "password": false,
+                "name": "input_value",
+                "display_name": "Input Value",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false,
+                "file_path": null
+              },
+              "input_key": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "animal",
+                "password": false,
+                "name": "input_key",
+                "display_name": "Input Key",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false
+              },
+              "input_type": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "Text",
+                "password": false,
+                "options": [
+                  "File",
+                  "Url",
+                  "Text"
+                ],
+                "name": "input_type",
+                "display_name": "Input Type",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "type": "str",
+                "list": false
+              },
+              "_type": "Input"
+            },
+            "description": "Input is used to specify the type of input.",
+            "base_classes": [
+              "Input"
+            ],
+            "display_name": "Input",
+            "custom_fields": {},
+            "output_types": [
+              "Input"
+            ],
+            "documentation": "https://docs.aiplanet.com/components/inputs",
+            "beta": false,
+            "error": null
+          },
+          "id": "Input-Xdqi8"
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": -1071.3063420894928,
+          "y": 128.8311446824973
+        },
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "source": "OpenAITextToImage-9rHCV",
+        "sourceHandle": "{œbaseClassesœ:[œMultiModalœ],œdataTypeœ:œOpenAITextToImageœ,œidœ:œOpenAITextToImage-9rHCVœ}",
+        "target": "TextGenerationOutput-k7U9e",
+        "targetHandle": "{œfieldNameœ:œmultimodalœ,œidœ:œTextGenerationOutput-k7U9eœ,œinputTypesœ:null,œtypeœ:œMultiModalœ}",
+        "data": {
+          "targetHandle": {
+            "fieldName": "multimodal",
+            "id": "TextGenerationOutput-k7U9e",
+            "inputTypes": null,
+            "type": "MultiModal"
+          },
+          "sourceHandle": {
+            "baseClasses": [
+              "MultiModal"
+            ],
+            "dataType": "OpenAITextToImage",
+            "id": "OpenAITextToImage-9rHCV"
+          }
+        },
+        "style": {
+          "stroke": "#555"
+        },
+        "className": "stroke-foreground  stroke-connection",
+        "animated": false,
+        "id": "reactflow__edge-OpenAITextToImage-9rHCV{œbaseClassesœ:[œMultiModalœ],œdataTypeœ:œOpenAITextToImageœ,œidœ:œOpenAITextToImage-9rHCVœ}-TextGenerationOutput-k7U9e{œfieldNameœ:œmultimodalœ,œidœ:œTextGenerationOutput-k7U9eœ,œinputTypesœ:null,œtypeœ:œMultiModalœ}"
+      },
+      {
+        "source": "PromptTemplate-yR8h2",
+        "sourceHandle": "{œbaseClassesœ:[œPromptTemplateœ,œStringPromptTemplateœ,œBasePromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-yR8h2œ}",
+        "target": "OpenAITextToImage-9rHCV",
+        "targetHandle": "{œfieldNameœ:œpromptœ,œidœ:œOpenAITextToImage-9rHCVœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}",
+        "data": {
+          "targetHandle": {
+            "fieldName": "prompt",
+            "id": "OpenAITextToImage-9rHCV",
+            "inputTypes": null,
+            "type": "BasePromptTemplate"
+          },
+          "sourceHandle": {
+            "baseClasses": [
+              "PromptTemplate",
+              "StringPromptTemplate",
+              "BasePromptTemplate"
+            ],
+            "dataType": "PromptTemplate",
+            "id": "PromptTemplate-yR8h2"
+          }
+        },
+        "style": {
+          "stroke": "#555"
+        },
+        "className": "stroke-foreground  stroke-connection",
+        "animated": false,
+        "id": "reactflow__edge-PromptTemplate-yR8h2{œbaseClassesœ:[œPromptTemplateœ,œStringPromptTemplateœ,œBasePromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-yR8h2œ}-OpenAITextToImage-9rHCV{œfieldNameœ:œpromptœ,œidœ:œOpenAITextToImage-9rHCVœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}"
+      },
+      {
+        "source": "Input-Xdqi8",
+        "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-Xdqi8œ}",
+        "target": "PromptTemplate-yR8h2",
+        "targetHandle": "{œfieldNameœ:œanimalœ,œidœ:œPromptTemplate-yR8h2œ,œinputTypesœ:[œDocumentœ,œBaseOutputParserœ,œInputœ],œtypeœ:œstrœ}",
+        "data": {
+          "targetHandle": {
+            "fieldName": "animal",
+            "id": "PromptTemplate-yR8h2",
+            "inputTypes": [
+              "Document",
+              "BaseOutputParser",
+              "Input"
+            ],
+            "type": "str"
+          },
+          "sourceHandle": {
+            "baseClasses": [
+              "Input"
+            ],
+            "dataType": "Input",
+            "id": "Input-Xdqi8"
+          }
+        },
+        "style": {
+          "stroke": "#555"
+        },
+        "className": "stroke-foreground  stroke-connection",
+        "animated": false,
+        "id": "reactflow__edge-Input-Xdqi8{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-Xdqi8œ}-PromptTemplate-yR8h2{œfieldNameœ:œanimalœ,œidœ:œPromptTemplate-yR8h2œ,œinputTypesœ:[œDocumentœ,œBaseOutputParserœ,œInputœ],œtypeœ:œstrœ}"
+      }
+    ],
+    "viewport": {
+      "x": 627.5311678348885,
+      "y": 54.55200688640784,
+      "zoom": 0.5997641781730569
+    }
+  },
+  "description": "Stack that generates an image of an animal in a Captain America suit with a simple text prompt and the dall-e-3 model from OpenAI.",
+  "name": "multimodal_image",
+  "flow_type": "text_generation"
+}
