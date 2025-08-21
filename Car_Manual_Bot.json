@@ -1,11 +1,11 @@
 {
-    "id": "ba80a30c-5eba-4b5d-bb02-24bd903066b7",
+    "id": "b11ece33-a366-458b-aa38-91f30071dd39",
     "data": {
         "nodes": [
             {
                 "width": 384,
                 "height": 502,
-                "id": "RecursiveCharacterTextSplitter-2AAv7",
+                "id": "RecursiveCharacterTextSplitter-VfzUK",
                 "type": "genericNode",
                 "position": {
                     "x": 601.9369267210237,
@@ -106,19 +106,23 @@
                         "beta": true,
                         "error": null
                     },
-                    "id": "RecursiveCharacterTextSplitter-2AAv7"
+                    "id": "RecursiveCharacterTextSplitter-VfzUK"
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 601.9369267210237,
                     "y": -65.37507395599445
                 },
-                "dragging": false
+                "dragging": false,
+                "measured": {
+                    "width": 384,
+                    "height": 502
+                }
             },
             {
                 "width": 384,
                 "height": 564,
-                "id": "PromptTemplate-e1r7W",
+                "id": "PromptTemplate-U2Jfr",
                 "type": "genericNode",
                 "position": {
                     "x": 1223.3395330676794,
@@ -245,6 +249,8 @@
                                 ],
                                 "dynamic": false,
                                 "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
                                 "type": "str",
                                 "list": false
                             },
@@ -265,6 +271,8 @@
                                 ],
                                 "dynamic": false,
                                 "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
                                 "type": "str",
                                 "list": false
                             },
@@ -285,6 +293,8 @@
                                 ],
                                 "dynamic": false,
                                 "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
                                 "type": "str",
                                 "list": false
                             }
@@ -315,459 +325,23 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "PromptTemplate-e1r7W"
+                    "id": "PromptTemplate-U2Jfr"
                 },
                 "positionAbsolute": {
                     "x": 1223.3395330676794,
                     "y": -789.8033306382597
                 },
                 "selected": false,
-                "dragging": false
-            },
-            {
-                "width": 384,
-                "height": 388,
-                "id": "HuggingFaceEmbeddingInferenceAPI-4RkqI",
-                "type": "genericNode",
-                "position": {
-                    "x": 558.38801712388,
-                    "y": 576.3041765185361
-                },
-                "data": {
-                    "type": "HuggingFaceEmbeddingInferenceAPI",
-                    "node": {
-                        "template": {
-                            "code": {
-                                "dynamic": true,
-                                "required": true,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": true,
-                                "value": "from genflow import CustomComponent\nfrom langchain.embeddings.base import Embeddings\nfrom langchain.embeddings import HuggingFaceInferenceAPIEmbeddings\n\n\nclass HuggingFaceInferenceAPIEmbeddingsComponent(CustomComponent):\n    display_name: str = \"HuggingFaceInferenceAPI Embeddings\"\n    description: str = \"\"\"Access HuggingFaceEmbedding model via inference api,download models locally.\"\"\"\n    documentation: str = \"https://docs.aiplanet.com/components/embeddings#huggingface-inference-api-embeddings\"\n    beta = False\n\n    def build_config(self):\n        return {\n            \"inference_api_key\": {\n                \"display_name\": \"Inference API Key\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n            },\n            \"model_name\": {\n                \"display_name\": \"Model Name\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(self, inference_api_key: str, model_name: str) -> Embeddings:\n        return HuggingFaceInferenceAPIEmbeddings(\n            api_key=inference_api_key, model_name=model_name\n        )\n",
-                                "password": false,
-                                "name": "code",
-                                "advanced": false,
-                                "type": "code",
-                                "list": false
-                            },
-                            "_type": "CustomComponent",
-                            "inference_api_key": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "",
-                                "password": false,
-                                "name": "inference_api_key",
-                                "display_name": "Inference API Key",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "model_name": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "BAAI/bge-small-en-v1.5",
-                                "password": false,
-                                "name": "model_name",
-                                "display_name": "Model Name",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            }
-                        },
-                        "description": "Access HuggingFaceEmbedding model via inference api,download models locally.",
-                        "base_classes": [
-                            "Embeddings"
-                        ],
-                        "display_name": "HuggingFaceInferenceAPI Embeddings",
-                        "custom_fields": {
-                            "inference_api_key": null,
-                            "model_name": null
-                        },
-                        "output_types": [
-                            "HuggingFaceEmbeddingInferenceAPI"
-                        ],
-                        "documentation": "https://docs.aiplanet.com/components/embeddings#huggingface-inference-api-embeddings",
-                        "beta": false,
-                        "error": null
-                    },
-                    "id": "HuggingFaceEmbeddingInferenceAPI-4RkqI"
-                },
-                "positionAbsolute": {
-                    "x": 558.38801712388,
-                    "y": 576.3041765185361
-                },
-                "selected": false,
-                "dragging": false
-            },
-            {
-                "width": 384,
-                "height": 291,
-                "id": "Chroma-ck8Mn",
-                "type": "genericNode",
-                "position": {
-                    "x": 1480.7721013170421,
-                    "y": 640.1552280109361
-                },
-                "data": {
-                    "type": "Chroma",
-                    "node": {
-                        "template": {
-                            "code": {
-                                "dynamic": true,
-                                "required": true,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": true,
-                                "value": "from typing import Optional, Union\nfrom genflow import CustomComponent\n\nfrom langchain.vectorstores.chroma import Chroma\nfrom langchain.schema import Document\nfrom langchain.vectorstores.base import VectorStore\nfrom langchain.schema import BaseRetriever\nfrom langchain.embeddings.base import Embeddings\nimport chromadb  # type: ignore\n\n\nclass ChromaComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a Vector Store using Chroma.\n    \"\"\"\n\n    display_name: str = \"Chroma\"\n    description: str = \"Implementation of Vector Store using Chroma\"\n    documentation = \"https://docs.aiplanet.com/components/vector-store#chroma\"\n    beta: bool = True\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"collection_name\": {\n                \"display_name\": \"Collection Name\",\n                \"value\": \"genflow\",\n                \"required\": False,\n                \"advanced\": True,\n            },\n            \"persist\": {\n                \"display_name\": \"Persist\",\n                \"value\": True,\n                \"required\": False,\n                \"advanced\": True,\n            },\n            \"persist_directory\": {\n                \"display_name\": \"Persist Directory\",\n                \"value\": \"/mnt/models/chroma\",\n                \"required\": False,\n                \"advanced\": True,\n            },\n            \"code\": {\"show\": False, \"display_name\": \"Code\"},\n            \"documents\": {\"display_name\": \"Documents\", \"is_list\": True},\n            \"embedding\": {\"display_name\": \"Embedding\"},\n            \"chroma_server_cors_allow_origins\": {\n                \"display_name\": \"Server CORS Allow Origins\",\n                \"advanced\": True,\n            },\n            \"chroma_server_host\": {\"display_name\": \"Server Host\", \"advanced\": True},\n            \"chroma_server_port\": {\"display_name\": \"Server Port\", \"advanced\": True},\n            \"chroma_server_grpc_port\": {\n                \"display_name\": \"Server gRPC Port\",\n                \"advanced\": True,\n            },\n            \"chroma_server_ssl_enabled\": {\n                \"display_name\": \"Server SSL Enabled\",\n                \"advanced\": True,\n            },\n        }\n\n    def build(\n        self,\n        chroma_server_ssl_enabled: bool,\n        collection_name: Optional[str] = \"genflow\",\n        persist: Optional[bool] = True,\n        persist_directory: Optional[str] = \"/mnt/models/chroma\",\n        embedding: Optional[Embeddings] = None,\n        documents: Optional[Document] = None,\n        chroma_server_cors_allow_origins: Optional[str] = None,\n        chroma_server_host: Optional[str] = None,\n        chroma_server_port: Optional[int] = None,\n        chroma_server_grpc_port: Optional[int] = None,\n    ) -> Union[VectorStore, BaseRetriever]:\n        \"\"\"\n        Builds the Vector Store or BaseRetriever object.\n\n        Args:\n        - collection_name (str): The name of the collection.\n        - persist_directory (Optional[str]): The directory to persist the Vector Store to.\n        - chroma_server_ssl_enabled (bool): Whether to enable SSL for the Chroma server.\n        - persist (bool): Whether to persist the Vector Store or not.\n        - embedding (Optional[Embeddings]): The embeddings to use for the Vector Store.\n        - documents (Optional[Document]): The documents to use for the Vector Store.\n        - chroma_server_cors_allow_origins (Optional[str]): The CORS allow origins for the Chroma server.\n        - chroma_server_host (Optional[str]): The host for the Chroma server.\n        - chroma_server_port (Optional[int]): The port for the Chroma server.\n        - chroma_server_grpc_port (Optional[int]): The gRPC port for the Chroma server.\n\n        Returns:\n        - Union[VectorStore, BaseRetriever]: The Vector Store or BaseRetriever object.\n        \"\"\"\n\n        # Chroma settings\n        chroma_settings = None\n\n        if chroma_server_host is not None:\n            chroma_settings = chromadb.config.Settings(\n                chroma_server_cors_allow_origins=chroma_server_cors_allow_origins\n                or None,\n                chroma_server_host=chroma_server_host,\n                chroma_server_port=chroma_server_port or None,\n                chroma_server_grpc_port=chroma_server_grpc_port or None,\n                chroma_server_ssl_enabled=chroma_server_ssl_enabled,\n            )\n\n        # If documents, then we need to create a Chroma instance using .from_documents\n        if documents is not None and embedding is not None:\n            return Chroma.from_documents(\n                documents=documents,  # type: ignore\n                persist_directory=persist_directory if persist else None,\n                collection_name=collection_name,\n                embedding=embedding,\n                client_settings=chroma_settings,\n            )\n\n        if embedding is not None:\n            return Chroma(\n                persist_directory=persist_directory,\n                client_settings=chroma_settings,\n                embedding_function=embedding,\n                collection_name=collection_name,\n            )\n\n        return Chroma(\n            persist_directory=persist_directory, client_settings=chroma_settings\n        )\n",
-                                "password": false,
-                                "name": "code",
-                                "advanced": false,
-                                "type": "code",
-                                "list": false
-                            },
-                            "_type": "CustomComponent",
-                            "chroma_server_cors_allow_origins": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "chroma_server_cors_allow_origins",
-                                "display_name": "Server CORS Allow Origins",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "chroma_server_grpc_port": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "chroma_server_grpc_port",
-                                "display_name": "Server gRPC Port",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "int",
-                                "list": false
-                            },
-                            "chroma_server_host": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "chroma_server_host",
-                                "display_name": "Server Host",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "chroma_server_port": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "chroma_server_port",
-                                "display_name": "Server Port",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "int",
-                                "list": false
-                            },
-                            "chroma_server_ssl_enabled": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": false,
-                                "password": false,
-                                "name": "chroma_server_ssl_enabled",
-                                "display_name": "Server SSL Enabled",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "bool",
-                                "list": false
-                            },
-                            "collection_name": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "genflow",
-                                "password": false,
-                                "name": "collection_name",
-                                "display_name": "Collection Name",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "documents": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "documents",
-                                "display_name": "Documents",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "Document",
-                                "list": true
-                            },
-                            "embedding": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "embedding",
-                                "display_name": "Embedding",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "Embeddings",
-                                "list": false
-                            },
-                            "persist": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": true,
-                                "password": false,
-                                "name": "persist",
-                                "display_name": "Persist",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "bool",
-                                "list": false
-                            },
-                            "persist_directory": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "/mnt/models/chroma",
-                                "password": false,
-                                "name": "persist_directory",
-                                "display_name": "Persist Directory",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            }
-                        },
-                        "description": "Implementation of Vector Store using Chroma",
-                        "base_classes": [
-                            "VectorStore",
-                            "BaseRetriever"
-                        ],
-                        "display_name": "Chroma",
-                        "custom_fields": {
-                            "chroma_server_cors_allow_origins": null,
-                            "chroma_server_grpc_port": null,
-                            "chroma_server_host": null,
-                            "chroma_server_port": null,
-                            "chroma_server_ssl_enabled": null,
-                            "collection_name": null,
-                            "documents": null,
-                            "embedding": null,
-                            "persist": null,
-                            "persist_directory": null
-                        },
-                        "output_types": [
-                            "Chroma"
-                        ],
-                        "documentation": "https://docs.aiplanet.com/components/vector-store#chroma",
-                        "beta": true,
-                        "error": null
-                    },
-                    "id": "Chroma-ck8Mn"
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1480.7721013170421,
-                    "y": 640.1552280109361
-                },
-                "dragging": false
-            },
-            {
-                "width": 384,
-                "height": 548,
-                "id": "AzureAIDocumentIntelligenceLoader-GTNRO",
-                "type": "genericNode",
-                "position": {
-                    "x": -251.74718136609184,
-                    "y": -435.1413372880433
-                },
-                "data": {
-                    "type": "AzureAIDocumentIntelligenceLoader",
-                    "node": {
-                        "template": {
-                            "code": {
-                                "dynamic": true,
-                                "required": true,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": true,
-                                "value": "from typing import List\nfrom genflow.interface.custom.custom_component import CustomComponent\nfrom langchain_community.document_loaders import AzureAIDocumentIntelligenceLoader\nfrom langchain.schema import Document\n\n\nclass AzureAIDocumentIntelligenceLoaderComponent(CustomComponent):\n    display_name: str = \"AzureAIDocumentIntelligenceLoader\"\n    description: str = \"Azure ai document intelligence Loader.\"\n    documentation: str = \"https://docs.aiplanet.com/components/document-loaders#azureai-document-intelligence-loader\"\n\n    def build_config(self):\n        return {\n            \"file_path\": {\n                \"display_name\": \"File Path\",\n                \"required\": True,\n                \"field_type\": \"file\",\n                \"file_types\": [\"pdf\", \"jpeg\", \"png\", \"bmp\", \"tiff\"],\n                \"suffixes\": [\n                    \".pdf\",\n                    \".jpg\",\n                    \".jpeg\",\n                    \".png\",\n                    \".bmp\",\n                    \".dib\" \".tiff\",\n                    \".tif\",\n                ],\n                \"input_types\": [\"Input\"],\n            },\n            \"endpoint\": {\"display_name\": \"Endpoint\", \"required\": True},\n            \"key\": {\"display_name\": \"Key\", \"required\": True, \"password\": True},\n            \"api_model\": {\n                \"display_name\": \"API Model\",\n                \"required\": True,\n                \"value\": \"prebuilt-layout\",\n            },\n            \"code\": {\"show\": False},\n            \"file_size\": {\n                \"display_name\": \"File Size\",\n                \"required\": True,\n                \"advanced\": True,\n                \"field_type\": \"int\",\n                \"value\": 20,\n            },\n        }\n\n    def build(\n        self, file_path: str, endpoint: str, key: str, api_model: str, file_size: int\n    ) -> List[Document]:\n        loader = AzureAIDocumentIntelligenceLoader(\n            api_endpoint=endpoint, api_key=key, file_path=file_path, api_model=api_model\n        )\n        results = loader.load()\n        return results\n",
-                                "password": false,
-                                "name": "code",
-                                "advanced": false,
-                                "type": "code",
-                                "list": false
-                            },
-                            "_type": "CustomComponent",
-                            "api_model": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "prebuilt-layout",
-                                "password": false,
-                                "name": "api_model",
-                                "display_name": "API Model",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "endpoint": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "endpoint",
-                                "display_name": "Endpoint",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false,
-                                "value": ""
-                            },
-                            "file_path": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "suffixes": [
-                                    ".pdf",
-                                    ".jpg",
-                                    ".jpeg",
-                                    ".png",
-                                    ".bmp",
-                                    ".dib.tiff",
-                                    ".tif"
-                                ],
-                                "password": false,
-                                "name": "file_path",
-                                "display_name": "File Path",
-                                "advanced": false,
-                                "input_types": [
-                                    "Input"
-                                ],
-                                "dynamic": false,
-                                "info": "",
-                                "type": "file",
-                                "list": false,
-                                "fileTypes": [
-                                    "pdf",
-                                    "jpeg",
-                                    "png",
-                                    "bmp",
-                                    "tiff"
-                                ],
-                                "file_path": "/mnt/models/files/aaf3ca7f-e39f-46a6-bb3e-4cbb7e9f4f04/5bde02d62fc8729f40f36c9268501700f0bda1903328451b0a8383e2e206cd1e.pdf",
-                                "value": ""
-                            },
-                            "file_size": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": 20,
-                                "password": false,
-                                "name": "file_size",
-                                "display_name": "File Size",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "int",
-                                "list": false
-                            },
-                            "key": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": true,
-                                "name": "key",
-                                "display_name": "Key",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false,
-                                "value": ""
-                            }
-                        },
-                        "description": "Azure ai document intelligence Loader.",
-                        "base_classes": [
-                            "Document"
-                        ],
-                        "display_name": "AzureAIDocumentIntelligenceLoader",
-                        "custom_fields": {
-                            "api_model": null,
-                            "endpoint": null,
-                            "file_path": null,
-                            "file_size": null,
-                            "key": null
-                        },
-                        "output_types": [
-                            "AzureAIDocumentIntelligenceLoader"
-                        ],
-                        "documentation": "https://docs.aiplanet.com/components/document-loaders#azureai-document-intelligence-loader",
-                        "beta": true,
-                        "error": null
-                    },
-                    "id": "AzureAIDocumentIntelligenceLoader-GTNRO"
-                },
-                "positionAbsolute": {
-                    "x": -251.74718136609184,
-                    "y": -435.1413372880433
-                },
-                "selected": false,
-                "dragging": false
+                "dragging": false,
+                "measured": {
+                    "width": 384,
+                    "height": 564
+                }
             },
             {
                 "width": 384,
                 "height": 630,
-                "id": "ChatOpenAI-6LMka",
+                "id": "ChatOpenAI-OHkuG",
                 "type": "genericNode",
                 "position": {
                     "x": 2041.7777305732843,
@@ -1111,19 +685,23 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "ChatOpenAI-6LMka"
+                    "id": "ChatOpenAI-OHkuG"
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 2041.7777305732843,
                     "y": -797.76165755759
                 },
-                "dragging": false
+                "dragging": false,
+                "measured": {
+                    "width": 384,
+                    "height": 630
+                }
             },
             {
                 "width": 384,
                 "height": 458,
-                "id": "Input-U7KsH",
+                "id": "Input-u7Kc8",
                 "type": "genericNode",
                 "position": {
                     "x": -823.6837080314572,
@@ -1138,7 +716,7 @@
                                 "placeholder": "",
                                 "show": true,
                                 "multiline": true,
-                                "value": "MY22_Corolla_Cross_OM_Excerpt_for_Driving_Support_Systems_D2_ML_0208.pdf",
+                                "value": "sample_car_manual.pdf",
                                 "password": false,
                                 "name": "input_value",
                                 "display_name": "Input Value",
@@ -1147,7 +725,7 @@
                                 "info": "",
                                 "type": "file",
                                 "list": false,
-                                "file_path": "/mnt/models/files/ba80a30c-5eba-4b5d-bb02-24bd903066b7/5bde02d62fc8729f40f36c9268501700f0bda1903328451b0a8383e2e206cd1e.pdf"
+                                "file_path": "mnt/models/files/b11ece33-a366-458b-aa38-91f30071dd39/f0183cca4398c2c92fc42355ed0f3d135532c7bab081f861accc27f01e92b7bc.pdf"
                             },
                             "input_key": {
                                 "required": true,
@@ -1199,152 +777,23 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "Input-U7KsH"
+                    "id": "Input-u7Kc8"
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": -823.6837080314572,
                     "y": -574.4040635312692
                 },
-                "dragging": false
-            },
-            {
-                "width": 384,
-                "height": 497,
-                "id": "ConversationalRetrievalChain-3JsyN",
-                "type": "genericNode",
-                "position": {
-                    "x": 2561.171201508581,
-                    "y": -103.72634773508707
-                },
-                "data": {
-                    "type": "ConversationalRetrievalChain",
-                    "node": {
-                        "template": {
-                            "code": {
-                                "dynamic": true,
-                                "required": true,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": true,
-                                "value": "from typing import Optional, Union, Callable\nfrom genflow import CustomComponent\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n    BaseRetriever,\n)\nfrom langchain.chains import ConversationalRetrievalChain\nfrom langchain.prompts import PromptTemplate\n\n\nclass ConversationalRetrievalChainComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a RetrievalQA using Prompt.\n    \"\"\"\n\n    display_name: str = \"ConversationalRetrievalChain\"\n    description: str = \"Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever\"\n    documentation: str = \"https://docs.aiplanet.com/components/chains#conversationalretrievalchain\"\n    beta: bool = True\n    \n    CHAIN_TYPE_OPTIONS = [\n        'stuff','map_reduce','refine','map_rerank'\n    ]\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"chain_type\":{\"display\":\"chain_type\",\"value\":\"stuff\",\"options\":self.CHAIN_TYPE_OPTIONS,\"required\":True},\n            \"llm\":{\"display_name\":\"LLM\",\"required\":True},\n            \"prompt\":{\"display_name\":\"Prompt\"},\n            \"memory\":{\"display_name\":\"Memory\"},\n            \"retriever\":{\"display_name\":\"Retriever\",\"required\":True},\n            \"code\": {\"show\": False}, \n        }\n\n    def build(\n       self,\n       llm:BaseLanguageModel,\n       retriever: BaseRetriever,\n       prompt: Optional[BasePromptTemplate] = None,\n       chain_type:str = \"stuff\",\n       memory: BaseMemory = None,\n    ) -> Chain:\n        \"\"\"\n        Builds the RetrievalQA with prompt\n\n        Args:\n        - llm: Large Language Models\n        - chain_type: used to load a specific type of chain for question-answering\n        - chain_type_kwargs: chain keywords argument to pass prompt\n        - retriever: vector store to retrieve k relevant context information\n        - memory: memory to provide chat_history for object\n\n        Returns:\n        - Chain: The ConversationalRetrievalChain.from_llm\n        \"\"\"\n\n        DEFAULT_TEMPLATE = \"\"\"\n            Answer the question based on the chat history(delimited by <hs></hs>) and context(delimited by <ctx> </ctx>) below.\n            -----------\n            <ctx>\n            {context}\n            </ctx>\n            -----------\n            <hs>\n            {chat_history}\n            </hs>\n            -----------\n            Question: {question}\n            Answer:\n        \"\"\"\n\n        DEFAULT_PROMPT = PromptTemplate(\n                input_variables=[\"context\", \"question\", \"chat_history\"],\n                template=DEFAULT_TEMPLATE\n            )\n        \n        if prompt==None:\n            prompt = DEFAULT_PROMPT\n\n        return ConversationalRetrievalChain.from_llm(\n                            llm=llm,\n                            retriever=retriever.as_retriever(), chain_type=chain_type,return_source_documents=True,\n                            verbose = False,\n                            combine_docs_chain_kwargs={'prompt': prompt},\n                            memory = memory,\n                        )\n",
-                                "password": false,
-                                "name": "code",
-                                "advanced": false,
-                                "type": "code",
-                                "list": false
-                            },
-                            "_type": "CustomComponent",
-                            "chain_type": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "stuff",
-                                "password": false,
-                                "options": [
-                                    "stuff",
-                                    "map_reduce",
-                                    "refine",
-                                    "map_rerank"
-                                ],
-                                "name": "chain_type",
-                                "display_name": "chain_type",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": true
-                            },
-                            "llm": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "llm",
-                                "display_name": "LLM",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseLanguageModel",
-                                "list": false
-                            },
-                            "memory": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "memory",
-                                "display_name": "Memory",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseMemory",
-                                "list": false
-                            },
-                            "prompt": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "prompt",
-                                "display_name": "Prompt",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BasePromptTemplate",
-                                "list": false
-                            },
-                            "retriever": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "retriever",
-                                "display_name": "Retriever",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseRetriever",
-                                "list": false
-                            }
-                        },
-                        "description": "Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever",
-                        "base_classes": [
-                            "Chain"
-                        ],
-                        "display_name": "ConversationalRetrievalChain",
-                        "custom_fields": {
-                            "chain_type": null,
-                            "llm": null,
-                            "memory": null,
-                            "prompt": null,
-                            "retriever": null
-                        },
-                        "output_types": [
-                            "ConversationalRetrievalChain"
-                        ],
-                        "documentation": "https://docs.aiplanet.com/components/chains#conversationalretrievalchain",
-                        "beta": true,
-                        "error": null
-                    },
-                    "id": "ConversationalRetrievalChain-3JsyN"
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 2561.171201508581,
-                    "y": -103.72634773508707
-                },
-                "dragging": false
+                "dragging": false,
+                "measured": {
+                    "width": 384,
+                    "height": 458
+                }
             },
             {
                 "width": 384,
                 "height": 531,
-                "id": "ConversationBufferMemory-AJVe4",
+                "id": "ConversationBufferMemory-kjGU7",
                 "type": "genericNode",
                 "position": {
                     "x": 1318.8412870867949,
@@ -1433,7 +882,7 @@
                                 "placeholder": "",
                                 "show": true,
                                 "multiline": false,
-                                "value": true,
+                                "value": false,
                                 "password": false,
                                 "name": "return_messages",
                                 "display_name": "Return Messages",
@@ -1481,53 +930,698 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "ConversationBufferMemory-AJVe4"
+                    "id": "ConversationBufferMemory-kjGU7"
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 1318.8412870867949,
                     "y": -140.67950382978606
                 },
+                "dragging": false,
+                "measured": {
+                    "width": 384,
+                    "height": 531
+                }
+            },
+            {
+                "id": "Weaviate-YONx1",
+                "type": "genericNode",
+                "position": {
+                    "x": 1435.1759727339074,
+                    "y": 562.453366477299
+                },
+                "data": {
+                    "type": "Weaviate",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from typing import Optional\nfrom genflow import CustomComponent\n\nfrom langchain.vectorstores.weaviate import Weaviate\nfrom langchain.schema import Document\nfrom langchain.vectorstores.base import VectorStore\nfrom langchain.embeddings.base import Embeddings\nimport weaviate\n\n\nclass WeaviateComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a Vector Store using Weaviate.\n    \"\"\"\n\n    display_name: str = \"Weaviate\"\n    description: str = \"Implementation of Vector Store using Weaviate\"\n    documentation = \"https://docs.aiplanet.com/components/vector-store#weaviate\"\n    beta: bool = True\n    version: str = \"1.1\"\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"code\": {\"show\": False, \"display_name\": \"Code\"},\n            \"url\": {\n                \"display_name\": \"Weaviate URL\",\n                \"advanced\": True,\n                \"required\": True,\n            },\n            \"api_key\": {\n                \"display_name\": \"API Key\",\n                \"required\": True,\n                \"advanced\": True,\n                \"password\": True,\n            },\n            \"index_name\": {\n                \"display_name\": \"Index Name\",\n                \"value\": \"genflow\",\n                \"required\": False,\n                \"advanced\": True,\n            },\n            \"text_key\": {\n                \"display_name\": \"Text Key\",\n                \"value\": \"text\",\n                \"required\": False,\n                \"advanced\": True,\n            },\n            \"embedding\": {\"display_name\": \"Embedding\"},\n            \"documents\": {\"display_name\": \"Documents\", \"is_list\": True},\n            \"search_by_text\": {\n                \"display_name\": \"Search By Text\",\n                \"value\": False,\n                \"required\": False,\n                \"advanced\": True,\n            },\n        }\n\n    def build(\n        self,\n        url: str,\n        index_name: Optional[str] = \"genflow\",\n        api_key: Optional[str] = None,\n        text_key: str = \"text\",\n        embedding: Optional[Embeddings] = None,\n        documents: Optional[Document] = None,\n        search_by_text: bool = False,\n    ) -> VectorStore:\n        \"\"\"\n        Builds the Vector Store or BaseRetriever object.\n\n        Args:\n        - url (str): The URL of the Weaviate instance.\n        - index_name (str): The name of the index.\n        - api_key (Optional[str]): The API key for Weaviate.\n        - text_key (str): The key to use for text in Weaviate.\n        - embedding (Optional[Embeddings]): The embeddings to use for the Vector Store.\n        - documents (Optional[Document]): The documents to use for the Vector Store.\n        - search_by_text (bool): Whether to search by text or by vector.\n\n        Returns:\n        - Union[VectorStore, BaseRetriever]: The Vector Store or BaseRetriever object.\n        \"\"\"\n\n        if api_key:\n            auth_config = weaviate.AuthApiKey(api_key=api_key)\n            client = weaviate.Client(url=url, auth_client_secret=auth_config)\n        else:\n            client = weaviate.Client(url=url)\n\n        if documents is not None and embedding is not None:\n            for doc in documents:\n                doc.metadata = {k: v for k, v in doc.metadata.items() if bool(k)}\n\n            return Weaviate.from_documents(\n                documents=documents,\n                embedding=embedding,\n                client=client,\n                index_name=index_name,\n                text_key=text_key,\n            )\n\n        if embedding is not None:\n            return Weaviate(\n                client=client,\n                index_name=index_name,\n                text_key=text_key,\n                embedding=embedding,\n                by_text=search_by_text,\n            )\n\n        return Weaviate(\n            client=client,\n            index_name=index_name,\n            text_key=text_key,\n            by_text=search_by_text,\n        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "url": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "url",
+                                "display_name": "Weaviate URL",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            },
+                            "index_name": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "genflow",
+                                "password": false,
+                                "name": "index_name",
+                                "display_name": "Index Name",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            },
+                            "api_key": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": true,
+                                "name": "api_key",
+                                "display_name": "API Key",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false,
+                                "value": ""
+                            },
+                            "text_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "text",
+                                "password": false,
+                                "name": "text_key",
+                                "display_name": "Text Key",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            },
+                            "embedding": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "embedding",
+                                "display_name": "Embedding",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "Embeddings",
+                                "list": false
+                            },
+                            "documents": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "documents",
+                                "display_name": "Documents",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "Document",
+                                "list": true
+                            },
+                            "search_by_text": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": false,
+                                "password": false,
+                                "name": "search_by_text",
+                                "display_name": "Search By Text",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "bool",
+                                "list": false
+                            }
+                        },
+                        "description": "Implementation of Vector Store using Weaviate",
+                        "base_classes": [
+                            "VectorStore"
+                        ],
+                        "display_name": "Weaviate",
+                        "custom_fields": {
+                            "url": null,
+                            "index_name": null,
+                            "api_key": null,
+                            "text_key": null,
+                            "embedding": null,
+                            "documents": null,
+                            "search_by_text": null
+                        },
+                        "output_types": [
+                            "Weaviate"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/vector-store#weaviate",
+                        "beta": true,
+                        "error": null,
+                        "version": "1.1"
+                    },
+                    "id": "Weaviate-YONx1"
+                },
+                "measured": {
+                    "width": 384,
+                    "height": 291
+                },
+                "selected": false,
+                "dragging": false
+            },
+            {
+                "id": "VectorStoreRetriever-I4mtv",
+                "type": "genericNode",
+                "position": {
+                    "x": 1995,
+                    "y": 465
+                },
+                "data": {
+                    "type": "VectorStoreRetriever",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from genflow import CustomComponent\nfrom genflow.field_typing import VectorStore, BaseRetriever\n\n\nclass VectorStoreRetrieverComponent(CustomComponent):\n    display_name: str = \"VectorStoreRetriever\"\n    description: str = \"VectorStore retriever\"\n    beta = False\n    version: str = \"1.0\"\n\n    def build_config(self):\n        return {\n            \"vector_store\": {\n                \"display_name\": \"VectorStore\",\n                \"field_type\": \"VectorStore\",\n            },\n            \"search_type\": {\n                \"display_name\": \"Search Type\",\n                \"value\": \"similarity\",\n                \"options\": [\"similarity\", \"mmr\"],\n            },\n            \"search_kwargs\": {\n                \"display_name\": \"Search Kwargs\",\n                \"field_type\": \"dict\",\n                \"value\": [{\"k\": 4}],\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        search_type: str,\n        search_kwargs: dict,\n        vector_store: VectorStore,\n    ) -> BaseRetriever:\n        return vector_store.as_retriever(\n            search_type=search_type, search_kwargs=search_kwargs\n        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "search_type": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "similarity",
+                                "password": false,
+                                "options": [
+                                    "similarity",
+                                    "mmr"
+                                ],
+                                "name": "search_type",
+                                "display_name": "Search Type",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": true
+                            },
+                            "search_kwargs": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": [
+                                    {
+                                        "k": 4
+                                    }
+                                ],
+                                "password": false,
+                                "name": "search_kwargs",
+                                "display_name": "Search Kwargs",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "dict",
+                                "list": false
+                            },
+                            "vector_store": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "vector_store",
+                                "display_name": "VectorStore",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "VectorStore",
+                                "list": false
+                            }
+                        },
+                        "description": "VectorStore retriever",
+                        "base_classes": [
+                            "BaseRetriever"
+                        ],
+                        "display_name": "VectorStoreRetriever",
+                        "custom_fields": {
+                            "search_type": null,
+                            "search_kwargs": null,
+                            "vector_store": null
+                        },
+                        "output_types": [
+                            "VectorStoreRetriever"
+                        ],
+                        "documentation": "",
+                        "beta": false,
+                        "error": null,
+                        "version": "1.0"
+                    },
+                    "id": "VectorStoreRetriever-I4mtv"
+                },
+                "measured": {
+                    "width": 384,
+                    "height": 419
+                }
+            },
+            {
+                "id": "ConversationalRetrievalChain-OXdXB",
+                "type": "genericNode",
+                "position": {
+                    "x": 2535,
+                    "y": -75
+                },
+                "data": {
+                    "type": "ConversationalRetrievalChain",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from typing import Optional, Union, Callable\nfrom genflow import CustomComponent\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n    BaseRetriever,\n)\nfrom langchain.chains import ConversationalRetrievalChain\nfrom langchain.prompts import PromptTemplate\n\n\nclass ConversationalRetrievalChainComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a RetrievalQA using Prompt.\n    \"\"\"\n\n    display_name: str = \"ConversationalRetrievalChain\"\n    description: str = \"Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever\"\n    documentation: str = (\n        \"https://docs.aiplanet.com/components/chains#conversationalretrievalchain\"\n    )\n    beta: bool = True\n    version: str = \"1.0\"\n\n    CHAIN_TYPE_OPTIONS = [\"stuff\", \"map_reduce\", \"refine\", \"map_rerank\"]\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"chain_type\": {\n                \"display\": \"chain_type\",\n                \"value\": \"stuff\",\n                \"options\": self.CHAIN_TYPE_OPTIONS,\n                \"required\": True,\n            },\n            \"llm\": {\"display_name\": \"LLM\", \"required\": True},\n            \"prompt\": {\"display_name\": \"Prompt\"},\n            \"memory\": {\"display_name\": \"Memory\"},\n            \"retriever\": {\"display_name\": \"Retriever\", \"required\": True},\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        llm: BaseLanguageModel,\n        retriever: BaseRetriever,\n        prompt: Optional[BasePromptTemplate] = None,\n        chain_type: str = \"stuff\",\n        memory: BaseMemory = None,\n    ) -> Chain:\n        \"\"\"\n        Builds the RetrievalQA with prompt\n\n        Args:\n        - llm: Large Language Models\n        - chain_type: used to load a specific type of chain for question-answering\n        - chain_type_kwargs: chain keywords argument to pass prompt\n        - retriever: vector store to retrieve k relevant context information\n        - memory: memory to provide chat_history for object\n\n        Returns:\n        - Chain: The ConversationalRetrievalChain.from_llm\n        \"\"\"\n\n        DEFAULT_TEMPLATE = \"\"\"\n            Answer the question based on the chat history(delimited by <hs></hs>) and context(delimited by <ctx> </ctx>) below.\n            -----------\n            <ctx>\n            {context}\n            </ctx>\n            -----------\n            <hs>\n            {chat_history}\n            </hs>\n            -----------\n            Question: {question}\n            Answer:\n        \"\"\"\n\n        DEFAULT_PROMPT = PromptTemplate(\n            input_variables=[\"context\", \"question\", \"chat_history\"],\n            template=DEFAULT_TEMPLATE,\n        )\n\n        if prompt == None:\n            prompt = DEFAULT_PROMPT\n\n        return ConversationalRetrievalChain.from_llm(\n            llm=llm,\n            retriever=retriever,\n            chain_type=chain_type,\n            return_source_documents=True,\n            verbose=False,\n            combine_docs_chain_kwargs={\"prompt\": prompt},\n            memory=memory,\n        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "llm": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "llm",
+                                "display_name": "LLM",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "BaseLanguageModel",
+                                "list": false
+                            },
+                            "retriever": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "retriever",
+                                "display_name": "Retriever",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "BaseRetriever",
+                                "list": false
+                            },
+                            "prompt": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "prompt",
+                                "display_name": "Prompt",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "BasePromptTemplate",
+                                "list": false
+                            },
+                            "chain_type": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "stuff",
+                                "password": false,
+                                "options": [
+                                    "stuff",
+                                    "map_reduce",
+                                    "refine",
+                                    "map_rerank"
+                                ],
+                                "name": "chain_type",
+                                "display_name": "chain_type",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": true
+                            },
+                            "memory": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "memory",
+                                "display_name": "Memory",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "BaseMemory",
+                                "list": false
+                            }
+                        },
+                        "description": "Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever",
+                        "base_classes": [
+                            "Chain"
+                        ],
+                        "display_name": "ConversationalRetrievalChain",
+                        "custom_fields": {
+                            "llm": null,
+                            "retriever": null,
+                            "prompt": null,
+                            "chain_type": null,
+                            "memory": null
+                        },
+                        "output_types": [
+                            "ConversationalRetrievalChain"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/chains#conversationalretrievalchain",
+                        "beta": true,
+                        "error": null,
+                        "version": "1.0"
+                    },
+                    "id": "ConversationalRetrievalChain-OXdXB"
+                },
+                "measured": {
+                    "width": 384,
+                    "height": 497
+                },
+                "selected": false
+            },
+            {
+                "id": "HuggingFaceEmbeddingInferenceAPI-raFIu",
+                "type": "genericNode",
+                "position": {
+                    "x": 825,
+                    "y": 645
+                },
+                "data": {
+                    "type": "HuggingFaceEmbeddingInferenceAPI",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from genflow import CustomComponent\nfrom langchain.embeddings.base import Embeddings\nfrom langchain.embeddings import HuggingFaceInferenceAPIEmbeddings\n\n\nclass HuggingFaceInferenceAPIEmbeddingsComponent(CustomComponent):\n    display_name: str = \"HuggingFaceInferenceAPI Embeddings\"\n    description: str = \"\"\"Access HuggingFaceEmbedding model via inference api,download models locally.\"\"\"\n    documentation: str = \"https://docs.aiplanet.com/components/embeddings#huggingface-inference-api-embeddings\"\n    beta = False\n    version: str = \"1.0\"\n\n    def build_config(self):\n        return {\n            \"inference_api_key\": {\n                \"display_name\": \"Inference API Key\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n                \"password\": True,\n            },\n            \"model_name\": {\n                \"display_name\": \"Model Name\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(self, inference_api_key: str, model_name: str) -> Embeddings:\n        return HuggingFaceInferenceAPIEmbeddings(\n            api_key=inference_api_key, model_name=model_name\n        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "inference_api_key": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "",
+                                "password": true,
+                                "name": "inference_api_key",
+                                "display_name": "Inference API Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            },
+                            "model_name": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "",
+                                "password": false,
+                                "name": "model_name",
+                                "display_name": "Model Name",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            }
+                        },
+                        "description": "Access HuggingFaceEmbedding model via inference api,download models locally.",
+                        "base_classes": [
+                            "Embeddings"
+                        ],
+                        "display_name": "HuggingFaceInferenceAPI Embeddings",
+                        "custom_fields": {
+                            "inference_api_key": null,
+                            "model_name": null
+                        },
+                        "output_types": [
+                            "HuggingFaceEmbeddingInferenceAPI"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/embeddings#huggingface-inference-api-embeddings",
+                        "beta": false,
+                        "error": null,
+                        "version": "1.0"
+                    },
+                    "id": "HuggingFaceEmbeddingInferenceAPI-raFIu"
+                },
+                "measured": {
+                    "width": 384,
+                    "height": 403
+                },
+                "selected": false
+            },
+            {
+                "id": "AzureAIDocumentIntelligenceLoader-Kuqbb",
+                "type": "genericNode",
+                "position": {
+                    "x": -132.3215812763953,
+                    "y": -218.8383542139887
+                },
+                "data": {
+                    "type": "AzureAIDocumentIntelligenceLoader",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from typing import List\nfrom genflow.interface.custom.custom_component import CustomComponent\nfrom genflow.utils.util import build_loader_repr_from_documents\nfrom langchain_community.document_loaders import AzureAIDocumentIntelligenceLoader\nfrom langchain.schema import Document\n\n\nclass AzureAIDocumentIntelligenceLoaderComponent(CustomComponent):\n    display_name: str = \"AzureAIDocumentIntelligenceLoader\"\n    description: str = \"Azure ai document intelligence Loader.\"\n    documentation: str = \"https://docs.aiplanet.com/components/document-loaders#azureai-document-intelligence-loader\"\n    version: str = \"2.0\"\n\n    def build_config(self):\n        return {\n            \"file_path\": {\n                \"display_name\": \"File Path\",\n                \"required\": True,\n                \"field_type\": \"file\",\n                \"file_types\": [\"pdf\", \"jpeg\", \"png\", \"bmp\", \"tiff\"],\n                \"suffixes\": [\n                    \".pdf\",\n                    \".jpg\",\n                    \".jpeg\",\n                    \".png\",\n                    \".bmp\",\n                    \".dib\" \".tiff\",\n                    \".tif\",\n                ],\n                \"input_types\": [\"Input\"],\n            },\n            \"endpoint\": {\"display_name\": \"Endpoint\", \"required\": True, \"password\":True},\n            \"key\": {\"display_name\": \"Key\", \"required\": True, \"password\": True},\n            \"api_model\": {\n                \"display_name\": \"API Model\",\n                \"required\": True,\n                \"value\": \"prebuilt-layout\",\n            },\n            \"code\": {\"show\": False},\n            \"file_size\": {\n                \"display_name\": \"File Size\",\n                \"required\": True,\n                \"advanced\": True,\n                \"field_type\": \"int\",\n                \"value\": 20,\n            },\n        }\n\n    def build(\n        self, file_path: str, endpoint: str, key: str, api_model: str, file_size: int\n    ) -> List[Document]:\n        loader = AzureAIDocumentIntelligenceLoader(\n            api_endpoint=endpoint, api_key=key, file_path=file_path, api_model=api_model\n        )\n        documents = loader.load()\n        self.repr_value = build_loader_repr_from_documents(documents)\n        return documents\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "file_path": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "suffixes": [
+                                    ".pdf",
+                                    ".jpg",
+                                    ".jpeg",
+                                    ".png",
+                                    ".bmp",
+                                    ".dib.tiff",
+                                    ".tif"
+                                ],
+                                "password": false,
+                                "name": "file_path",
+                                "display_name": "File Path",
+                                "advanced": false,
+                                "input_types": [
+                                    "Input"
+                                ],
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "file",
+                                "list": false,
+                                "fileTypes": [
+                                    "pdf",
+                                    "jpeg",
+                                    "png",
+                                    "bmp",
+                                    "tiff"
+                                ],
+                                "file_path": null,
+                                "value": ""
+                            },
+                            "endpoint": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": true,
+                                "name": "endpoint",
+                                "display_name": "Endpoint",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false,
+                                "value": ""
+                            },
+                            "key": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": true,
+                                "name": "key",
+                                "display_name": "Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false,
+                                "value": ""
+                            },
+                            "api_model": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "prebuilt-layout",
+                                "password": false,
+                                "name": "api_model",
+                                "display_name": "API Model",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            },
+                            "file_size": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": 20,
+                                "password": false,
+                                "name": "file_size",
+                                "display_name": "File Size",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "int",
+                                "list": false
+                            }
+                        },
+                        "description": "Azure ai document intelligence Loader.",
+                        "base_classes": [
+                            "Document"
+                        ],
+                        "display_name": "AzureAIDocumentIntelligenceLoader",
+                        "custom_fields": {
+                            "file_path": null,
+                            "endpoint": null,
+                            "key": null,
+                            "api_model": null,
+                            "file_size": null
+                        },
+                        "output_types": [
+                            "AzureAIDocumentIntelligenceLoader"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/document-loaders#azureai-document-intelligence-loader",
+                        "beta": true,
+                        "error": null,
+                        "version": "2.0"
+                    },
+                    "id": "AzureAIDocumentIntelligenceLoader-Kuqbb"
+                },
+                "measured": {
+                    "width": 384,
+                    "height": 571
+                },
+                "selected": false,
                 "dragging": false
             }
         ],
         "edges": [
             {
-                "source": "HuggingFaceEmbeddingInferenceAPI-4RkqI",
-                "sourceHandle": "{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-4RkqIœ}",
-                "target": "Chroma-ck8Mn",
-                "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œChroma-ck8Mnœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "embedding",
-                        "id": "Chroma-ck8Mn",
-                        "inputTypes": null,
-                        "type": "Embeddings"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "Embeddings"
-                        ],
-                        "dataType": "HuggingFaceEmbeddingInferenceAPI",
-                        "id": "HuggingFaceEmbeddingInferenceAPI-4RkqI"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-gray-900  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-HuggingFaceEmbeddingInferenceAPI-4RkqI{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-4RkqIœ}-Chroma-ck8Mn{œfieldNameœ:œembeddingœ,œidœ:œChroma-ck8Mnœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}"
-            },
-            {
-                "source": "RecursiveCharacterTextSplitter-2AAv7",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-2AAv7œ}",
-                "target": "Chroma-ck8Mn",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-ck8Mnœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "source": "RecursiveCharacterTextSplitter-VfzUK",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-VfzUKœ}",
+                "target": "Weaviate-YONx1",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œWeaviate-YONx1œ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "documents",
-                        "id": "Chroma-ck8Mn",
+                        "id": "Weaviate-YONx1",
                         "inputTypes": null,
                         "type": "Document"
                     },
@@ -1536,7 +1630,7 @@
                             "Document"
                         ],
                         "dataType": "RecursiveCharacterTextSplitter",
-                        "id": "RecursiveCharacterTextSplitter-2AAv7"
+                        "id": "RecursiveCharacterTextSplitter-VfzUK"
                     }
                 },
                 "style": {
@@ -1544,73 +1638,73 @@
                 },
                 "className": "stroke-gray-900  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-RecursiveCharacterTextSplitter-2AAv7{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-2AAv7œ}-Chroma-ck8Mn{œfieldNameœ:œdocumentsœ,œidœ:œChroma-ck8Mnœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+                "id": "xy-edge__RecursiveCharacterTextSplitter-VfzUK{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-VfzUKœ}-Weaviate-YONx1{œfieldNameœ:œdocumentsœ,œidœ:œWeaviate-YONx1œ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
             },
             {
-                "source": "AzureAIDocumentIntelligenceLoader-GTNRO",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œAzureAIDocumentIntelligenceLoaderœ,œidœ:œAzureAIDocumentIntelligenceLoader-GTNROœ}",
-                "target": "RecursiveCharacterTextSplitter-2AAv7",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-2AAv7œ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "source": "Weaviate-YONx1",
+                "sourceHandle": "{œbaseClassesœ:[œVectorStoreœ],œdataTypeœ:œWeaviateœ,œidœ:œWeaviate-YONx1œ}",
+                "target": "VectorStoreRetriever-I4mtv",
+                "targetHandle": "{œfieldNameœ:œvector_storeœ,œidœ:œVectorStoreRetriever-I4mtvœ,œinputTypesœ:null,œtypeœ:œVectorStoreœ}",
                 "data": {
                     "targetHandle": {
-                        "fieldName": "documents",
-                        "id": "RecursiveCharacterTextSplitter-2AAv7",
+                        "fieldName": "vector_store",
+                        "id": "VectorStoreRetriever-I4mtv",
                         "inputTypes": null,
-                        "type": "Document"
+                        "type": "VectorStore"
                     },
                     "sourceHandle": {
                         "baseClasses": [
-                            "Document"
+                            "VectorStore"
                         ],
-                        "dataType": "AzureAIDocumentIntelligenceLoader",
-                        "id": "AzureAIDocumentIntelligenceLoader-GTNRO"
+                        "dataType": "Weaviate",
+                        "id": "Weaviate-YONx1"
                     }
                 },
                 "style": {
                     "stroke": "#555"
                 },
-                "className": "stroke-gray-900  stroke-connection",
+                "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-AzureAIDocumentIntelligenceLoader-GTNRO{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œAzureAIDocumentIntelligenceLoaderœ,œidœ:œAzureAIDocumentIntelligenceLoader-GTNROœ}-RecursiveCharacterTextSplitter-2AAv7{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-2AAv7œ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+                "id": "xy-edge__Weaviate-YONx1{œbaseClassesœ:[œVectorStoreœ],œdataTypeœ:œWeaviateœ,œidœ:œWeaviate-YONx1œ}-VectorStoreRetriever-I4mtv{œfieldNameœ:œvector_storeœ,œidœ:œVectorStoreRetriever-I4mtvœ,œinputTypesœ:null,œtypeœ:œVectorStoreœ}"
             },
             {
-                "source": "Input-U7KsH",
-                "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-U7KsHœ}",
-                "target": "AzureAIDocumentIntelligenceLoader-GTNRO",
-                "targetHandle": "{œfieldNameœ:œfile_pathœ,œidœ:œAzureAIDocumentIntelligenceLoader-GTNROœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}",
+                "source": "PromptTemplate-U2Jfr",
+                "sourceHandle": "{œbaseClassesœ:[œBasePromptTemplateœ,œPromptTemplateœ,œStringPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-U2Jfrœ}",
+                "target": "ConversationalRetrievalChain-OXdXB",
+                "targetHandle": "{œfieldNameœ:œpromptœ,œidœ:œConversationalRetrievalChain-OXdXBœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}",
                 "data": {
                     "targetHandle": {
-                        "fieldName": "file_path",
-                        "id": "AzureAIDocumentIntelligenceLoader-GTNRO",
-                        "inputTypes": [
-                            "Input"
-                        ],
-                        "type": "file"
+                        "fieldName": "prompt",
+                        "id": "ConversationalRetrievalChain-OXdXB",
+                        "inputTypes": null,
+                        "type": "BasePromptTemplate"
                     },
                     "sourceHandle": {
                         "baseClasses": [
-                            "Input"
+                            "BasePromptTemplate",
+                            "PromptTemplate",
+                            "StringPromptTemplate"
                         ],
-                        "dataType": "Input",
-                        "id": "Input-U7KsH"
+                        "dataType": "PromptTemplate",
+                        "id": "PromptTemplate-U2Jfr"
                     }
                 },
                 "style": {
                     "stroke": "#555"
                 },
-                "className": "stroke-gray-900  stroke-connection",
+                "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-Input-U7KsH{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-U7KsHœ}-AzureAIDocumentIntelligenceLoader-GTNRO{œfieldNameœ:œfile_pathœ,œidœ:œAzureAIDocumentIntelligenceLoader-GTNROœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}"
+                "id": "xy-edge__PromptTemplate-U2Jfr{œbaseClassesœ:[œBasePromptTemplateœ,œPromptTemplateœ,œStringPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-U2Jfrœ}-ConversationalRetrievalChain-OXdXB{œfieldNameœ:œpromptœ,œidœ:œConversationalRetrievalChain-OXdXBœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}"
             },
             {
-                "source": "ChatOpenAI-6LMka",
-                "sourceHandle": "{œbaseClassesœ:[œBaseLanguageModelœ,œChatOpenAIœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-6LMkaœ}",
-                "target": "ConversationalRetrievalChain-3JsyN",
-                "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
+                "source": "ChatOpenAI-OHkuG",
+                "sourceHandle": "{œbaseClassesœ:[œBaseLanguageModelœ,œChatOpenAIœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-OHkuGœ}",
+                "target": "ConversationalRetrievalChain-OXdXB",
+                "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-OXdXBœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "llm",
-                        "id": "ConversationalRetrievalChain-3JsyN",
+                        "id": "ConversationalRetrievalChain-OXdXB",
                         "inputTypes": null,
                         "type": "BaseLanguageModel"
                     },
@@ -1622,7 +1716,7 @@
                             "BaseLLM"
                         ],
                         "dataType": "ChatOpenAI",
-                        "id": "ChatOpenAI-6LMka"
+                        "id": "ChatOpenAI-OHkuG"
                     }
                 },
                 "style": {
@@ -1630,46 +1724,17 @@
                 },
                 "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-ChatOpenAI-6LMka{œbaseClassesœ:[œBaseLanguageModelœ,œChatOpenAIœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-6LMkaœ}-ConversationalRetrievalChain-3JsyN{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
+                "id": "xy-edge__ChatOpenAI-OHkuG{œbaseClassesœ:[œBaseLanguageModelœ,œChatOpenAIœ,œBaseChatModelœ,œBaseLLMœ],œdataTypeœ:œChatOpenAIœ,œidœ:œChatOpenAI-OHkuGœ}-ConversationalRetrievalChain-OXdXB{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-OXdXBœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
             },
             {
-                "source": "PromptTemplate-e1r7W",
-                "sourceHandle": "{œbaseClassesœ:[œBasePromptTemplateœ,œPromptTemplateœ,œStringPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-e1r7Wœ}",
-                "target": "ConversationalRetrievalChain-3JsyN",
-                "targetHandle": "{œfieldNameœ:œpromptœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}",
-                "data": {
-                    "targetHandle": {
-                        "fieldName": "prompt",
-                        "id": "ConversationalRetrievalChain-3JsyN",
-                        "inputTypes": null,
-                        "type": "BasePromptTemplate"
-                    },
-                    "sourceHandle": {
-                        "baseClasses": [
-                            "BasePromptTemplate",
-                            "PromptTemplate",
-                            "StringPromptTemplate"
-                        ],
-                        "dataType": "PromptTemplate",
-                        "id": "PromptTemplate-e1r7W"
-                    }
-                },
-                "style": {
-                    "stroke": "#555"
-                },
-                "className": "stroke-foreground  stroke-connection",
-                "animated": false,
-                "id": "reactflow__edge-PromptTemplate-e1r7W{œbaseClassesœ:[œBasePromptTemplateœ,œPromptTemplateœ,œStringPromptTemplateœ],œdataTypeœ:œPromptTemplateœ,œidœ:œPromptTemplate-e1r7Wœ}-ConversationalRetrievalChain-3JsyN{œfieldNameœ:œpromptœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBasePromptTemplateœ}"
-            },
-            {
-                "source": "ConversationBufferMemory-AJVe4",
-                "sourceHandle": "{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-AJVe4œ}",
-                "target": "ConversationalRetrievalChain-3JsyN",
-                "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
+                "source": "ConversationBufferMemory-kjGU7",
+                "sourceHandle": "{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-kjGU7œ}",
+                "target": "ConversationalRetrievalChain-OXdXB",
+                "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-OXdXBœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "memory",
-                        "id": "ConversationalRetrievalChain-3JsyN",
+                        "id": "ConversationalRetrievalChain-OXdXB",
                         "inputTypes": null,
                         "type": "BaseMemory"
                     },
@@ -1680,7 +1745,7 @@
                             "BaseMemory"
                         ],
                         "dataType": "ConversationBufferMemory",
-                        "id": "ConversationBufferMemory-AJVe4"
+                        "id": "ConversationBufferMemory-kjGU7"
                     }
                 },
                 "style": {
@@ -1688,27 +1753,26 @@
                 },
                 "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-ConversationBufferMemory-AJVe4{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-AJVe4œ}-ConversationalRetrievalChain-3JsyN{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
+                "id": "xy-edge__ConversationBufferMemory-kjGU7{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-kjGU7œ}-ConversationalRetrievalChain-OXdXB{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-OXdXBœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
             },
             {
-                "source": "Chroma-ck8Mn",
-                "sourceHandle": "{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-ck8Mnœ}",
-                "target": "ConversationalRetrievalChain-3JsyN",
-                "targetHandle": "{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}",
+                "source": "VectorStoreRetriever-I4mtv",
+                "sourceHandle": "{œbaseClassesœ:[œBaseRetrieverœ],œdataTypeœ:œVectorStoreRetrieverœ,œidœ:œVectorStoreRetriever-I4mtvœ}",
+                "target": "ConversationalRetrievalChain-OXdXB",
+                "targetHandle": "{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-OXdXBœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "retriever",
-                        "id": "ConversationalRetrievalChain-3JsyN",
+                        "id": "ConversationalRetrievalChain-OXdXB",
                         "inputTypes": null,
                         "type": "BaseRetriever"
                     },
                     "sourceHandle": {
                         "baseClasses": [
-                            "VectorStore",
                             "BaseRetriever"
                         ],
-                        "dataType": "Chroma",
-                        "id": "Chroma-ck8Mn"
+                        "dataType": "VectorStoreRetriever",
+                        "id": "VectorStoreRetriever-I4mtv"
                     }
                 },
                 "style": {
@@ -1716,13 +1780,96 @@
                 },
                 "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-Chroma-ck8Mn{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-ck8Mnœ}-ConversationalRetrievalChain-3JsyN{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-3JsyNœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}"
+                "id": "xy-edge__VectorStoreRetriever-I4mtv{œbaseClassesœ:[œBaseRetrieverœ],œdataTypeœ:œVectorStoreRetrieverœ,œidœ:œVectorStoreRetriever-I4mtvœ}-ConversationalRetrievalChain-OXdXB{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-OXdXBœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}"
+            },
+            {
+                "source": "HuggingFaceEmbeddingInferenceAPI-raFIu",
+                "sourceHandle": "{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-raFIuœ}",
+                "target": "Weaviate-YONx1",
+                "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œWeaviate-YONx1œ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "embedding",
+                        "id": "Weaviate-YONx1",
+                        "inputTypes": null,
+                        "type": "Embeddings"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Embeddings"
+                        ],
+                        "dataType": "HuggingFaceEmbeddingInferenceAPI",
+                        "id": "HuggingFaceEmbeddingInferenceAPI-raFIu"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-foreground  stroke-connection",
+                "animated": false,
+                "id": "xy-edge__HuggingFaceEmbeddingInferenceAPI-raFIu{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-raFIuœ}-Weaviate-YONx1{œfieldNameœ:œembeddingœ,œidœ:œWeaviate-YONx1œ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}"
+            },
+            {
+                "source": "Input-u7Kc8",
+                "sourceHandle": "{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-u7Kc8œ}",
+                "target": "AzureAIDocumentIntelligenceLoader-Kuqbb",
+                "targetHandle": "{œfieldNameœ:œfile_pathœ,œidœ:œAzureAIDocumentIntelligenceLoader-Kuqbbœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "file_path",
+                        "id": "AzureAIDocumentIntelligenceLoader-Kuqbb",
+                        "inputTypes": [
+                            "Input"
+                        ],
+                        "type": "file"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Input"
+                        ],
+                        "dataType": "Input",
+                        "id": "Input-u7Kc8"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-foreground  stroke-connection",
+                "animated": false,
+                "id": "xy-edge__Input-u7Kc8{œbaseClassesœ:[œInputœ],œdataTypeœ:œInputœ,œidœ:œInput-u7Kc8œ}-AzureAIDocumentIntelligenceLoader-Kuqbb{œfieldNameœ:œfile_pathœ,œidœ:œAzureAIDocumentIntelligenceLoader-Kuqbbœ,œinputTypesœ:[œInputœ],œtypeœ:œfileœ}"
+            },
+            {
+                "source": "AzureAIDocumentIntelligenceLoader-Kuqbb",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œAzureAIDocumentIntelligenceLoaderœ,œidœ:œAzureAIDocumentIntelligenceLoader-Kuqbbœ}",
+                "target": "RecursiveCharacterTextSplitter-VfzUK",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-VfzUKœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "documents",
+                        "id": "RecursiveCharacterTextSplitter-VfzUK",
+                        "inputTypes": null,
+                        "type": "Document"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Document"
+                        ],
+                        "dataType": "AzureAIDocumentIntelligenceLoader",
+                        "id": "AzureAIDocumentIntelligenceLoader-Kuqbb"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-foreground  stroke-connection",
+                "animated": false,
+                "id": "xy-edge__AzureAIDocumentIntelligenceLoader-Kuqbb{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œAzureAIDocumentIntelligenceLoaderœ,œidœ:œAzureAIDocumentIntelligenceLoader-Kuqbbœ}-RecursiveCharacterTextSplitter-VfzUK{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-VfzUKœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
             }
         ],
         "viewport": {
-            "x": 503.63657130803824,
-            "y": 747.0949827800847,
-            "zoom": 0.5741454215765852
+            "x": 348.44685339764715,
+            "y": 215.91965542169282,
+            "zoom": 0.514943541041019
         }
     },
     "description": "Chat with your Car Manual . Ask queries related to your car, reads the scanned data and text from car manual.",
