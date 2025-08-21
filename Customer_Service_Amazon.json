@@ -1,11 +1,11 @@
 {
-    "id": "bc430b5a-4ebb-4c09-b6f2-7dd9366469a6",
+    "id": "1614c797-a7f1-4546-a80c-eadb74fd387e",
     "data": {
         "nodes": [
             {
                 "width": 384,
                 "height": 502,
-                "id": "RecursiveCharacterTextSplitter-tEAyA",
+                "id": "RecursiveCharacterTextSplitter-xwDw4",
                 "type": "genericNode",
                 "position": {
                     "x": 822.1239666974004,
@@ -106,106 +106,27 @@
                         "beta": true,
                         "error": null
                     },
-                    "id": "RecursiveCharacterTextSplitter-tEAyA"
+                    "id": "RecursiveCharacterTextSplitter-xwDw4"
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 822.1239666974004,
                     "y": 287.735834111972
                 },
-                "dragging": false
-            },
-            {
-                "width": 384,
-                "height": 408,
-                "id": "HuggingFaceEmbeddingInferenceAPI-ImjYa",
-                "type": "genericNode",
-                "position": {
-                    "x": 818.7791565965049,
-                    "y": 829.3649932789822
-                },
-                "data": {
-                    "type": "HuggingFaceEmbeddingInferenceAPI",
-                    "node": {
-                        "template": {
-                            "code": {
-                                "dynamic": true,
-                                "required": true,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": true,
-                                "value": "from genflow import CustomComponent\nfrom langchain.embeddings.base import Embeddings\nfrom langchain.embeddings import HuggingFaceInferenceAPIEmbeddings\n\n\nclass HuggingFaceInferenceAPIEmbeddingsComponent(CustomComponent):\n    display_name: str = \"HuggingFaceInferenceAPI Embeddings\"\n    description: str = \"\"\"Access HuggingFaceEmbedding model via inference api, \nwhich does not require to install sentence_transformers \nand download models locally.\"\"\"\n    documentation: str = (\n        \"https://python.langchain.com/docs/integrations/text_embedding/huggingfacehub\"\n    )\n    beta = False\n\n    def build_config(self):\n        return {\n            \"inference_api_key\": {\n                \"display_name\": \"Inference API Key\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n            },\n            \"model_name\": {\n                \"display_name\": \"Model Name\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(self, inference_api_key: str, model_name: str) -> Embeddings:\n        return HuggingFaceInferenceAPIEmbeddings(\n            api_key=inference_api_key, model_name=model_name\n        )\n",
-                                "password": false,
-                                "name": "code",
-                                "advanced": false,
-                                "type": "code",
-                                "list": false
-                            },
-                            "_type": "CustomComponent",
-                            "inference_api_key": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "",
-                                "password": false,
-                                "name": "inference_api_key",
-                                "display_name": "Inference API Key",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "model_name": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "baai/bge-large-en-v1.5",
-                                "password": false,
-                                "name": "model_name",
-                                "display_name": "Model Name",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            }
-                        },
-                        "description": "Access HuggingFaceEmbedding model via inference api, \nwhich does not require to install sentence_transformers \nand download models locally.",
-                        "base_classes": [
-                            "Embeddings"
-                        ],
-                        "display_name": "HuggingFaceInferenceAPI Embeddings",
-                        "custom_fields": {
-                            "inference_api_key": null,
-                            "model_name": null
-                        },
-                        "output_types": [
-                            "HuggingFaceEmbeddingInferenceAPI"
-                        ],
-                        "documentation": "https://python.langchain.com/docs/integrations/text_embedding/huggingfacehub",
-                        "beta": false,
-                        "error": null
-                    },
-                    "id": "HuggingFaceEmbeddingInferenceAPI-ImjYa"
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 818.7791565965049,
-                    "y": 829.3649932789822
-                },
-                "dragging": false
+                "dragging": false,
+                "measured": {
+                    "width": 384,
+                    "height": 502
+                }
             },
             {
                 "width": 384,
                 "height": 736,
-                "id": "AzureChatOpenAI-45qLR",
+                "id": "AzureChatOpenAI-v6aIT",
                 "type": "genericNode",
                 "position": {
-                    "x": 1363.9633044608906,
-                    "y": -40.03484090938166
+                    "x": 1369.5930557583447,
+                    "y": -48.4794678555628
                 },
                 "data": {
                     "type": "AzureChatOpenAI",
@@ -238,7 +159,7 @@
                                 "info": "",
                                 "type": "str",
                                 "list": false,
-                                "value": ""
+                                "value": "https://newaiplatform.openai.azure.com/"
                             },
                             "api_key": {
                                 "required": true,
@@ -298,7 +219,7 @@
                                 "info": "",
                                 "type": "str",
                                 "list": false,
-                                "value": ""
+                                "value": "aiplatform"
                             },
                             "max_tokens": {
                                 "required": false,
@@ -374,19 +295,23 @@
                         "beta": true,
                         "error": null
                     },
-                    "id": "AzureChatOpenAI-45qLR"
+                    "id": "AzureChatOpenAI-v6aIT"
                 },
-                "selected": true,
+                "selected": false,
                 "positionAbsolute": {
                     "x": 1363.9633044608906,
                     "y": -40.03484090938166
                 },
-                "dragging": false
+                "dragging": false,
+                "measured": {
+                    "width": 384,
+                    "height": 736
+                }
             },
             {
                 "width": 384,
                 "height": 396,
-                "id": "WebBaseLoader-IBVE9",
+                "id": "WebBaseLoader-xRqd0",
                 "type": "genericNode",
                 "position": {
                     "x": 189.7471864452923,
@@ -448,19 +373,23 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "WebBaseLoader-IBVE9"
+                    "id": "WebBaseLoader-xRqd0"
                 },
                 "selected": false,
                 "dragging": false,
                 "positionAbsolute": {
                     "x": 189.7471864452923,
                     "y": -90.91567267929071
+                },
+                "measured": {
+                    "width": 384,
+                    "height": 396
                 }
             },
             {
                 "width": 384,
                 "height": 396,
-                "id": "WebBaseLoader-RUaRx",
+                "id": "WebBaseLoader-zhPbg",
                 "type": "genericNode",
                 "position": {
                     "x": 193.09983138137545,
@@ -522,23 +451,27 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "WebBaseLoader-RUaRx"
+                    "id": "WebBaseLoader-zhPbg"
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 193.09983138137545,
                     "y": 336.5465566713143
                 },
-                "dragging": false
+                "dragging": false,
+                "measured": {
+                    "width": 384,
+                    "height": 396
+                }
             },
             {
                 "width": 384,
                 "height": 396,
-                "id": "WebBaseLoader-mVNXJ",
+                "id": "WebBaseLoader-60gax",
                 "type": "genericNode",
                 "position": {
-                    "x": 183.04189657312588,
-                    "y": 733.8349815971709
+                    "x": 185.85677222185296,
+                    "y": 781.6878676255312
                 },
                 "data": {
                     "type": "WebBaseLoader",
@@ -596,225 +529,23 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "WebBaseLoader-mVNXJ"
+                    "id": "WebBaseLoader-60gax"
                 },
                 "positionAbsolute": {
                     "x": 183.04189657312588,
                     "y": 733.8349815971709
                 },
                 "selected": false,
-                "dragging": false
-            },
-            {
-                "width": 384,
-                "height": 291,
-                "id": "Chroma-lJrQe",
-                "type": "genericNode",
-                "position": {
-                    "x": 1490.0327116087585,
-                    "y": 1365.5639499106558
-                },
-                "data": {
-                    "type": "Chroma",
-                    "node": {
-                        "template": {
-                            "code": {
-                                "dynamic": true,
-                                "required": true,
-                                "placeholder": "",
-                                "show": false,
-                                "multiline": true,
-                                "value": "from typing import Optional, Union\nfrom genflow import CustomComponent\n\nfrom langchain.vectorstores.chroma import Chroma\nfrom langchain.schema import Document\nfrom langchain.vectorstores.base import VectorStore\nfrom langchain.schema import BaseRetriever\nfrom langchain.embeddings.base import Embeddings\nimport chromadb  # type: ignore\n\n\nclass ChromaComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a Vector Store using Chroma.\n    \"\"\"\n\n    display_name: str = \"Chroma\"\n    description: str = \"Implementation of Vector Store using Chroma\"\n    documentation = \"https://docs.aiplanet.com/components/vector-store#chroma\"\n    beta: bool = True\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"collection_name\": {\n                \"display_name\": \"Collection Name\",\n                \"value\": \"genflow\",\n                \"required\": False,\n                \"advanced\": True,\n            },\n            \"persist\": {\n                \"display_name\": \"Persist\",\n                \"value\": True,\n                \"required\": False,\n                \"advanced\": True,\n            },\n            \"persist_directory\": {\n                \"display_name\": \"Persist Directory\",\n                \"value\": \"/mnt/models/chroma\",\n                \"required\": False,\n                \"advanced\": True,\n            },\n            \"code\": {\"show\": False, \"display_name\": \"Code\"},\n            \"documents\": {\"display_name\": \"Documents\", \"is_list\": True},\n            \"embedding\": {\"display_name\": \"Embedding\"},\n            \"chroma_server_cors_allow_origins\": {\n                \"display_name\": \"Server CORS Allow Origins\",\n                \"advanced\": True,\n            },\n            \"chroma_server_host\": {\"display_name\": \"Server Host\", \"advanced\": True},\n            \"chroma_server_port\": {\"display_name\": \"Server Port\", \"advanced\": True},\n            \"chroma_server_grpc_port\": {\n                \"display_name\": \"Server gRPC Port\",\n                \"advanced\": True,\n            },\n            \"chroma_server_ssl_enabled\": {\n                \"display_name\": \"Server SSL Enabled\",\n                \"advanced\": True,\n            },\n        }\n\n    def build(\n        self,\n        chroma_server_ssl_enabled: bool,\n        collection_name: Optional[str] = \"genflow\",\n        persist: Optional[bool] = True,\n        persist_directory: Optional[str] = \"/mnt/models/chroma\",\n        embedding: Optional[Embeddings] = None,\n        documents: Optional[Document] = None,\n        chroma_server_cors_allow_origins: Optional[str] = None,\n        chroma_server_host: Optional[str] = None,\n        chroma_server_port: Optional[int] = None,\n        chroma_server_grpc_port: Optional[int] = None,\n    ) -> Union[VectorStore, BaseRetriever]:\n        \"\"\"\n        Builds the Vector Store or BaseRetriever object.\n\n        Args:\n        - collection_name (str): The name of the collection.\n        - persist_directory (Optional[str]): The directory to persist the Vector Store to.\n        - chroma_server_ssl_enabled (bool): Whether to enable SSL for the Chroma server.\n        - persist (bool): Whether to persist the Vector Store or not.\n        - embedding (Optional[Embeddings]): The embeddings to use for the Vector Store.\n        - documents (Optional[Document]): The documents to use for the Vector Store.\n        - chroma_server_cors_allow_origins (Optional[str]): The CORS allow origins for the Chroma server.\n        - chroma_server_host (Optional[str]): The host for the Chroma server.\n        - chroma_server_port (Optional[int]): The port for the Chroma server.\n        - chroma_server_grpc_port (Optional[int]): The gRPC port for the Chroma server.\n\n        Returns:\n        - Union[VectorStore, BaseRetriever]: The Vector Store or BaseRetriever object.\n        \"\"\"\n\n        # Chroma settings\n        chroma_settings = None\n\n        if chroma_server_host is not None:\n            chroma_settings = chromadb.config.Settings(\n                chroma_server_cors_allow_origins=chroma_server_cors_allow_origins\n                or None,\n                chroma_server_host=chroma_server_host,\n                chroma_server_port=chroma_server_port or None,\n                chroma_server_grpc_port=chroma_server_grpc_port or None,\n                chroma_server_ssl_enabled=chroma_server_ssl_enabled,\n            )\n\n        # If documents, then we need to create a Chroma instance using .from_documents\n        if documents is not None and embedding is not None:\n            return Chroma.from_documents(\n                documents=documents,  # type: ignore\n                persist_directory=persist_directory if persist else None,\n                collection_name=collection_name,\n                embedding=embedding,\n                client_settings=chroma_settings,\n            )\n\n        if embedding is not None:\n            return Chroma(\n                persist_directory=persist_directory,\n                client_settings=chroma_settings,\n                embedding_function=embedding,\n                collection_name=collection_name,\n            )\n\n        return Chroma(\n            persist_directory=persist_directory, client_settings=chroma_settings\n        )\n",
-                                "password": false,
-                                "name": "code",
-                                "advanced": false,
-                                "type": "code",
-                                "list": false
-                            },
-                            "_type": "CustomComponent",
-                            "chroma_server_cors_allow_origins": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "chroma_server_cors_allow_origins",
-                                "display_name": "Server CORS Allow Origins",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "chroma_server_grpc_port": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "chroma_server_grpc_port",
-                                "display_name": "Server gRPC Port",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "int",
-                                "list": false
-                            },
-                            "chroma_server_host": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "chroma_server_host",
-                                "display_name": "Server Host",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "chroma_server_port": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "chroma_server_port",
-                                "display_name": "Server Port",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "int",
-                                "list": false
-                            },
-                            "chroma_server_ssl_enabled": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": false,
-                                "password": false,
-                                "name": "chroma_server_ssl_enabled",
-                                "display_name": "Server SSL Enabled",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "bool",
-                                "list": false
-                            },
-                            "collection_name": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "genflow",
-                                "password": false,
-                                "name": "collection_name",
-                                "display_name": "Collection Name",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            },
-                            "documents": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "documents",
-                                "display_name": "Documents",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "Document",
-                                "list": true
-                            },
-                            "embedding": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "embedding",
-                                "display_name": "Embedding",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "Embeddings",
-                                "list": false
-                            },
-                            "persist": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": true,
-                                "password": false,
-                                "name": "persist",
-                                "display_name": "Persist",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "bool",
-                                "list": false
-                            },
-                            "persist_directory": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "value": "/mnt/models/chroma",
-                                "password": false,
-                                "name": "persist_directory",
-                                "display_name": "Persist Directory",
-                                "advanced": true,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "str",
-                                "list": false
-                            }
-                        },
-                        "description": "Implementation of Vector Store using Chroma",
-                        "base_classes": [
-                            "VectorStore",
-                            "BaseRetriever"
-                        ],
-                        "display_name": "Chroma",
-                        "custom_fields": {
-                            "chroma_server_cors_allow_origins": null,
-                            "chroma_server_grpc_port": null,
-                            "chroma_server_host": null,
-                            "chroma_server_port": null,
-                            "chroma_server_ssl_enabled": null,
-                            "collection_name": null,
-                            "documents": null,
-                            "embedding": null,
-                            "persist": null,
-                            "persist_directory": null
-                        },
-                        "output_types": [
-                            "Chroma"
-                        ],
-                        "documentation": "https://docs.aiplanet.com/components/vector-store#chroma",
-                        "beta": true,
-                        "error": null
-                    },
-                    "id": "Chroma-lJrQe"
-                },
-                "selected": false,
-                "positionAbsolute": {
-                    "x": 1490.0327116087585,
-                    "y": 1365.5639499106558
-                },
-                "dragging": false
+                "dragging": false,
+                "measured": {
+                    "width": 384,
+                    "height": 396
+                }
             },
             {
                 "width": 384,
                 "height": 531,
-                "id": "ConversationBufferMemory-ZrDCX",
+                "id": "ConversationBufferMemory-Yr7NE",
                 "type": "genericNode",
                 "position": {
                     "x": 1458.1244862577437,
@@ -951,23 +682,309 @@
                         "beta": false,
                         "error": null
                     },
-                    "id": "ConversationBufferMemory-ZrDCX"
+                    "id": "ConversationBufferMemory-Yr7NE"
                 },
                 "selected": false,
                 "positionAbsolute": {
                     "x": 1458.1244862577437,
                     "y": 778.9568291248015
                 },
+                "dragging": false,
+                "measured": {
+                    "width": 384,
+                    "height": 531
+                }
+            },
+            {
+                "id": "VectorStoreRetriever-3nP0J",
+                "type": "genericNode",
+                "position": {
+                    "x": 1879.615671537383,
+                    "y": 1446.6611093839067
+                },
+                "data": {
+                    "type": "VectorStoreRetriever",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from genflow import CustomComponent\nfrom genflow.field_typing import VectorStore, BaseRetriever\n\n\nclass VectorStoreRetrieverComponent(CustomComponent):\n    display_name: str = \"VectorStoreRetriever\"\n    description: str = \"VectorStore retriever\"\n    beta = False\n    version: str = \"1.0\"\n\n    def build_config(self):\n        return {\n            \"vector_store\": {\n                \"display_name\": \"VectorStore\",\n                \"field_type\": \"VectorStore\",\n            },\n            \"search_type\": {\n                \"display_name\": \"Search Type\",\n                \"value\": \"similarity\",\n                \"options\": [\"similarity\", \"mmr\"],\n            },\n            \"search_kwargs\": {\n                \"display_name\": \"Search Kwargs\",\n                \"field_type\": \"dict\",\n                \"value\": [{\"k\": 4}],\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        search_type: str,\n        search_kwargs: dict,\n        vector_store: VectorStore,\n    ) -> BaseRetriever:\n        return vector_store.as_retriever(\n            search_type=search_type, search_kwargs=search_kwargs\n        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "search_type": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "similarity",
+                                "password": false,
+                                "options": [
+                                    "similarity",
+                                    "mmr"
+                                ],
+                                "name": "search_type",
+                                "display_name": "Search Type",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": true
+                            },
+                            "search_kwargs": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": [
+                                    {
+                                        "k": 4
+                                    }
+                                ],
+                                "password": false,
+                                "name": "search_kwargs",
+                                "display_name": "Search Kwargs",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "dict",
+                                "list": false
+                            },
+                            "vector_store": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "vector_store",
+                                "display_name": "VectorStore",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "VectorStore",
+                                "list": false
+                            }
+                        },
+                        "description": "VectorStore retriever",
+                        "base_classes": [
+                            "BaseRetriever"
+                        ],
+                        "display_name": "VectorStoreRetriever",
+                        "custom_fields": {
+                            "search_type": null,
+                            "search_kwargs": null,
+                            "vector_store": null
+                        },
+                        "output_types": [
+                            "VectorStoreRetriever"
+                        ],
+                        "documentation": "",
+                        "beta": false,
+                        "error": null,
+                        "version": "1.0"
+                    },
+                    "id": "VectorStoreRetriever-3nP0J"
+                },
+                "measured": {
+                    "width": 384,
+                    "height": 419
+                },
+                "selected": false,
                 "dragging": false
             },
             {
-                "width": 384,
-                "height": 497,
-                "id": "ConversationalRetrievalChain-i4Cgf",
+                "id": "Weaviate-x8B2x",
                 "type": "genericNode",
                 "position": {
-                    "x": 2187.256063140691,
-                    "y": 865.6542039129756
+                    "x": 1382.741558111818,
+                    "y": 1384.7298878180222
+                },
+                "data": {
+                    "type": "Weaviate",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from typing import Optional\nfrom genflow import CustomComponent\n\nfrom langchain.vectorstores.weaviate import Weaviate\nfrom langchain.schema import Document\nfrom langchain.vectorstores.base import VectorStore\nfrom langchain.embeddings.base import Embeddings\nimport weaviate\n\n\nclass WeaviateComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a Vector Store using Weaviate.\n    \"\"\"\n\n    display_name: str = \"Weaviate\"\n    description: str = \"Implementation of Vector Store using Weaviate\"\n    documentation = \"https://docs.aiplanet.com/components/vector-store#weaviate\"\n    beta: bool = True\n    version: str = \"1.1\"\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"code\": {\"show\": False, \"display_name\": \"Code\"},\n            \"url\": {\n                \"display_name\": \"Weaviate URL\",\n                \"advanced\": True,\n                \"required\": True,\n            },\n            \"api_key\": {\n                \"display_name\": \"API Key\",\n                \"required\": True,\n                \"advanced\": True,\n                \"password\": True,\n            },\n            \"index_name\": {\n                \"display_name\": \"Index Name\",\n                \"value\": \"genflow\",\n                \"required\": False,\n                \"advanced\": True,\n            },\n            \"text_key\": {\n                \"display_name\": \"Text Key\",\n                \"value\": \"text\",\n                \"required\": False,\n                \"advanced\": True,\n            },\n            \"embedding\": {\"display_name\": \"Embedding\"},\n            \"documents\": {\"display_name\": \"Documents\", \"is_list\": True},\n            \"search_by_text\": {\n                \"display_name\": \"Search By Text\",\n                \"value\": False,\n                \"required\": False,\n                \"advanced\": True,\n            },\n        }\n\n    def build(\n        self,\n        url: str,\n        index_name: Optional[str] = \"genflow\",\n        api_key: Optional[str] = None,\n        text_key: str = \"text\",\n        embedding: Optional[Embeddings] = None,\n        documents: Optional[Document] = None,\n        search_by_text: bool = False,\n    ) -> VectorStore:\n        \"\"\"\n        Builds the Vector Store or BaseRetriever object.\n\n        Args:\n        - url (str): The URL of the Weaviate instance.\n        - index_name (str): The name of the index.\n        - api_key (Optional[str]): The API key for Weaviate.\n        - text_key (str): The key to use for text in Weaviate.\n        - embedding (Optional[Embeddings]): The embeddings to use for the Vector Store.\n        - documents (Optional[Document]): The documents to use for the Vector Store.\n        - search_by_text (bool): Whether to search by text or by vector.\n\n        Returns:\n        - Union[VectorStore, BaseRetriever]: The Vector Store or BaseRetriever object.\n        \"\"\"\n\n        if api_key:\n            auth_config = weaviate.AuthApiKey(api_key=api_key)\n            client = weaviate.Client(url=url, auth_client_secret=auth_config)\n        else:\n            client = weaviate.Client(url=url)\n\n        if documents is not None and embedding is not None:\n            for doc in documents:\n                doc.metadata = {k: v for k, v in doc.metadata.items() if bool(k)}\n\n            return Weaviate.from_documents(\n                documents=documents,\n                embedding=embedding,\n                client=client,\n                index_name=index_name,\n                text_key=text_key,\n            )\n\n        if embedding is not None:\n            return Weaviate(\n                client=client,\n                index_name=index_name,\n                text_key=text_key,\n                embedding=embedding,\n                by_text=search_by_text,\n            )\n\n        return Weaviate(\n            client=client,\n            index_name=index_name,\n            text_key=text_key,\n            by_text=search_by_text,\n        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "url": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "url",
+                                "display_name": "Weaviate URL",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            },
+                            "index_name": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "genflow",
+                                "password": false,
+                                "name": "index_name",
+                                "display_name": "Index Name",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            },
+                            "api_key": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": true,
+                                "name": "api_key",
+                                "display_name": "API Key",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false,
+                                "value": ""
+                            },
+                            "text_key": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "text",
+                                "password": false,
+                                "name": "text_key",
+                                "display_name": "Text Key",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            },
+                            "embedding": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "embedding",
+                                "display_name": "Embedding",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "Embeddings",
+                                "list": false
+                            },
+                            "documents": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "documents",
+                                "display_name": "Documents",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "Document",
+                                "list": true
+                            },
+                            "search_by_text": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": false,
+                                "password": false,
+                                "name": "search_by_text",
+                                "display_name": "Search By Text",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "bool",
+                                "list": false
+                            }
+                        },
+                        "description": "Implementation of Vector Store using Weaviate",
+                        "base_classes": [
+                            "VectorStore"
+                        ],
+                        "display_name": "Weaviate",
+                        "custom_fields": {
+                            "url": null,
+                            "index_name": null,
+                            "api_key": null,
+                            "text_key": null,
+                            "embedding": null,
+                            "documents": null,
+                            "search_by_text": null
+                        },
+                        "output_types": [
+                            "Weaviate"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/vector-store#weaviate",
+                        "beta": true,
+                        "error": null,
+                        "version": "1.1"
+                    },
+                    "id": "Weaviate-x8B2x"
+                },
+                "measured": {
+                    "width": 384,
+                    "height": 291
+                },
+                "selected": false,
+                "dragging": false
+            },
+            {
+                "id": "ConversationalRetrievalChain-IT612",
+                "type": "genericNode",
+                "position": {
+                    "x": 2490,
+                    "y": 585
                 },
                 "data": {
                     "type": "ConversationalRetrievalChain",
@@ -979,7 +996,7 @@
                                 "placeholder": "",
                                 "show": false,
                                 "multiline": true,
-                                "value": "from typing import Optional, Union, Callable\nfrom genflow import CustomComponent\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n    BaseRetriever,\n)\nfrom langchain.chains import ConversationalRetrievalChain\nfrom langchain.prompts import PromptTemplate\n\n\nclass ConversationalRetrievalChainComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a RetrievalQA using Prompt.\n    \"\"\"\n\n    display_name: str = \"ConversationalRetrievalChain\"\n    description: str = \"Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever\"\n    documentation: str = \"https://docs.aiplanet.com/components/chains#conversationalretrievalchain\"\n    beta: bool = True\n    \n    CHAIN_TYPE_OPTIONS = [\n        'stuff','map_reduce','refine','map_rerank'\n    ]\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"chain_type\":{\"display\":\"chain_type\",\"value\":\"stuff\",\"options\":self.CHAIN_TYPE_OPTIONS,\"required\":True},\n            \"llm\":{\"display_name\":\"LLM\",\"required\":True},\n            \"prompt\":{\"display_name\":\"Prompt\"},\n            \"memory\":{\"display_name\":\"Memory\"},\n            \"retriever\":{\"display_name\":\"Retriever\",\"required\":True},\n            \"code\": {\"show\": False}, \n        }\n\n    def build(\n       self,\n       llm:BaseLanguageModel,\n       retriever: BaseRetriever,\n       prompt: Optional[BasePromptTemplate] = None,\n       chain_type:str = \"stuff\",\n       memory: BaseMemory = None,\n    ) -> Chain:\n        \"\"\"\n        Builds the RetrievalQA with prompt\n\n        Args:\n        - llm: Large Language Models\n        - chain_type: used to load a specific type of chain for question-answering\n        - chain_type_kwargs: chain keywords argument to pass prompt\n        - retriever: vector store to retrieve k relevant context information\n        - memory: memory to provide chat_history for object\n\n        Returns:\n        - Chain: The ConversationalRetrievalChain.from_llm\n        \"\"\"\n\n        DEFAULT_TEMPLATE = \"\"\"\n            Answer the question based on the chat history(delimited by <hs></hs>) and context(delimited by <ctx> </ctx>) below.\n            -----------\n            <ctx>\n            {context}\n            </ctx>\n            -----------\n            <hs>\n            {chat_history}\n            </hs>\n            -----------\n            Question: {question}\n            Answer:\n        \"\"\"\n\n        DEFAULT_PROMPT = PromptTemplate(\n                input_variables=[\"context\", \"question\", \"chat_history\"],\n                template=DEFAULT_TEMPLATE\n            )\n        \n        if prompt==None:\n            prompt = DEFAULT_PROMPT\n\n        return ConversationalRetrievalChain.from_llm(\n                            llm=llm,\n                            retriever=retriever.as_retriever(), chain_type=chain_type,return_source_documents=True,\n                            verbose = False,\n                            combine_docs_chain_kwargs={'prompt': prompt},\n                            memory = memory,\n                        )\n",
+                                "value": "from typing import Optional, Union, Callable\nfrom genflow import CustomComponent\nfrom genflow.field_typing import (\n    BasePromptTemplate,\n    BaseLanguageModel,\n    BaseMemory,\n    Chain,\n    BaseRetriever,\n)\nfrom langchain.chains import ConversationalRetrievalChain\nfrom langchain.prompts import PromptTemplate\n\n\nclass ConversationalRetrievalChainComponent(CustomComponent):\n    \"\"\"\n    A custom component for implementing a RetrievalQA using Prompt.\n    \"\"\"\n\n    display_name: str = \"ConversationalRetrievalChain\"\n    description: str = \"Implementation of ConversationalRetrievalChain: allows Memory, Custom Prompt, Retriever\"\n    documentation: str = (\n        \"https://docs.aiplanet.com/components/chains#conversationalretrievalchain\"\n    )\n    beta: bool = True\n    version: str = \"1.0\"\n\n    CHAIN_TYPE_OPTIONS = [\"stuff\", \"map_reduce\", \"refine\", \"map_rerank\"]\n\n    def build_config(self):\n        \"\"\"\n        Builds the configuration for the component.\n\n        Returns:\n        - dict: A dictionary containing the configuration options for the component.\n        \"\"\"\n        return {\n            \"chain_type\": {\n                \"display\": \"chain_type\",\n                \"value\": \"stuff\",\n                \"options\": self.CHAIN_TYPE_OPTIONS,\n                \"required\": True,\n            },\n            \"llm\": {\"display_name\": \"LLM\", \"required\": True},\n            \"prompt\": {\"display_name\": \"Prompt\"},\n            \"memory\": {\"display_name\": \"Memory\"},\n            \"retriever\": {\"display_name\": \"Retriever\", \"required\": True},\n            \"code\": {\"show\": False},\n        }\n\n    def build(\n        self,\n        llm: BaseLanguageModel,\n        retriever: BaseRetriever,\n        prompt: Optional[BasePromptTemplate] = None,\n        chain_type: str = \"stuff\",\n        memory: BaseMemory = None,\n    ) -> Chain:\n        \"\"\"\n        Builds the RetrievalQA with prompt\n\n        Args:\n        - llm: Large Language Models\n        - chain_type: used to load a specific type of chain for question-answering\n        - chain_type_kwargs: chain keywords argument to pass prompt\n        - retriever: vector store to retrieve k relevant context information\n        - memory: memory to provide chat_history for object\n\n        Returns:\n        - Chain: The ConversationalRetrievalChain.from_llm\n        \"\"\"\n\n        DEFAULT_TEMPLATE = \"\"\"\n            Answer the question based on the chat history(delimited by <hs></hs>) and context(delimited by <ctx> </ctx>) below.\n            -----------\n            <ctx>\n            {context}\n            </ctx>\n            -----------\n            <hs>\n            {chat_history}\n            </hs>\n            -----------\n            Question: {question}\n            Answer:\n        \"\"\"\n\n        DEFAULT_PROMPT = PromptTemplate(\n            input_variables=[\"context\", \"question\", \"chat_history\"],\n            template=DEFAULT_TEMPLATE,\n        )\n\n        if prompt == None:\n            prompt = DEFAULT_PROMPT\n\n        return ConversationalRetrievalChain.from_llm(\n            llm=llm,\n            retriever=retriever,\n            chain_type=chain_type,\n            return_source_documents=True,\n            verbose=False,\n            combine_docs_chain_kwargs={\"prompt\": prompt},\n            memory=memory,\n        )\n",
                                 "password": false,
                                 "name": "code",
                                 "advanced": false,
@@ -987,6 +1004,54 @@
                                 "list": false
                             },
                             "_type": "CustomComponent",
+                            "llm": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "llm",
+                                "display_name": "LLM",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "BaseLanguageModel",
+                                "list": false
+                            },
+                            "retriever": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "retriever",
+                                "display_name": "Retriever",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "BaseRetriever",
+                                "list": false
+                            },
+                            "prompt": {
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "password": false,
+                                "name": "prompt",
+                                "display_name": "Prompt",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "BasePromptTemplate",
+                                "list": false
+                            },
                             "chain_type": {
                                 "required": true,
                                 "placeholder": "",
@@ -1005,22 +1070,10 @@
                                 "advanced": false,
                                 "dynamic": false,
                                 "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
                                 "type": "str",
                                 "list": true
-                            },
-                            "llm": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "llm",
-                                "display_name": "LLM",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseLanguageModel",
-                                "list": false
                             },
                             "memory": {
                                 "required": true,
@@ -1033,35 +1086,9 @@
                                 "advanced": false,
                                 "dynamic": false,
                                 "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
                                 "type": "BaseMemory",
-                                "list": false
-                            },
-                            "prompt": {
-                                "required": false,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "prompt",
-                                "display_name": "Prompt",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BasePromptTemplate",
-                                "list": false
-                            },
-                            "retriever": {
-                                "required": true,
-                                "placeholder": "",
-                                "show": true,
-                                "multiline": false,
-                                "password": false,
-                                "name": "retriever",
-                                "display_name": "Retriever",
-                                "advanced": false,
-                                "dynamic": false,
-                                "info": "",
-                                "type": "BaseRetriever",
                                 "list": false
                             }
                         },
@@ -1071,39 +1098,124 @@
                         ],
                         "display_name": "ConversationalRetrievalChain",
                         "custom_fields": {
-                            "chain_type": null,
                             "llm": null,
-                            "memory": null,
+                            "retriever": null,
                             "prompt": null,
-                            "retriever": null
+                            "chain_type": null,
+                            "memory": null
                         },
                         "output_types": [
                             "ConversationalRetrievalChain"
                         ],
                         "documentation": "https://docs.aiplanet.com/components/chains#conversationalretrievalchain",
                         "beta": true,
-                        "error": null
+                        "error": null,
+                        "version": "1.0"
                     },
-                    "id": "ConversationalRetrievalChain-i4Cgf"
+                    "id": "ConversationalRetrievalChain-IT612"
+                },
+                "measured": {
+                    "width": 384,
+                    "height": 497
+                }
+            },
+            {
+                "id": "HuggingFaceEmbeddingInferenceAPI-b9Jfe",
+                "type": "genericNode",
+                "position": {
+                    "x": 801.6313938130852,
+                    "y": 1128.626466266192
+                },
+                "data": {
+                    "type": "HuggingFaceEmbeddingInferenceAPI",
+                    "node": {
+                        "template": {
+                            "code": {
+                                "dynamic": true,
+                                "required": true,
+                                "placeholder": "",
+                                "show": false,
+                                "multiline": true,
+                                "value": "from genflow import CustomComponent\nfrom langchain.embeddings.base import Embeddings\nfrom langchain.embeddings import HuggingFaceInferenceAPIEmbeddings\n\n\nclass HuggingFaceInferenceAPIEmbeddingsComponent(CustomComponent):\n    display_name: str = \"HuggingFaceInferenceAPI Embeddings\"\n    description: str = \"\"\"Access HuggingFaceEmbedding model via inference api,download models locally.\"\"\"\n    documentation: str = \"https://docs.aiplanet.com/components/embeddings#huggingface-inference-api-embeddings\"\n    beta = False\n    version: str = \"1.0\"\n\n    def build_config(self):\n        return {\n            \"inference_api_key\": {\n                \"display_name\": \"Inference API Key\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n                \"password\": True,\n            },\n            \"model_name\": {\n                \"display_name\": \"Model Name\",\n                \"is_list\": False,\n                \"required\": True,\n                \"value\": \"\",\n            },\n            \"code\": {\"show\": False},\n        }\n\n    def build(self, inference_api_key: str, model_name: str) -> Embeddings:\n        return HuggingFaceInferenceAPIEmbeddings(\n            api_key=inference_api_key, model_name=model_name\n        )\n",
+                                "password": false,
+                                "name": "code",
+                                "advanced": false,
+                                "type": "code",
+                                "list": false
+                            },
+                            "_type": "CustomComponent",
+                            "inference_api_key": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "",
+                                "password": true,
+                                "name": "inference_api_key",
+                                "display_name": "Inference API Key",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            },
+                            "model_name": {
+                                "required": true,
+                                "placeholder": "",
+                                "show": true,
+                                "multiline": false,
+                                "value": "",
+                                "password": false,
+                                "name": "model_name",
+                                "display_name": "Model Name",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "use_default": false,
+                                "type": "str",
+                                "list": false
+                            }
+                        },
+                        "description": "Access HuggingFaceEmbedding model via inference api,download models locally.",
+                        "base_classes": [
+                            "Embeddings"
+                        ],
+                        "display_name": "HuggingFaceInferenceAPI Embeddings",
+                        "custom_fields": {
+                            "inference_api_key": null,
+                            "model_name": null
+                        },
+                        "output_types": [
+                            "HuggingFaceEmbeddingInferenceAPI"
+                        ],
+                        "documentation": "https://docs.aiplanet.com/components/embeddings#huggingface-inference-api-embeddings",
+                        "beta": false,
+                        "error": null,
+                        "version": "1.0"
+                    },
+                    "id": "HuggingFaceEmbeddingInferenceAPI-b9Jfe"
+                },
+                "measured": {
+                    "width": 384,
+                    "height": 403
                 },
                 "selected": false,
-                "positionAbsolute": {
-                    "x": 2187.256063140691,
-                    "y": 865.6542039129756
-                },
                 "dragging": false
             }
         ],
         "edges": [
             {
-                "source": "WebBaseLoader-mVNXJ",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-mVNXJœ}",
-                "target": "RecursiveCharacterTextSplitter-tEAyA",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-tEAyAœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "source": "WebBaseLoader-60gax",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-60gaxœ}",
+                "target": "RecursiveCharacterTextSplitter-xwDw4",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-xwDw4œ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "documents",
-                        "id": "RecursiveCharacterTextSplitter-tEAyA",
+                        "id": "RecursiveCharacterTextSplitter-xwDw4",
                         "inputTypes": null,
                         "type": "Document"
                     },
@@ -1112,7 +1224,7 @@
                             "Document"
                         ],
                         "dataType": "WebBaseLoader",
-                        "id": "WebBaseLoader-mVNXJ"
+                        "id": "WebBaseLoader-60gax"
                     }
                 },
                 "style": {
@@ -1120,17 +1232,17 @@
                 },
                 "className": "stroke-gray-900  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-WebBaseLoader-mVNXJ{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-mVNXJœ}-RecursiveCharacterTextSplitter-tEAyA{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-tEAyAœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+                "id": "reactflow__edge-WebBaseLoader-60gax{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-60gaxœ}-RecursiveCharacterTextSplitter-xwDw4{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-xwDw4œ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
             },
             {
-                "source": "WebBaseLoader-IBVE9",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-IBVE9œ}",
-                "target": "RecursiveCharacterTextSplitter-tEAyA",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-tEAyAœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "source": "WebBaseLoader-xRqd0",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-xRqd0œ}",
+                "target": "RecursiveCharacterTextSplitter-xwDw4",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-xwDw4œ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "documents",
-                        "id": "RecursiveCharacterTextSplitter-tEAyA",
+                        "id": "RecursiveCharacterTextSplitter-xwDw4",
                         "inputTypes": null,
                         "type": "Document"
                     },
@@ -1139,7 +1251,7 @@
                             "Document"
                         ],
                         "dataType": "WebBaseLoader",
-                        "id": "WebBaseLoader-IBVE9"
+                        "id": "WebBaseLoader-xRqd0"
                     }
                 },
                 "style": {
@@ -1147,17 +1259,17 @@
                 },
                 "className": "stroke-gray-900  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-WebBaseLoader-IBVE9{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-IBVE9œ}-RecursiveCharacterTextSplitter-tEAyA{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-tEAyAœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+                "id": "reactflow__edge-WebBaseLoader-xRqd0{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-xRqd0œ}-RecursiveCharacterTextSplitter-xwDw4{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-xwDw4œ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
             },
             {
-                "source": "WebBaseLoader-RUaRx",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-RUaRxœ}",
-                "target": "RecursiveCharacterTextSplitter-tEAyA",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-tEAyAœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "source": "WebBaseLoader-zhPbg",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-zhPbgœ}",
+                "target": "RecursiveCharacterTextSplitter-xwDw4",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-xwDw4œ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "documents",
-                        "id": "RecursiveCharacterTextSplitter-tEAyA",
+                        "id": "RecursiveCharacterTextSplitter-xwDw4",
                         "inputTypes": null,
                         "type": "Document"
                     },
@@ -1166,7 +1278,7 @@
                             "Document"
                         ],
                         "dataType": "WebBaseLoader",
-                        "id": "WebBaseLoader-RUaRx"
+                        "id": "WebBaseLoader-zhPbg"
                     }
                 },
                 "style": {
@@ -1174,17 +1286,17 @@
                 },
                 "className": "stroke-gray-900  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-WebBaseLoader-RUaRx{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-RUaRxœ}-RecursiveCharacterTextSplitter-tEAyA{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-tEAyAœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+                "id": "reactflow__edge-WebBaseLoader-zhPbg{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œWebBaseLoaderœ,œidœ:œWebBaseLoader-zhPbgœ}-RecursiveCharacterTextSplitter-xwDw4{œfieldNameœ:œdocumentsœ,œidœ:œRecursiveCharacterTextSplitter-xwDw4œ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
             },
             {
-                "source": "RecursiveCharacterTextSplitter-tEAyA",
-                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-tEAyAœ}",
-                "target": "Chroma-lJrQe",
-                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œChroma-lJrQeœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
+                "source": "RecursiveCharacterTextSplitter-xwDw4",
+                "sourceHandle": "{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-xwDw4œ}",
+                "target": "Weaviate-x8B2x",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œWeaviate-x8B2xœ,œinputTypesœ:null,œtypeœ:œDocumentœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "documents",
-                        "id": "Chroma-lJrQe",
+                        "id": "Weaviate-x8B2x",
                         "inputTypes": null,
                         "type": "Document"
                     },
@@ -1193,7 +1305,7 @@
                             "Document"
                         ],
                         "dataType": "RecursiveCharacterTextSplitter",
-                        "id": "RecursiveCharacterTextSplitter-tEAyA"
+                        "id": "RecursiveCharacterTextSplitter-xwDw4"
                     }
                 },
                 "style": {
@@ -1201,26 +1313,26 @@
                 },
                 "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-RecursiveCharacterTextSplitter-tEAyA{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-tEAyAœ}-Chroma-lJrQe{œfieldNameœ:œdocumentsœ,œidœ:œChroma-lJrQeœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
+                "id": "xy-edge__RecursiveCharacterTextSplitter-xwDw4{œbaseClassesœ:[œDocumentœ],œdataTypeœ:œRecursiveCharacterTextSplitterœ,œidœ:œRecursiveCharacterTextSplitter-xwDw4œ}-Weaviate-x8B2x{œfieldNameœ:œdocumentsœ,œidœ:œWeaviate-x8B2xœ,œinputTypesœ:null,œtypeœ:œDocumentœ}"
             },
             {
-                "source": "HuggingFaceEmbeddingInferenceAPI-ImjYa",
-                "sourceHandle": "{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-ImjYaœ}",
-                "target": "Chroma-lJrQe",
-                "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œChroma-lJrQeœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}",
+                "source": "Weaviate-x8B2x",
+                "sourceHandle": "{œbaseClassesœ:[œVectorStoreœ],œdataTypeœ:œWeaviateœ,œidœ:œWeaviate-x8B2xœ}",
+                "target": "VectorStoreRetriever-3nP0J",
+                "targetHandle": "{œfieldNameœ:œvector_storeœ,œidœ:œVectorStoreRetriever-3nP0Jœ,œinputTypesœ:null,œtypeœ:œVectorStoreœ}",
                 "data": {
                     "targetHandle": {
-                        "fieldName": "embedding",
-                        "id": "Chroma-lJrQe",
+                        "fieldName": "vector_store",
+                        "id": "VectorStoreRetriever-3nP0J",
                         "inputTypes": null,
-                        "type": "Embeddings"
+                        "type": "VectorStore"
                     },
                     "sourceHandle": {
                         "baseClasses": [
-                            "Embeddings"
+                            "VectorStore"
                         ],
-                        "dataType": "HuggingFaceEmbeddingInferenceAPI",
-                        "id": "HuggingFaceEmbeddingInferenceAPI-ImjYa"
+                        "dataType": "Weaviate",
+                        "id": "Weaviate-x8B2x"
                     }
                 },
                 "style": {
@@ -1228,17 +1340,17 @@
                 },
                 "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-HuggingFaceEmbeddingInferenceAPI-ImjYa{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-ImjYaœ}-Chroma-lJrQe{œfieldNameœ:œembeddingœ,œidœ:œChroma-lJrQeœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}"
+                "id": "xy-edge__Weaviate-x8B2x{œbaseClassesœ:[œVectorStoreœ],œdataTypeœ:œWeaviateœ,œidœ:œWeaviate-x8B2xœ}-VectorStoreRetriever-3nP0J{œfieldNameœ:œvector_storeœ,œidœ:œVectorStoreRetriever-3nP0Jœ,œinputTypesœ:null,œtypeœ:œVectorStoreœ}"
             },
             {
-                "source": "AzureChatOpenAI-45qLR",
-                "sourceHandle": "{œbaseClassesœ:[œBaseLLMœ,œBaseLanguageModelœ],œdataTypeœ:œAzureChatOpenAIœ,œidœ:œAzureChatOpenAI-45qLRœ}",
-                "target": "ConversationalRetrievalChain-i4Cgf",
-                "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-i4Cgfœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
+                "source": "AzureChatOpenAI-v6aIT",
+                "sourceHandle": "{œbaseClassesœ:[œBaseLLMœ,œBaseLanguageModelœ],œdataTypeœ:œAzureChatOpenAIœ,œidœ:œAzureChatOpenAI-v6aITœ}",
+                "target": "ConversationalRetrievalChain-IT612",
+                "targetHandle": "{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-IT612œ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "llm",
-                        "id": "ConversationalRetrievalChain-i4Cgf",
+                        "id": "ConversationalRetrievalChain-IT612",
                         "inputTypes": null,
                         "type": "BaseLanguageModel"
                     },
@@ -1248,7 +1360,7 @@
                             "BaseLanguageModel"
                         ],
                         "dataType": "AzureChatOpenAI",
-                        "id": "AzureChatOpenAI-45qLR"
+                        "id": "AzureChatOpenAI-v6aIT"
                     }
                 },
                 "style": {
@@ -1256,17 +1368,17 @@
                 },
                 "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-AzureChatOpenAI-45qLR{œbaseClassesœ:[œBaseLLMœ,œBaseLanguageModelœ],œdataTypeœ:œAzureChatOpenAIœ,œidœ:œAzureChatOpenAI-45qLRœ}-ConversationalRetrievalChain-i4Cgf{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-i4Cgfœ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
+                "id": "xy-edge__AzureChatOpenAI-v6aIT{œbaseClassesœ:[œBaseLLMœ,œBaseLanguageModelœ],œdataTypeœ:œAzureChatOpenAIœ,œidœ:œAzureChatOpenAI-v6aITœ}-ConversationalRetrievalChain-IT612{œfieldNameœ:œllmœ,œidœ:œConversationalRetrievalChain-IT612œ,œinputTypesœ:null,œtypeœ:œBaseLanguageModelœ}"
             },
             {
-                "source": "ConversationBufferMemory-ZrDCX",
-                "sourceHandle": "{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-ZrDCXœ}",
-                "target": "ConversationalRetrievalChain-i4Cgf",
-                "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-i4Cgfœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
+                "source": "ConversationBufferMemory-Yr7NE",
+                "sourceHandle": "{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-Yr7NEœ}",
+                "target": "ConversationalRetrievalChain-IT612",
+                "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-IT612œ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "memory",
-                        "id": "ConversationalRetrievalChain-i4Cgf",
+                        "id": "ConversationalRetrievalChain-IT612",
                         "inputTypes": null,
                         "type": "BaseMemory"
                     },
@@ -1277,7 +1389,7 @@
                             "BaseMemory"
                         ],
                         "dataType": "ConversationBufferMemory",
-                        "id": "ConversationBufferMemory-ZrDCX"
+                        "id": "ConversationBufferMemory-Yr7NE"
                     }
                 },
                 "style": {
@@ -1285,27 +1397,26 @@
                 },
                 "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-ConversationBufferMemory-ZrDCX{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-ZrDCXœ}-ConversationalRetrievalChain-i4Cgf{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-i4Cgfœ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
+                "id": "xy-edge__ConversationBufferMemory-Yr7NE{œbaseClassesœ:[œBaseMemoryœ,œBaseChatMemoryœ,œBaseMemoryœ],œdataTypeœ:œConversationBufferMemoryœ,œidœ:œConversationBufferMemory-Yr7NEœ}-ConversationalRetrievalChain-IT612{œfieldNameœ:œmemoryœ,œidœ:œConversationalRetrievalChain-IT612œ,œinputTypesœ:null,œtypeœ:œBaseMemoryœ}"
             },
             {
-                "source": "Chroma-lJrQe",
-                "sourceHandle": "{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-lJrQeœ}",
-                "target": "ConversationalRetrievalChain-i4Cgf",
-                "targetHandle": "{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-i4Cgfœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}",
+                "source": "VectorStoreRetriever-3nP0J",
+                "sourceHandle": "{œbaseClassesœ:[œBaseRetrieverœ],œdataTypeœ:œVectorStoreRetrieverœ,œidœ:œVectorStoreRetriever-3nP0Jœ}",
+                "target": "ConversationalRetrievalChain-IT612",
+                "targetHandle": "{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-IT612œ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}",
                 "data": {
                     "targetHandle": {
                         "fieldName": "retriever",
-                        "id": "ConversationalRetrievalChain-i4Cgf",
+                        "id": "ConversationalRetrievalChain-IT612",
                         "inputTypes": null,
                         "type": "BaseRetriever"
                     },
                     "sourceHandle": {
                         "baseClasses": [
-                            "VectorStore",
                             "BaseRetriever"
                         ],
-                        "dataType": "Chroma",
-                        "id": "Chroma-lJrQe"
+                        "dataType": "VectorStoreRetriever",
+                        "id": "VectorStoreRetriever-3nP0J"
                     }
                 },
                 "style": {
@@ -1313,13 +1424,40 @@
                 },
                 "className": "stroke-foreground  stroke-connection",
                 "animated": false,
-                "id": "reactflow__edge-Chroma-lJrQe{œbaseClassesœ:[œVectorStoreœ,œBaseRetrieverœ],œdataTypeœ:œChromaœ,œidœ:œChroma-lJrQeœ}-ConversationalRetrievalChain-i4Cgf{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-i4Cgfœ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}"
+                "id": "xy-edge__VectorStoreRetriever-3nP0J{œbaseClassesœ:[œBaseRetrieverœ],œdataTypeœ:œVectorStoreRetrieverœ,œidœ:œVectorStoreRetriever-3nP0Jœ}-ConversationalRetrievalChain-IT612{œfieldNameœ:œretrieverœ,œidœ:œConversationalRetrievalChain-IT612œ,œinputTypesœ:null,œtypeœ:œBaseRetrieverœ}"
+            },
+            {
+                "source": "HuggingFaceEmbeddingInferenceAPI-b9Jfe",
+                "sourceHandle": "{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-b9Jfeœ}",
+                "target": "Weaviate-x8B2x",
+                "targetHandle": "{œfieldNameœ:œembeddingœ,œidœ:œWeaviate-x8B2xœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "embedding",
+                        "id": "Weaviate-x8B2x",
+                        "inputTypes": null,
+                        "type": "Embeddings"
+                    },
+                    "sourceHandle": {
+                        "baseClasses": [
+                            "Embeddings"
+                        ],
+                        "dataType": "HuggingFaceEmbeddingInferenceAPI",
+                        "id": "HuggingFaceEmbeddingInferenceAPI-b9Jfe"
+                    }
+                },
+                "style": {
+                    "stroke": "#555"
+                },
+                "className": "stroke-foreground  stroke-connection",
+                "animated": false,
+                "id": "xy-edge__HuggingFaceEmbeddingInferenceAPI-b9Jfe{œbaseClassesœ:[œEmbeddingsœ],œdataTypeœ:œHuggingFaceEmbeddingInferenceAPIœ,œidœ:œHuggingFaceEmbeddingInferenceAPI-b9Jfeœ}-Weaviate-x8B2x{œfieldNameœ:œembeddingœ,œidœ:œWeaviate-x8B2xœ,œinputTypesœ:null,œtypeœ:œEmbeddingsœ}"
             }
         ],
         "viewport": {
-            "x": 367.8492616697638,
-            "y": 217.6830018164162,
-            "zoom": 0.4330367380170732
+            "x": 115.28976641726507,
+            "y": 118.147972063866,
+            "zoom": 0.4682982636435315
         }
     },
     "description": "Service bot on Amazon Return Items",
